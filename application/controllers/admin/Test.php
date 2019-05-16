@@ -6,8 +6,9 @@ class Test extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('admin/home');
+		/* aafa */
 	}
-   
+
 }
 
 /* End of file Test.php */
