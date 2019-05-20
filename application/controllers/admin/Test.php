@@ -7,6 +7,10 @@ class Test extends CI_Controller {
 	{
 		$this->load->view('admin/home');
 	}
+	public function bodydosen()
+	{
+		$this->load->view('admin/konten/b_dosen');
+	}
 }
 
 /* End of file Test.php */

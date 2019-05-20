@@ -26,7 +26,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="#" class="dropdown-toggle">
+								<a href="<?php echo base_url('index.php/admin/bodyadmin/bodydosen') ?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Dosen
 								</a>
