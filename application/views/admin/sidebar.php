@@ -4,7 +4,7 @@
 				</script>
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="index.html">
+						<a href="<?php echo base_url('index.php/admin/bodyadmin')  ?>">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Home </span>
 						</a>
@@ -133,7 +133,7 @@
 					<li class="">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text"> Tables </span>
+							<span class="menu-text"> Jadwal </span>
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
 						<b class="arrow"></b>
