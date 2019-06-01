@@ -4,7 +4,7 @@
 				</script>
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="<?php echo base_url('index.php/admin/bodyadmin')  ?>">
+						<a href="<?php echo base_url('index.php/admin/admin_control')  ?>">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Home </span>
 						</a>
@@ -26,7 +26,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="<?php echo base_url('index.php/admin/bodyadmin/bodydosen') ?>">
+								<a href="<?php echo base_url('index.php/admin/list_dosen_control') ?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Dosen
 								</a>

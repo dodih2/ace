@@ -62,9 +62,9 @@
 															<span class="lbl"></span>
 														</label>
 													</th>
-													<th class="detail-col">Details</th>
-													<th>Domain</th>
-													<th>Price</th>
+													<th class="detail-col">Detail</th>
+													<th>Nama</th>
+													<th>Dosen Jurusan</th>
 													<th class="hidden-480">Clicks</th>
 
 													<th>
@@ -78,6 +78,7 @@
 											</thead>
 
 											<tbody>
+													<?php foreach ($user_dosen as $user_d): ?>
 												<tr>
 													<td class="center">
 														<label class="pos-rel">
@@ -96,8 +97,9 @@
 													</td>
 
 													<td>
-														<a href="#">ace.com</a>
+														<?php echo $user_d->nama ?>
 													</td>
+
 													<td>$45</td>
 													<td class="hidden-480">3,330</td>
 													<td>Feb 12</td>
@@ -174,7 +176,7 @@
 																				<a class="user-title-label" href="#">
 																					<i class="ace-icon fa fa-circle light-green"></i>
 																					&nbsp;
-																					<span class="white">Alex M. Doe</span>
+																					<span class="white"><?php echo $user_d->nama ?></span>
 																				</a>
 																			</div>
 																		</div>
@@ -189,7 +191,7 @@
 																			<div class="profile-info-name"> Username </div>
 
 																			<div class="profile-info-value">
-																				<span>alexdoe</span>
+																				<span><?php echo $user_d->nama ?></span>
 																			</div>
 																		</div>
 
@@ -266,6 +268,7 @@
 														</div>
 													</td>
 												</tr>
+												<?php endforeach; ?>
 											</tbody>
 										</table>
 									</div><!-- /.span -->
@@ -282,7 +285,7 @@
 										<div hidden="true">
 											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
 											</table>
-										</div>
+										</div
 									</div>
 								</div>
 

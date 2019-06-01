@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Test extends CI_Controller
+class List_dosen_control extends CI_Controller
 {
 	public function __construct()
 	{
@@ -13,9 +13,9 @@ class Test extends CI_Controller
 	public function index()
 	{
 		$data["user_dosen"] = $this->user_dosen_model->getAll();
-		$this->load->view("admin/home", $data);
+		$this->load->view("admin/konten/b_dosen", $data);
 	}
-   
+
 	/*
 	public function bodydosen()
 	{
@@ -38,7 +38,7 @@ class Test extends CI_Controller
 
 	public function edit($id = null)
 	{
-			if (!isset($id)) redirect('admin/test');
+			if (!isset($id)) redirect('admin/body_dosen_control');
 
 			$user_dosen = $this->user_dosen_model;
 			$validation = $this->form_validation;
@@ -60,7 +60,7 @@ class Test extends CI_Controller
 			if (!isset($id)) show_404();
 
 			if ($this->user_dosen_model->delete($id)) {
-					redirect(site_url('admin/test'));
+					redirect(site_url('admin/body_dosen_control'));
 			}
 	}
 }

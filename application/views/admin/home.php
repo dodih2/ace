@@ -50,7 +50,45 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
+								<div class="card mb-3">
+									<div class="card-header">
+										<a href="<?php echo site_url('admin/test/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+									</div>
+									<div class="card-body">
 
+										<div class="table-responsive">
+											<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+												<thead>
+													<tr>
+														<th>Nama</th>
+														<th>Jenis Kelamin</th>
+														<th>Action</th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php foreach ($user_dosen as $user): ?>
+													<tr>
+														<td width="150">
+															<?php echo $user->nama ?>
+														</td>
+														<td>
+															<?php echo $user->j_k ?>
+														</td>
+
+														<td width="250">
+															<a href="<?php echo site_url('admin/test/edit/'.$user->nik) ?>"
+															 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+															<a onclick="deleteConfirm('<?php echo site_url('admin/test/delete/'.$user->nik) ?>')"
+															 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+														</td>
+													</tr>
+													<?php endforeach; ?>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
 
 
 								<!-- PAGE CONTENT ENDS -->
@@ -59,7 +97,14 @@
 					</div><!-- /.page-content -->
 				</div>
 			</div><!-- /.main-content -->
-
+<?php $this->load->view("admin/coba/modal.php") ?>
+<script>
+function deleteConfirm(url){
+	$('#btn-delete').attr('href', url);
+	$('#deleteModal').modal();
+}
+</script>
 			<?php $this->load->view('admin/footer') ?>
+
 	</body>
 </html>
