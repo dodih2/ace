@@ -13,7 +13,7 @@ class List_dosen_control extends CI_Controller
 	public function index()
 	{
 		$data["user_dosen"] = $this->user_dosen_model->getAll();
-		$this->load->view("admin/konten/b_dosen", $data);
+		$this->load->view("admin/coba/test2", $data);
 	}
 
 	/*

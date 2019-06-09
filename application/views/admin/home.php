@@ -97,7 +97,8 @@
 					</div><!-- /.page-content -->
 				</div>
 			</div><!-- /.main-content -->
-<?php $this->load->view("admin/coba/modal.php") ?>
+<?php $this->load->view('admin/coba/_partials/modal') ?>
+
 <script>
 function deleteConfirm(url){
 	$('#btn-delete').attr('href', url);
@@ -105,6 +106,7 @@ function deleteConfirm(url){
 }
 </script>
 			<?php $this->load->view('admin/footer') ?>
+			<?php $this->load->view('admin/coba/_partials/js') ?>
 
 	</body>
 </html>

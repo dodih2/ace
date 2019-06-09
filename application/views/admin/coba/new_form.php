@@ -82,11 +82,11 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="j_k">Jenis Kelamin*</label>
-                        <input class="form-control <?php echo form_error('j_k') ? 'is-invalid':'' ?>"
-                         type="text" name="j_k" placeholder="Jenis Kelamin" />
+                        <label for="password">Password*</label>
+                        <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
+                         type="text" name="password" placeholder="Password" />
                         <div class="invalid-feedback">
-                          <?php echo form_error('j_k') ?>
+                          <?php echo form_error('password') ?>
                         </div>
                       </div>
 

@@ -8,20 +8,20 @@ class User_dosen_model extends CI_Model
 
   public $nik;
   public $nama;
-  public $j_k;
+  public $password;
 
   public function rules(){
     return[
-      ['field' => 'nama',
-      'label' => 'Nama',
-      'rules' => 'required'],
+      ['field' => 'nik',
+      'label' => 'Nik',
+      'rules' => 'numeric'],
 
       ['field' => 'nama',
       'label' => 'Nama',
       'rules' => 'required'],
 
-      ['field' => 'j_k',
-      'label' => 'Jenis kelamin',
+      ['field' => 'password',
+      'label' => 'Password',
       'rules' => 'required']
     ];
   }
@@ -39,7 +39,7 @@ class User_dosen_model extends CI_Model
     $post = $this->input->post();
     $this->nik = $post["nik"];
     $this->nama = $post["nama"];
-    $this->j_k = $post["j_k"];
+    $this->password = $post["password"];
     $this->db->insert($this->_table, $this);
   }
 
@@ -48,7 +48,7 @@ class User_dosen_model extends CI_Model
       $post = $this->input->post();
       $this->nik = $post["id"];
       $this->nama = $post["nama"];
-      $this->j_k = $post["j_k"];
+      $this->password = $post["password"];
       $this->db->update($this->_table, $this, array('nik' => $post['id']));
   }
 
