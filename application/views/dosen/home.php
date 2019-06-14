@@ -11,7 +11,7 @@
 				try{ace.settings.loadState('main-container')}catch(e){}
 			</script>
 
-			<?php $this->load->view('admin/sidebar') ?> 
+			<?php $this->load->view('admin/sidebar') ?>
 
 			<div class="main-content">
 				<div class="main-content-inner">
@@ -115,6 +115,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
+								<?php echo $this->session->flashdata('msg'); ?>
 								<div class="alert alert-block alert-success">
 									<button type="button" class="close" data-dismiss="alert">
 										<i class="ace-icon fa fa-times"></i>

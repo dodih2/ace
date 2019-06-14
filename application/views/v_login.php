@@ -68,7 +68,7 @@
 												<fieldset>
 													<label for="username" class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" name="email" class="form-control" placeholder="Email" required autofocus />
+															<input type="text" name="username" class="form-control" placeholder="Username" required autofocus />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
