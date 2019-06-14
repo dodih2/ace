@@ -38,7 +38,7 @@ class List_dosen_control extends CI_Controller
 
 	public function edit($id = null)
 	{
-			if (!isset($id)) redirect('admin/body_dosen_control');
+			if (!isset($id)) redirect('admin/list_dosen_control');
 
 			$user_dosen = $this->user_dosen_model;
 			$validation = $this->form_validation;
@@ -60,7 +60,7 @@ class List_dosen_control extends CI_Controller
 			if (!isset($id)) show_404();
 
 			if ($this->user_dosen_model->delete($id)) {
-					redirect(site_url('admin/body_dosen_control'));
+					redirect(site_url('admin/list_dosen_control'));
 			}
 	}
 }

@@ -50,68 +50,68 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">TAMBAH</button>
-								<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												
-												<h4 class="modal-title">TAMBAH DATA DOSEN</h4>
+								<div class="row">
+									<div class="col-xs-12">
+										<?php if ($this->session->flashdata('success')): ?>
+										<div class="alert alert-success" role="alert">
+											<?php echo $this->session->flashdata('success'); ?>
+										</div>
+										<?php endif; ?>
+
+										<div class="card mb-3">
+											<div class="card-header">
+												<a href="<?php echo site_url('admin/test2/add') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 											</div>
-											<div class="modal-body">
-													<?php if ($this->session->flashdata('success')): ?>
-													<div class="alert alert-success" role="alert">
-														<?php echo $this->session->flashdata('success'); ?>
+											<div class="card-body">
+
+												<form action="<?php base_url('admin/test2/add') ?>" method="post" enctype="multipart/form-data" >
+													<div class="form-group">
+														<label for="nik">Nik*</label>
+														<input class="form-control <?php echo form_error('nik') ? 'is-invalid':'' ?>"
+														 type="text" name="nik" placeholder="Nik" />
+														<div class="invalid-feedback">
+															<?php echo form_error('nik') ?>
+														</div>
 													</div>
-													<?php endif; ?>
 
-																		<form action="<?php base_url('admin/test2/add') ?>" method="post" enctype="multipart/form-data" >
+													<div class="form-group">
+														<label for="nama">Nama*</label>
+														<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
+														 type="text" name="nama" placeholder="Nama" />
+														<div class="invalid-feedback">
+															<?php echo form_error('nama') ?>
+														</div>
+													</div>
 
-																			<div class="form-group">
-																				<label for="nik">Nik*</label>
-																				<input class="form-control <?php echo form_error('nik') ? 'is-invalid':'' ?>"
-																				 type="text" name="nik" placeholder="Nik" />
-																				<div class="invalid-feedback">
-																					<?php echo form_error('nik') ?>
-																				</div>
-																			</div>
-
-																			<div class="form-group">
-																				<label for="nama">Nama*</label>
-																				<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-																				 type="text" name="nama" placeholder="Nama" />
-																				<div class="invalid-feedback">
-																					<?php echo form_error('nama') ?>
-																				</div>
-																			</div>
-
-																			<div class="form-group">
-																				<label for="password">Password*</label>
-																				<input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
-																				 type="text" name="password" placeholder="Password" />
-																				<div class="invalid-feedback">
-																					<?php echo form_error('password') ?>
-																				</div>
-																			</div>
+													<div class="form-group">
+														<label for="password">Password*</label>
+														<input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
+														 type="text" name="password" placeholder="Password" />
+														<div class="invalid-feedback">
+															<?php echo form_error('password') ?>
+														</div>
+													</div>
 
 
+													<input class="btn btn-success" type="submit" name="btn" value="Save" />
+												</form>
 
-
-																	</div>
-
-																	<div class="card-footer small text-muted">
-																		* required fields
-																	</div
-											<div class="modal-footer">
-												<input class="btn btn-success" type="submit" name="btn" value="Save" />
-
-											</form>
 											</div>
+
+											<div class="card-footer small text-muted">
+												* required fields
+											</div>
+
+
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
+										<div class="hr hr-18 dotted hr-double"></div>
+
+										<div class="hr hr-18 dotted hr-double"></div>
+
 										<div class="clearfix">
 											<div class="pull-right tableTools-container"></div>
 										</div>
@@ -158,7 +158,7 @@
 														<td>
 															<?php
 																if (empty($user->nama))
-																	echo "-";
+																	echo "Data Kosong";
 																else
 														 			echo $user->nama
 														 		?>
@@ -166,7 +166,7 @@
 														<td>
 															<?php
 															if (empty($user->j_k))
-																echo "-";
+																echo "Data Kosong";
 															else
 																echo $user->j_k
 															?>
@@ -174,7 +174,7 @@
 														<td>
 															<?php
 															if (empty($user->alamat)){
-																echo "-";
+																echo "Data Kosong";
 															} else {
 																//memotong kalimat panjang
 																$kalimat = $user->alamat;
@@ -188,7 +188,7 @@
 														<td>
 															<?php
 															if (empty($user->jurusan))
-																echo "-";
+																echo "Data Kosong";
 															else
 																echo $user->jurusan
 															 ?>
@@ -196,7 +196,7 @@
 														<td>
 															<?php
 															if (empty($user->email))
-																echo "-";
+																echo "Data Kosong";
 															else
 																echo $user->email
 																?>

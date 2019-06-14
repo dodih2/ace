@@ -12,8 +12,19 @@ class Test2 extends CI_Controller
 
 	public function index()
 	{
+
 		$data["user_dosen"] = $this->user_dosen_model->getAll();
+		$user_dosen = $this->user_dosen_model;
+		$validation = $this->form_validation;
+		$validation->set_rules($user_dosen->rules());
+
+		if ($validation->run()) {
+				$user_dosen->save();
+				$this->session->set_flashdata('success', 'Berhasil disimpan');
+				$this->load->view('admin/coba/test2', $data);
+		} else {
 		$this->load->view("admin/coba/test2", $data);
+	}
 	}
 
 	/*
@@ -32,13 +43,11 @@ class Test2 extends CI_Controller
 					$user_dosen->save();
 					$this->session->set_flashdata('success', 'Berhasil disimpan');
 			}
-
-			$this->load->view("admin/coba/new_form");
 	}
 
 	public function edit($id = null)
 	{
-			if (!isset($id)) redirect('admin/body_dosen_control');
+			if (!isset($id)) redirect('admin/list_dosen_control');
 
 			$user_dosen = $this->user_dosen_model;
 			$validation = $this->form_validation;
@@ -60,8 +69,7 @@ class Test2 extends CI_Controller
 			if (!isset($id)) show_404();
 
 			if ($this->user_dosen_model->delete($id)) {
-					redirect(site_url('admin/list_dosen_control'));
-					$this->session->set_flashdata('success', 'Berhasil ');
+					redirect(site_url('admin/test2'));
 			}
 	}
 }
