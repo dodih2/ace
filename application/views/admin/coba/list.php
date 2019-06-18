@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<?php $this->load->view('admin/header') ?>
@@ -50,217 +49,60 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">TAMBAH</button>
-								<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												
-												<h4 class="modal-title">TAMBAH DATA DOSEN</h4>
-											</div>
-											<div class="modal-body">
-													<?php if ($this->session->flashdata('success')): ?>
-													<div class="alert alert-success" role="alert">
-														<?php echo $this->session->flashdata('success'); ?>
-													</div>
-													<?php endif; ?>
+                <div class="card mb-3">
+        					<div class="card-header">
+        						<a href="<?php echo site_url('admin/jadwal_control/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+        					</div>
+        					<div class="card-body">
 
-																		<form action="<?php base_url('admin/test2/add') ?>" method="post" enctype="multipart/form-data" >
-
-																			<div class="form-group">
-																				<label for="nik">Nik*</label>
-																				<input class="form-control <?php echo form_error('nik') ? 'is-invalid':'' ?>"
-																				 type="text" name="nik" placeholder="Nik" />
-																				<div class="invalid-feedback">
-																					<?php echo form_error('nik') ?>
-																				</div>
-																			</div>
-
-																			<div class="form-group">
-																				<label for="nama">Nama*</label>
-																				<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-																				 type="text" name="nama" placeholder="Nama" />
-																				<div class="invalid-feedback">
-																					<?php echo form_error('nama') ?>
-																				</div>
-																			</div>
-
-																			<div class="form-group">
-																				<label for="password">Password*</label>
-																				<input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
-																				 type="text" name="password" placeholder="Password" />
-																				<div class="invalid-feedback">
-																					<?php echo form_error('password') ?>
-																				</div>
-																			</div>
-
-
-
-
-																	</div>
-
-																	<div class="card-footer small text-muted">
-																		* required fields
-																	</div
-											<div class="modal-footer">
-												<input class="btn btn-success" type="submit" name="btn" value="Save" />
-
-											</form>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<div class="clearfix">
-											<div class="pull-right tableTools-container"></div>
-										</div>
-										<div class="table-header">
-											List Data Dosen
-										</div>
-
-										<!-- div.table-responsive -->
-
-										<!-- div.dataTables_borderWrap -->
-										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th class="center">
-															<label class="pos-rel">
-																<input type="checkbox" class="ace" />
-																<span class="lbl"></span>
-															</label>
-														</th>
-														<th>Nik</th>
-														<th>Nama</th>
-														<th>Jenis Kelamin</th>
-														<th>Alamat</th>
-														<th>Jurusan</th>
-														<th>Email</th>
-														<th>Act</th>
-													</tr>
-												</thead>
-
-												<tbody>
-													<?php foreach ($user_dosen as $user): ?>
-													<tr>
-														<td class="center">
-															<label class="pos-rel">
-																<input type="checkbox" class="ace" />
-																<span class="lbl"></span>
-															</label>
+        						<div class="table-responsive">
+        							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+        								<thead>
+        									<tr>
+        										<th>Name</th>
+        										<th>Price</th>
+        										<th>Photo</th>
+        										<th>Description</th>
+        										<th>Action</th>
+        									</tr>
+        								</thead>
+        								<tbody>
+        									<?php foreach ($jadwal_control as $jadwal): ?>
+        									<tr>
+        										<td width="150">
+        											<?php echo $jadwal->nama_hari ?>
+        										</td>
+        										<td>
+        											<?php echo $jadwal->nama_matkul ?>
+        										</td>
+        										<td>
+        											<?php echo $jadwal->kelas ?>
+        										</td>
+        										<td>
+        											<?php echo $jadwal->semester ?>
 														</td>
+        										<td width="250">
+        											<a href="<?php echo site_url('admin/jadwal_control/edit/'.$jadwal->id_hari) ?>"
+        											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+        											<a onclick="deleteConfirm('<?php echo site_url('admin/jadwal_control/delete/'.$jadwal->id_hari) ?>')"
+        											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+        										</td>
+        									</tr>
+        									<?php endforeach; ?>
 
-														<td>
-															<?php echo $user->nik ?>
-														</td>
-														<td>
-															<?php
-																if (empty($user->nama))
-																	echo "-";
-																else
-														 			echo $user->nama
-														 		?>
-													 </td>
-														<td>
-															<?php
-															if (empty($user->j_k))
-																echo "-";
-															else
-																echo $user->j_k
-															?>
-														</td>
-														<td>
-															<?php
-															if (empty($user->alamat)){
-																echo "-";
-															} else {
-																//memotong kalimat panjang
-																$kalimat = $user->alamat;
-																$tampil = substr($kalimat, 0, 40);
-																echo $tampil;
-																echo "...";
-															}
-															 ?>
-														</td>
+        								</tbody>
+        							</table>
+        						</div>
+        					</div>
+        				</div>
 
-														<td>
-															<?php
-															if (empty($user->jurusan))
-																echo "-";
-															else
-																echo $user->jurusan
-															 ?>
-														</td>
-														<td>
-															<?php
-															if (empty($user->email))
-																echo "-";
-															else
-																echo $user->email
-																?>
-														</td>
-														<td>
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a href="<?php echo site_url('admin/test2/edit/'.$user->nik) ?>" class="btn btn-primary btn-xs ">
-																	<i class="ace-icon fa fa-pencil-square-o bigger-130"></i>
-																	Edit
-																</a>
-																<a class="btn btn-xs btn-danger " href="#!" onclick="deleteConfirm('<?php echo site_url('admin/test2/delete/'.$user->nik) ?>')">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																	Hapus
-																</a>
-															</div>
-
-															<div class="hidden-md hidden-lg">
-																<div class="inline pos-rel">
-																	<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-																		<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-																	</button>
-
-																	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																		<li>
-																			<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-																				<span class="blue">
-																					<i class="ace-icon fa fa-search-plus bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-
-																		<li>
-																			<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-																				<span class="green">
-																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-
-																		<li>
-																			<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																				<span class="red">
-																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</td>
-													</tr>
-												<?php endforeach; ?>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 					</div><!-- /.page-content -->
 				</div>
 			</div><!-- /.main-content -->
-			<?php $this->load->view('admin/coba/_partials/modal') ?>
+			<?php $this->load->view('admin/file_tambahan/_partials/modal') ?>
 			<script>
 			function deleteConfirm(url){
 				$('#btn-delete').attr('href', url);

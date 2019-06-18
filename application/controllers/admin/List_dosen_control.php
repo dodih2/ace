@@ -12,8 +12,19 @@ class List_dosen_control extends CI_Controller
 
 	public function index()
 	{
+
 		$data["user_dosen"] = $this->user_dosen_model->getAll();
-		$this->load->view("admin/coba/test2", $data);
+		$user_dosen = $this->user_dosen_model;
+		$validation = $this->form_validation;
+		$validation->set_rules($user_dosen->rules());
+
+		if ($validation->run()) {
+				$user_dosen->save();
+				$this->session->set_flashdata('success', 'Berhasil disimpan');
+				redirect(site_url('admin/list_dosen_control'));
+		} else {
+		$this->load->view("admin/konten/v_dosen_managemen", $data);
+	}
 	}
 
 	/*
@@ -32,8 +43,6 @@ class List_dosen_control extends CI_Controller
 					$user_dosen->save();
 					$this->session->set_flashdata('success', 'Berhasil disimpan');
 			}
-
-			$this->load->view("admin/coba/new_form");
 	}
 
 	public function edit($id = null)
@@ -52,7 +61,7 @@ class List_dosen_control extends CI_Controller
 			$data["user_dosen"] = $user_dosen->getById($id);
 			if (!$data["user_dosen"]) show_404();
 
-			$this->load->view("admin/coba/edit_form", $data);
+			$this->load->view("admin/file_tambahan/edit_form_dosen", $data);
 	}
 
 	public function delete($id=null)

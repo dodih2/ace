@@ -18,7 +18,6 @@
 							<span class="menu-text">
 								Managemen	User
 							</span>
-
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
 
@@ -31,10 +30,9 @@
 									Dosen
 								</a>
 							</li>
-
-
 							<li class="">
-								<a href="typography.html" class="dropdown-toggle">
+								<!-- <a href="#" class="dropdown-toggle"> -->
+									<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control') ?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Mahasiswa
 									<b class="arrow fa fa-angle-down"></b>
@@ -42,88 +40,25 @@
 								<b class="arrow"></b>
 								<ul class="submenu">
 									<li class="">
-										<a href="#" class="dropdown-toggle">
-											<i class="menu-icon fa fa-caret-right"></i>
+										<a href="#">
+											<i class="menu-icon glyphicon glyphicon-minus "></i>
 											Teknik Informatika
-											<b class="arrow fa fa-angle-down"></b>
 										</a>
 										<b class="arrow"></b>
-										<ul class="submenu">
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-caret-right"></i>
-													Tingkat I
-												</a>
-											</li>
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-caret-right"></i>
-													Tingkat II
-												</a>
-											</li>
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-caret-right"></i>
-													Tingkat III
-												</a>
-											</li>
-										</ul>
 									</li>
 									<li class="">
-										<a href="#" class="dropdown-toggle">
-											<i class="menu-icon fa fa-caret-right"></i>
+										<a href="#">
+											<i class="menu-icon glyphicon glyphicon-minus"></i>
 											Teknik Mesin
-											<b class="arrow fa fa-angle-down"></b>
 										</a>
 										<b class="arrow"></b>
-										<ul class="submenu">
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-caret-right"></i>
-													Tingkat I
-												</a>
-											</li>
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-caret-right"></i>
-													Tingkat II
-												</a>
-											</li>
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-caret-right"></i>
-													Tingkat III
-												</a>
-											</li>
-										</ul>
 									</li>
 									<li class="">
-										<a href="#" class="dropdown-toggle">
-											<i class="menu-icon fa fa-caret-right"></i>
+										<a href="#">
+											<i class="menu-icon glyphicon glyphicon-minus"></i>
 											Teknik Pendingin
-											<b class="arrow fa fa-angle-down"></b>
 										</a>
 										<b class="arrow"></b>
-										<ul class="submenu">
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-caret-right"></i>
-													Tingkat I
-												</a>
-											</li>
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-caret-right"></i>
-													Tingkat II
-												</a>
-											</li>
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-caret-right"></i>
-													Tingkat III
-												</a>
-											</li>
-										</ul>
 									</li>
 								</ul>
 							</li>

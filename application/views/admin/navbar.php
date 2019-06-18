@@ -281,7 +281,7 @@
 								<img class="nav-user-photo" src="<?php echo base_url('assets/template/back') ?> /images/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>Welcome,</small>
-									<?php echo $this->session->userdata('username'); ?>
+									<?php echo $this->session->userdata('nama'); ?>
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>

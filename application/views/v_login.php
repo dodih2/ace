@@ -66,9 +66,9 @@
 											<form action="<?php echo site_url('login/auth'); ?>" method="post">
                         <?php echo $this->session->flashdata('msg'); ?>
 												<fieldset>
-													<label for="username" class="block clearfix">
+													<label for="nik" class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" name="username" class="form-control" placeholder="Username" required autofocus />
+															<input type="text" name="nik" class="form-control" placeholder="nik" required autofocus />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
@@ -200,7 +200,7 @@
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="text" class="form-control" placeholder="nik" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>

@@ -8,7 +8,6 @@ class Page extends CI_Controller{
   }
 
   function index(){
-
     if ($this->session->userdata('level')==='1') {
       redirect('admin/admin_control');
     }else {

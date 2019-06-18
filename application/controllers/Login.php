@@ -17,18 +17,18 @@ class Login extends CI_Controller{
 
   function auth(){
     // $email = $this->input->post('email',TRUE);
-    $username = $this->input->post('username', TRUE);
+    $nik = $this->input->post('nik', TRUE);
     $password = $this->input->post('password', TRUE);
-    $validate = $this->login_model->validate($username, $password);
+    $validate = $this->login_model->validate($nik, $password);
     if ($validate->num_rows() > 0 ) {
       $data = $validate->row_array();
-      $name = $data['nama'];
+      $nama = $data['nama'];
       $email = $data['email'];
-      $username = $data['username'];
+      $nik = $data['nik'];
       $level = $data['level'];
       $sesdata = array(
         'nama'     => $nama,
-        'username' => $name,
+        'nik' => $nik,
         'email'    => $email,
         'level'    => $level,
         'logged_in'=> TRUE
@@ -40,11 +40,11 @@ class Login extends CI_Controller{
 
       // access login for staff
     }elseif ($level === '2') {
-        redirect('dosen/home');
+        redirect('dosen/test');
       // access login for author
     }
   }else {
-    echo $this->session->set_flashdata('msg','Username or Password is wrong');
+    echo $this->session->set_flashdata('msg','nik or Password is wrong');
     redirect('login');
   }
   }

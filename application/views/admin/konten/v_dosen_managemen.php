@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<?php $this->load->view('admin/header') ?>
@@ -50,68 +49,68 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<div class="row">
-									<div class="col-xs-12">
-										<?php if ($this->session->flashdata('success')): ?>
-										<div class="alert alert-success" role="alert">
-											<?php echo $this->session->flashdata('success'); ?>
-										</div>
-										<?php endif; ?>
+								<button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">TAMBAH</button>
+								<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="true">
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
 
-										<div class="card mb-3">
-											<div class="card-header">
-												<a href="<?php echo site_url('admin/test2/add') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+												<h4 class="modal-title">TAMBAH DATA DOSEN</h4>
 											</div>
-											<div class="card-body">
-
-												<form action="<?php base_url('admin/test2/add') ?>" method="post" enctype="multipart/form-data" >
-													<div class="form-group">
-														<label for="nik">Nik*</label>
-														<input class="form-control <?php echo form_error('nik') ? 'is-invalid':'' ?>"
-														 type="text" name="nik" placeholder="Nik" />
-														<div class="invalid-feedback">
-															<?php echo form_error('nik') ?>
-														</div>
+											<div class="modal-body">
+													<?php if ($this->session->flashdata('success')): ?>
+													<div class="alert alert-success" role="alert">
+														<?php echo $this->session->flashdata('success'); ?>
 													</div>
+													<?php endif; ?>
 
-													<div class="form-group">
-														<label for="nama">Nama*</label>
-														<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-														 type="text" name="nama" placeholder="Nama" />
-														<div class="invalid-feedback">
-															<?php echo form_error('nama') ?>
-														</div>
-													</div>
+																		<form action="<?php base_url('admin/list_dosen_control/') ?>" method="post" enctype="multipart/form-data" >
 
-													<div class="form-group">
-														<label for="password">Password*</label>
-														<input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
-														 type="text" name="password" placeholder="Password" />
-														<div class="invalid-feedback">
-															<?php echo form_error('password') ?>
-														</div>
-													</div>
+																			<div class="form-group">
+																				<label for="nik">Nik*</label>
+																				<input class="form-control <?php echo form_error('nik') ? 'is-invalid':'' ?>"
+																				 type="text" name="nik" placeholder="Nik" />
+																				<div class="invalid-feedback">
+																					<?php echo form_error('nik') ?>
+																				</div>
+																			</div>
 
+																			<div class="form-group">
+																				<label for="password">Password*</label>
+																				<input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
+																				 type="text" name="password" placeholder="Password" />
+																				<div class="invalid-feedback">
+																					<?php echo form_error('password') ?>
+																				</div>
+																			</div>
 
-													<input class="btn btn-success" type="submit" name="btn" value="Save" />
-												</form>
+																			<div class="form-group">
+																				<label for="dosen_jurusan">Dosen Jurusan*</label>
+																				 <select class="chosen-select form-control <?php echo form_error('dosen_jurusan') ? 'is-invalid':'' ?>" id="form-field-select-3" data-placeholder="Dosen Jurusan" name="dosen_jurusan">
+																				 		<option value="">  </option>
+																						<option value="1">Teknik Informatika</option>
+																						<option value="2">Teknik Pendingin</option>
+																						<option value="3">Teknik Mesin</option>
+																				 </select>
+																				<div class="invalid-feedback">
+																					<?php echo form_error('dosen_jurusan') ?>
+																				</div>
+																			</div>
 
+																	</div>
+																	<div class="card-footer small text-muted">
+																		* required fields
+																	</div
+											<div class="modal-footer">
+												<input class="btn btn-success" type="submit" name="btn" value="Save" />
+
+											</form>
 											</div>
-
-											<div class="card-footer small text-muted">
-												* required fields
-											</div>
-
-
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
-										<div class="hr hr-18 dotted hr-double"></div>
-
-										<div class="hr hr-18 dotted hr-double"></div>
-
 										<div class="clearfix">
 											<div class="pull-right tableTools-container"></div>
 										</div>
@@ -158,7 +157,7 @@
 														<td>
 															<?php
 																if (empty($user->nama))
-																	echo "Data Kosong";
+																	echo "-";
 																else
 														 			echo $user->nama
 														 		?>
@@ -166,7 +165,7 @@
 														<td>
 															<?php
 															if (empty($user->j_k))
-																echo "Data Kosong";
+																echo "-";
 															else
 																echo $user->j_k
 															?>
@@ -174,7 +173,7 @@
 														<td>
 															<?php
 															if (empty($user->alamat)){
-																echo "Data Kosong";
+																echo "-";
 															} else {
 																//memotong kalimat panjang
 																$kalimat = $user->alamat;
@@ -184,30 +183,30 @@
 															}
 															 ?>
 														</td>
-
 														<td>
 															<?php
-															if (empty($user->jurusan))
-																echo "Data Kosong";
+															if (empty($user->dosen_jurusan))
+																echo "-";
 															else
-																echo $user->jurusan
+																echo "Dosen &nbsp";
+																echo $user->dosen_jurusan;
 															 ?>
 														</td>
 														<td>
 															<?php
 															if (empty($user->email))
-																echo "Data Kosong";
+																echo "-";
 															else
 																echo $user->email
 																?>
 														</td>
 														<td>
 															<div class="hidden-sm hidden-xs action-buttons">
-																<a href="<?php echo site_url('admin/test2/edit/'.$user->nik) ?>" class="btn btn-primary btn-xs ">
+																<a href="<?php echo site_url('admin/list_dosen_control/edit/'.$user->nik) ?>" class="btn btn-primary btn-xs ">
 																	<i class="ace-icon fa fa-pencil-square-o bigger-130"></i>
 																	Edit
 																</a>
-																<a class="btn btn-xs btn-danger " href="#!" onclick="deleteConfirm('<?php echo site_url('admin/test2/delete/'.$user->nik) ?>')">
+																<a class="btn btn-xs btn-danger " href="#!" onclick="deleteConfirm('<?php echo site_url('admin/list_dosen_control/delete/'.$user->nik) ?>')">
 																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
 																	Hapus
 																</a>
@@ -260,7 +259,7 @@
 					</div><!-- /.page-content -->
 				</div>
 			</div><!-- /.main-content -->
-			<?php $this->load->view('admin/coba/_partials/modal') ?>
+			<?php $this->load->view('admin/file_tambahan/_partials/modal') ?>
 			<script>
 			function deleteConfirm(url){
 				$('#btn-delete').attr('href', url);

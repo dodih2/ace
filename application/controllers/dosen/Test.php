@@ -7,6 +7,9 @@ class Test extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
+    if ($this->session->userdata('logged_in') !== TRUE) {
+      redirect('login');
+    }
   }
 
   function index()
