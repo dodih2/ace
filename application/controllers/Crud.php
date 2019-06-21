@@ -12,7 +12,7 @@ class Crud extends CI_Controller{
 
   function index()
   {
-    $x['kategori'] = $this->crud_model->get_kategori();
+    $x['kelas'] = $this->crud_model->get_kategori();
     $this->load->view('crud_view', $x);
   }
 
@@ -23,31 +23,32 @@ class Crud extends CI_Controller{
 
   function simpan(){
     $data = array(
-      'barang_kode' => $this->input->post('kode_barang'),
-      'barang_nama' => $this->input->post('nama_barang'),
-      'barang_harga'=> $this->input->post('harga'),
-      'barang_kategori_id' => $this->input->post('kategori')
+      'nim' => $this->input->post('nim_data'),
+      'nama' => $this->input->post('nama_data'),
+      'email'=> $this->input->post('email'),
+      'user_kelas_id' => $this->input->post('kelas')
     );
-    $this->db->insert('barang', $data);
+    $this->db->insert('user_mahasiswa', $data);
     redirect('crud');
   }
 
   function update(){
-    $kode = $this->input->post('kode_barang');
+    $kode = $this->input->post('nim_data');
     $data = array(
-      'barang_nama' => $this->input->post('nama_barang'),
-      'barang_harga'=> $this->input->post('harga'),
-      'barang_kategori_id' => $this->input->post('kategori')
+      'nama' => $this->input->post('nama_data'),
+      'email'=> $this->input->post('email'),
+      'alamat' => $this->input->post('alamat_data'),
+      'user_kelas_id' => $this->input->post('kelas')
     );
-    $this->db->where('barang_kode', $kode);
-    $this->db->update('barang', $data);
+    $this->db->where('nim', $kode);
+    $this->db->update('user_mahasiswa', $data);
     redirect('crud');
   }
 
   function delete(){
-    $kode = $this->input->post('kode_barang');
-    $this->db->where('barang_kode', $kode);
-    $this->db->delete('barang');
+    $kode = $this->input->post('nim_data');
+    $this->db->where('nim', $kode);
+    $this->db->delete('user_mahasiswa');
     redirect('crud');
   }
 

@@ -54,10 +54,10 @@
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th>Product Code</th>
-                          <th>Product Name</th>
-                          <th>Price</th>
-                          <th>Category</th>
+                          <th>NIM</th>
+                          <th>NAMA</th>
+                          <th>EMAIL</th>
+                          <th>KELAS</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -76,22 +76,22 @@
                         <div class="modal-body">
 
                           <div class="form-group">
-                            <input type="text" name="kode_barang" class="form-control" placeholder="Kode Barang" required>
+                            <input type="text" name="nim_data" class="form-control" placeholder="NIM" required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" required>
+                            <input type="text" name="nama_data" class="form-control" placeholder="NAMA" required>
                           </div>
 
                           <div class="form-group">
-                            <select class="form-control" name="kategori" placeholder="Kode Barang" required>
-                              <?php foreach ($kategori->result() as $row): ?>
-                                <option value="<?php echo $row->kategori_id; ?>"><?php echo $row->kategori_nama; ?></option>
+                            <select class="form-control" name="kelas" placeholder="Kelas" required>
+                              <?php foreach ($kelas->result() as $row): ?>
+                                <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
                               <?php endforeach; ?>
                             </select>
                           </div>
                           <div class="form-group">
-                            <input type="text" name="harga" class="form-control" placeholder="Harga" required>
+                            <input type="text" name="email" class="form-control" placeholder="EMAIL" required>
                           </div>
                         </div>
                         <div class="modal-footer">
@@ -114,24 +114,28 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <input type="text" name="kode_barang" class="form-control" placeholder="Kode Barang" required>
+                            <input type="text" name="nim_data" class="form-control" placeholder="NIM" required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" required>
+                            <input type="text" name="nama_data" class="form-control" placeholder="NAMA" required>
                           </div>
 
                           <div class="form-group">
-                            <select class="form-control" name="kategori" placeholder="Kode Barang" required>
-                              <?php foreach ($kategori->result() as $row): ?>
-                                <option value="<?php echo $row->kategori_id; ?>"><?php echo $row->kategori_nama; ?></option>
+                            <select class="form-control" name="kelas" placeholder="Kelas" required>
+                              <?php foreach ($kelas->result() as $row): ?>
+                                <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
                               <?php endforeach; ?>
                             </select>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="harga" class="form-control" placeholder="Harga" required>
+                            <input type="text" name="email" class="form-control" placeholder="EMAIL" required>
                           </div>
+
+													<div class="form-group">
+														<input type="text" name="alamat_data" class="form-control" placeholder="ALAMAT" required>
+													</div>
 
                         </div>
                         <div class="modal-footer">
@@ -153,7 +157,7 @@
                           <h4 class="modal-title" id="myModalLabel">Hapus Produk</h4>
                         </div>
                         <div class="modal-body">
-                          <input type="hidden" name="kode_barang" class="form-control" placeholder="Kode Barang" required>
+                          <input type="hidden" name="nim_data" class="form-control" placeholder="NIM" required>
                           <strong>Anda yakin mau menghapus record ini?</strong>
                         </div>
                         <div class="modal-footer">
@@ -242,11 +246,11 @@
             serverSide: true,
             ajax: {"url": "<?php echo base_url().'index.php/crud/get_produck_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "barang_kode"},
-                    {"data": "barang_nama"},
-                    //render harga dengan format angka
-                    {"data": "barang_harga", render: $.fn.dataTable.render.number(',','.','')},
-                    {"data": "kategori_nama"},
+                    {"data": "nim"},
+                    {"data": "nama"},
+                    //render email dengan format angka
+                    {"data": "email"},
+                    {"data": "kelas_nama"},
                     {"data": "view"}
                   ],
             order: [[1, 'asc']],
@@ -260,22 +264,25 @@
           // end setup datatables
           // get edit records
           $('#mytable').on('click','.edit_record',function(){
-            var kode=$(this).data('kode');
+            var nim=$(this).data('nim');
             var nama=$(this).data('nama');
-            var harga=$(this).data('harga');
-            var kategori=$(this).data('kategori');
+						var alamat=$(this).data('alamat');
+            var email=$(this).data('email');
+            var kelas=$(this).data('kelas');
             $('#ModalUpdate').modal('show');
-            $('[name="kode_barang"]').val(kode);
-            $('[name="nama_barang"]').val(nama);
-            $('[name="harga"]').val(harga);
-            $('[name="kategori"]').val(kategori);
+            $('[name="nim_data"]').val(nim);
+            $('[name="nama_data"]').val(nama);
+						$('[name="alamat_data"]').val(alamat);
+            $('[name="email"]').val(email);
+            $('[name="kelas"]').val(kelas);
+
           });
           // End Edit Records
           // get Hapus Records
           $('#mytable').on('click','.hapus_record', function(){
-            var kode=$(this).data('kode');
+            var nim=$(this).data('nim');
             $('#ModalHapus').modal('show');
-            $('[name="kode_barang"]').val(kode);
+            $('[name="nim_data"]').val(nim);
           });
           // End Hapus Records
     });
