@@ -18,9 +18,9 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="#">Managemen User</a>
 							</li>
-							<li class="active">Dashboard</li>
+							<li class="active">Mahasiswa</li>
 						</ul><!-- /.breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -38,10 +38,10 @@
 
 						<div class="page-header">
 							<h1>
-								Dashboard
+								Mahasiswa
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
-									overview &amp; stats
+									List Data Mahasiswa
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
@@ -49,7 +49,6 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
-                  <h2>Produk List</h2>
                     <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
@@ -91,22 +90,25 @@
                             <input type="text" name="data_jk" class="form-control" placeholder="Jenis Kelamin" required>
                           </div>
 
-                          <div class="form-group">
-                            <input type="text" name="data_kelas" class="form-control" placeholder="Kelas" required>
+													<div class="form-group">
+                            <select class="form-control" name="kelas" placeholder="Kelas" required>
+                              <?php foreach ($kelas->result() as $row): ?>
+                                <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
+                              <?php endforeach; ?>
+                            </select>
                           </div>
 
                           <div class="form-group">
                             <input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
                           </div>
 
-                          <div class="form-group">
-                            <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
-
-                              <option value="1">Teknik Informatika</option>
-                              <option value="2">Teknik Pendingin</option>
-                              <option value="3">Teknik Mesin</option>
-                            </select>
-                          </div>
+													<div class="form-group">
+														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 
                           <div class="form-group">
                             <input type="text" name="data_email" class="form-control" placeholder="Email" required>
@@ -144,21 +146,25 @@
                             <input type="text" name="data_jk" class="form-control" placeholder="Jenis Kelamin" required>
                           </div>
 
-                          <div class="form-group">
-                            <input type="text" name="data_kelas" class="form-control" placeholder="Kelas" required>
+													<div class="form-group">
+                            <select class="form-control" name="kelas" placeholder="Kelas" required>
+                              <?php foreach ($kelas->result() as $row): ?>
+                                <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
+                              <?php endforeach; ?>
+                            </select>
                           </div>
 
                           <div class="form-group">
                             <input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
                           </div>
 
-                          <div class="form-group">
-                            <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
-                              <option value="1">Teknik Informatika</option>
-                              <option value="2">Teknik Pendingin</option>
-                              <option value="3">Teknik Mesin</option>
-                            </select>
-                          </div>
+													<div class="form-group">
+														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 
                           <div class="form-group">
                             <input type="text" name="data_email" class="form-control" placeholder="Email" required>
@@ -266,7 +272,17 @@
             });
         },
             oLanguage: {
-              sProcessing: "loading..."
+							sLengthMenu		: "Tampilkan _MENU_ data per halaman",
+              sProcessing		: "Memuat...",
+							sInfo					: "Tampilkan data _START_ sampai _END_ dari _TOTAL_ data",
+							sEmptyTable		: "Tidak ada Data yang tersedia pada tabel ini",
+							sInfoEmpty		: "Tampilkan data 0 sampai 0 dari 0 data",
+							sSearch				: "Cari Data:",
+							sInfoFiltered	: "(disaring dari _MAX_ entri keseluruhan)",
+							sZeroRecords	:  "Tidak ditemukan data yang sesuai",
+							oPaginate			: {
+								"sPrevious": "Sebelumnya",
+								"sNext"		 : "Selanjutnya"}
         },
             processing: true,
             serverSide: true,
@@ -275,9 +291,9 @@
                     {"data": "nim"},
                     {"data": "nama"},
                     {"data": "jenis_kelamin"},
-                    {"data": "kelas"},
+                    {"data": "kelas_nama"},
                     {"data": "alamat"},
-                    {"data": "jurusan"},
+                    {"data": "nama_jurusan"},
                     {"data": "email"},
                     {"data": "view"}
                   ],
@@ -303,10 +319,10 @@
             $('#ModalUpdate').modal('show');
             $('[name="data_nim"]').val(nim);
             $('[name="data_nama"]').val(nama);
-            $('[name="data_kelas"]').val(kelas);
+            $('[name="kelas"]').val(kelas);
             $('[name="data_jk"]').val(jk);
             $('[name="data_alamat"]').val(alamat);
-            $('[name="data_jurusan"]').val(jurusan);
+            $('[name="jurusan"]').val(jurusan);
             $('[name="data_email"]').val(email);
           });
           // End Edit Records

@@ -18,9 +18,9 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="#">Managemen Data</a>
 							</li>
-							<li class="active">Dashboard</li>
+							<li class="active">Mata Kuliah</li>
 						</ul><!-- /.breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -38,10 +38,10 @@
 
 						<div class="page-header">
 							<h1>
-								Dashboard
+								Matakuliah
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
-									overview &amp; stats
+									List Data Mata Kuliah
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
@@ -49,62 +49,76 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
-                  <h2>Produk List</h2>
-                    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Tambah</button>
+                    <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th>NIM</th>
-                          <th>NAMA</th>
-                          <th>EMAIL</th>
-                          <th>KELAS</th>
-                          <th>Action</th>
+                          <th>Kode Mata Kuliah</th>
+                          <th>Nama Mata Kuliah</th>
+                          <th>Jenis Perkuliahan</th>
+                          <th>SKS</th>
+                          <th>Semester</th>
+													<th>Jurusan</th>
+                          <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
                     </table>
                 </div>
 
                 <!-- Modal Add Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/crud/simpan' ?>" method="post">
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/matkul_control/simpan' ?>" method="post">
                   <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Add New</h4>
+                          <h4 class="modal-title" id="myModalLabel">Tambah Mata Kuliah</h4>
                         </div>
                         <div class="modal-body">
 
                           <div class="form-group">
-                            <input type="text" name="nim_data" class="form-control" placeholder="NIM" required>
+                            <input type="text" name="data_id" class="form-control" placeholder="Kode Mata Kuliah" required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="nama_data" class="form-control" placeholder="NAMA" required>
+                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Mata Kuliah" required>
                           </div>
 
                           <div class="form-group">
-                            <select class="form-control" name="kelas" placeholder="Kelas" required>
-														<?php foreach ($kelas->result() as $row): ?>
-                                <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
-                              <?php endforeach; ?>
+                            <input type="text" name="data_jp" class="form-control" placeholder="Jenis Perkuliahan" required>
+                          </div>
+
+                          <div class="form-group">
+                            <input type="text" name="data_sks" class="form-control" placeholder="SKS" required>
+                          </div>
+
+                          <div class="form-group">
+                            <input type="text" name="data_semester" class="form-control" placeholder="Semester" required>
+                          </div>
+
+                          <div class="form-group">
+                            <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
+
+                              <option value="1">Teknik Informatika</option>
+                              <option value="2">Teknik Mesin</option>
+                              <option value="3">Teknik Pendingin</option>
                             </select>
                           </div>
-                          <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="EMAIL" required>
-                          </div>
+
+
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="submit" id="add-row" class="btn btn-success">Save</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                          <button type="submit" id="add-row" class="btn btn-success">Simpan</button>
                         </div>
                       </div>
                     </div>
                   </div>
                 </form>
 
-                <!-- Modal Update Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/crud/update' ?>" method="post">
+	                <!-- Modal Update Produk -->
+								<form id="add-row-form" action="<?php echo base_url().'index.php/admin/matkul_control/update' ?>" method="post">
                   <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -114,28 +128,32 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <input type="text" name="nim_data" class="form-control" placeholder="NIM" required>
+                            <input type="text" name="data_id" class="form-control" placeholder="Kode Mata Kuliah" required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="nama_data" class="form-control" placeholder="NAMA" required>
+                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Mata Kuliah" required>
                           </div>
 
                           <div class="form-group">
-                            <select class="form-control" name="kelas" placeholder="Kelas" required>
-                              <?php foreach ($kelas->result() as $row): ?>
-                                <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
-                              <?php endforeach; ?>
+                            <input type="text" name="data_jp" class="form-control" placeholder="Jenis Perkuliahan" required>
+                          </div>
+
+                          <div class="form-group">
+                            <input type="text" name="data_sks" class="form-control" placeholder="SKS" required>
+                          </div>
+
+                          <div class="form-group">
+                            <input type="text" name="data_semester" class="form-control" placeholder="Semester" required>
+                          </div>
+
+                          <div class="form-group">
+                            <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
+                              <option value="1">Teknik Informatika</option>
+                              <option value="2">Teknik Mesin</option>
+                              <option value="3">Teknik Pendingin</option>
                             </select>
                           </div>
-
-                          <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="EMAIL" required>
-                          </div>
-
-													<div class="form-group">
-														<input type="text" name="alamat_data" class="form-control" placeholder="ALAMAT" required>
-													</div>
 
                         </div>
                         <div class="modal-footer">
@@ -148,20 +166,20 @@
                 </form>
 
                 <!-- Modal Hapus Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/crud/delete' ?>" method="post">
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/matkul_control/delete' ?>" method="post">
                   <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                          <h4 class="modal-title" id="myModalLabel">Hapus Produk</h4>
+                          <h4 class="modal-title" id="myModalLabel">Hapus Mata Kuliah</h4>
                         </div>
                         <div class="modal-body">
-                          <input type="hidden" name="nim_data" class="form-control" placeholder="NIM" required>
-                          <strong>Anda yakin mau menghapus record ini?</strong>
+                          <input type="hidden" name="data_id" class="form-control" placeholder="Kode Mata Kuliah" required>
+                          <strong>Anda yakin mau menghapus mata kuliah ini?</strong>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                           <button type="submit" id="add-row" class="btn btn-success">Hapus</button>
                         </div>
                       </div>
@@ -171,7 +189,6 @@
 								<!-- PAGE CONTENT ENDS -->
 					</div><!-- /.page-content -->
 			</div><!-- /.main-content -->
-
 
 			<div class="footer">
 				<div class="footer-inner">
@@ -240,19 +257,31 @@
             });
         },
             oLanguage: {
-              sProcessing: "loading..."
+							sLengthMenu		: "Tampilkan _MENU_ data per halaman",
+              sProcessing		: "Memuat...",
+							sInfo					: "Tampilkan data _START_ sampai _END_ dari _TOTAL_ data",
+							sEmptyTable		: "Tidak ada Data yang tersedia pada tabel ini",
+							sInfoEmpty		: "Tampilkan data 0 sampai 0 dari 0 data",
+							sSearch				: "Cari Data:",
+							sInfoFiltered	: "(disaring dari _MAX_ entri keseluruhan)",
+							sZeroRecords	:  "Tidak ditemukan data yang sesuai",
+							oPaginate			: {
+								"sPrevious": "Sebelumnya",
+								"sNext"		 : "Selanjutnya"}
         },
             processing: true,
             serverSide: true,
-            ajax: {"url": "<?php echo base_url().'index.php/crud/get_produck_json' ?>", "type": "POST"},
+            ajax: {"url": "<?php echo base_url().'index.php/admin/matkul_control/get_matkul_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "nim"},
-                    {"data": "nama"},
-                    //render email dengan format angka
-                    {"data": "email"},
-                    {"data": "kelas_nama"},
+                    {"data": "id_matkul"},
+                    {"data": "nama_matkul"},
+                    {"data": "jenis_perkuliahan"},
+                    {"data": "sks"},
+                    {"data": "semester"},
+										{"data": "jurusan"},
                     {"data": "view"}
                   ],
+
             order: [[1, 'asc']],
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
@@ -264,25 +293,27 @@
           // end setup datatables
           // get edit records
           $('#mytable').on('click','.edit_record',function(){
-            var nim=$(this).data('nim');
-            var nama=$(this).data('nama');
-						var alamat=$(this).data('alamat');
-            var email=$(this).data('email');
-            var kelas=$(this).data('kelas');
+            var id=$(this).data('id_matkul');
+            var nama=$(this).data('nama_matkul');
+            var jp=$(this).data('jenis_perkuliahan');
+            var	sks=$(this).data('sks');
+            var semester=$(this).data('semester');
+            var jurusan=$(this).data('jurusan');
             $('#ModalUpdate').modal('show');
-            $('[name="nim_data"]').val(nim);
-            $('[name="nama_data"]').val(nama);
-						$('[name="alamat_data"]').val(alamat);
-            $('[name="email"]').val(email);
-            $('[name="kelas"]').val(kelas);
+            $('[name="data_id"]').val(id);
+            $('[name="data_nama"]').val(nama);
+            $('[name="data_jp"]').val(jp);
+            $('[name="data_sks"]').val(sks);
+						$('[name="data_semester"]').val(semester);
+						$('[name="data_jurusan"]').val(jurusan);
 
           });
           // End Edit Records
           // get Hapus Records
           $('#mytable').on('click','.hapus_record', function(){
-            var nim=$(this).data('nim');
+            var id=$(this).data('id_matkul');
             $('#ModalHapus').modal('show');
-            $('[name="nim_data"]').val(nim);
+            $('[name="data_id"]').val(id);
           });
           // End Hapus Records
     });

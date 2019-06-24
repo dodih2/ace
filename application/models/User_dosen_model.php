@@ -1,63 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_dosen_model extends CI_Model
-{
+class User_dosen_model extends CI_Model{
 
-  private $_table = "user_dosen";
-
-  public $nik;
-  public $password;
-  public $dosen_jurusan;
-  public $level;
-
-  public function rules(){
-    return[
-      ['field' => 'nik',
-      'label' => 'Nik',
-      'rules' => 'numeric'],
-
-      ['field' => 'password',
-      'label' => 'Password',
-      'rules' => 'required'],
-
-      ['field' => 'dosen_jurusan',
-      'label' => 'Dosen_Jurusan',
-      'rules' => 'required']
-    ];
+  function get_nik(){ //ambil data nik dari tabel user_mahasiswa
+    $hsl = $this->db->get('user_dosen');
+    return $hsl;
   }
 
-  public function getAll(){
-    return $this->db->get($this->_table)->result();
+  function get_all_dosen(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
+    $this->datatables->select('nik, nama, j_k, level, alamat, dosen_jurusan, email, password');
+    $this->datatables->from('user_dosen');
+    $this->datatables->add_column('view','<a href="javascript:void(0);" class="edit_record btn btn-info btn-xs" data-nik="$1" data-nama="$2" data-jk="$3" data-level="$4" data-alamat="$5" data-jurusan="$6" data-email="$7" data-password="$8">Edit</a> <a href="javascript:void(0);" class="hapus_record btn btn-danger btn-xs" data-nik="$1">Hapus</a>','nik, nama, j_k, level, alamat, dosen_jurusan, email');
+    return $this->datatables->generate();
   }
-
-  public function getById($id){
-    return $this->db->get_where($this->_table, ["nik" => $id])->row();
-  }
-
-  public function save()
-  {
-    $post = $this->input->post();
-    $this->nik = $post["nik"];
-    $this->dosen_jurusan = $post["dosen_jurusan"];
-    $this->level = 2;
-    $this->password = $post["password"];
-    $this->db->insert($this->_table, $this);
-  }
-
-  public function update()
-  {
-      $post = $this->input->post();
-      $this->nik = $post["id"];
-      $this->dosen_jurusan = $post["dosen_jurusan"];
-      $this->password = $post["password"];
-      $this->db->update($this->_table, $this, array('nik' => $post['id']));
-  }
-
-  public function delete($id)
-  {
-      return $this->db->delete($this->_table, array("nik" => $id));
-  }
-
 
 }

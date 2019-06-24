@@ -6,18 +6,18 @@ class List_mahasiswa_control extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-    if ($this->session->userdata('logged_in') !== TRUE) {
-      redirect('login');
-    }
     $this->load->library('datatables'); //load library ignited-datatable
     $this->load->model('user_mahasiswa_model'); // load model user_mahasiswa_model
   }
 
   function index()
   {
-    $x['user_mahasiswa'] = $this->user_mahasiswa_model->get_nim();
+    $x['kelas'] = $this->user_mahasiswa_model->get_nim();
+    $x['jurusan'] = $this->user_mahasiswa_model->get_jurusan();
     $this->load->view('admin/konten/v_mahasiswa_managemen', $x);
   }
+
+
 
   function get_mahasiswa_json(){ //data data produk by JSON object
     header('Content-Type: application/json');
@@ -29,9 +29,9 @@ class List_mahasiswa_control extends CI_Controller{
       'nim' => $this->input->post('data_nim'),
       'nama' => $this->input->post('data_nama'),
       'jenis_kelamin'=> $this->input->post('data_jk'),
-      'kelas' => $this->input->post('data_kelas'),
+      'user_kelas_id' => $this->input->post('kelas'),
       'alamat' => $this->input->post('data_alamat'),
-      'jurusan' => $this->input->post('data_jurusan'),
+      'jurusan_id' => $this->input->post('jurusan'),
       'email' => $this->input->post('data_email')
     );
     $this->db->insert('user_mahasiswa', $data);
@@ -43,9 +43,9 @@ class List_mahasiswa_control extends CI_Controller{
     $data = array(
       'nama' => $this->input->post('data_nama'),
       'jenis_kelamin'=> $this->input->post('data_jk'),
-      'kelas' => $this->input->post('data_kelas'),
+      'user_kelas_id' => $this->input->post('kelas'),
       'alamat' => $this->input->post('data_alamat'),
-      'jurusan' => $this->input->post('data_jurusan'),
+      'jurusan_id' => $this->input->post('jurusan'),
       'email' => $this->input->post('data_email')
     );
     $this->db->where('nim', $kode);

@@ -1,78 +1,75 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class List_dosen_control extends CI_Controller
-{
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model("user_dosen_model");
-		$this->load->library('form_validation');
+class List_dosen_control extends CI_Controller{
+
+  public function __construct()
+  {
+    parent::__construct();
+    if ($this->session->userdata('logged_in') !== TRUE) {
+      redirect('login');
+    }
+    $this->load->library('datatables'); //load library ignited-datatable
+    $this->load->model('user_dosen_model'); // load model user_dosen_model
+  }
+
+  function index()
+  {
+    $x['user_dosen'] = $this->user_dosen_model->get_nik();
+    $this->load->view('admin/konten/v_dosen_managemen', $x);
+  }
+
+  function get_dosen_json(){ //data data produk by JSON object
+    header('Content-Type: application/json');
+    echo $this->user_dosen_model->get_all_dosen();
+  }
+
+
+// Simpan data Dosen
+  function simpan(){
+    $data = array(
+      'nik' => $this->input->post('data_nik'),
+      'level' => $this->input->post('data_level'),
+      'dosen_jurusan' => $this->input->post('data_jurusan'),
+      'password' => $this->input->post('data_password')
+    );
+    $this->db->insert('user_dosen', $data);
+    redirect('admin/list_dosen_control');
+  }
+
+// Simpan data Admin
+	function simpan2(){
+		$data = array(
+			'nik' => $this->input->post('data_nik'),
+			'level' => $this->input->post('data_level'),
+			'dosen_jurusan' => $this->input->post('data_jurusan'),
+			'password' => $this->input->post('data_password')
+		);
+		$this->db->insert('user_dosen', $data);
+		redirect('admin/list_dosen_control');
 	}
 
-	public function index()
-	{
 
-		$data["user_dosen"] = $this->user_dosen_model->getAll();
-		$user_dosen = $this->user_dosen_model;
-		$validation = $this->form_validation;
-		$validation->set_rules($user_dosen->rules());
+  function update(){
+    $kode = $this->input->post('data_nik');
+    $data = array(
+      'nama' => $this->input->post('data_nama'),
+      'j_k'=> $this->input->post('data_jk'),
+      'level' => $this->input->post('data_level'),
+      'alamat' => $this->input->post('data_alamat'),
+      'dosen_jurusan' => $this->input->post('data_jurusan'),
+      'email' => $this->input->post('data_email')
+    );
+    $this->db->where('nik', $kode);
+    $this->db->update('user_dosen', $data);
+    redirect('admin/list_dosen_control');
+  }
 
-		if ($validation->run()) {
-				$user_dosen->save();
-				$this->session->set_flashdata('success', 'Berhasil disimpan');
-				redirect(site_url('admin/list_dosen_control'));
-		} else {
-		$this->load->view("admin/konten/v_dosen_managemen", $data);
-	}
-	}
+  function delete(){
+    $kode = $this->input->post('data_nik');
+    $this->db->where('nik', $kode);
+    $this->db->delete('user_dosen');
+    redirect('admin/list_dosen_control');
+  }
 
-	/*
-	public function bodydosen()
-	{
-		$this->load->view('admin/konten/b_dosen');
-	} */
-
-	public function add()
-	{
-			$user_dosen = $this->user_dosen_model;
-			$validation = $this->form_validation;
-			$validation->set_rules($user_dosen->rules());
-
-			if ($validation->run()) {
-					$user_dosen->save();
-					$this->session->set_flashdata('success', 'Berhasil disimpan');
-			}
-	}
-
-	public function edit($id = null)
-	{
-			if (!isset($id)) redirect('admin/list_dosen_control');
-
-			$user_dosen = $this->user_dosen_model;
-			$validation = $this->form_validation;
-			$validation->set_rules($user_dosen->rules());
-
-			if ($validation->run()) {
-					$user_dosen->update();
-					$this->session->set_flashdata('success', 'Berhasil disimpan');
-			}
-
-			$data["user_dosen"] = $user_dosen->getById($id);
-			if (!$data["user_dosen"]) show_404();
-
-			$this->load->view("admin/file_tambahan/edit_form_dosen", $data);
-	}
-
-	public function delete($id=null)
-	{
-			if (!isset($id)) show_404();
-
-			if ($this->user_dosen_model->delete($id)) {
-					redirect(site_url('admin/list_dosen_control'));
-			}
-	}
 }
-
-/* End of file Test.php */
-/* Location: ./application/controllers/admin/Test.php */

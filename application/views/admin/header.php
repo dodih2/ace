@@ -8,7 +8,7 @@
 
 		<!-- bootstrap & fontawesome -->
 
-		<link href="<?php echo base_url('assets/datatables/dataTables.bootstrap4.css') ?>" rel="stylesheet">
+		<link rel="stylesheet" href="<?php echo base_url('assets/assets/datatables/dataTables.bootstrap4.css') ?>" >
 		<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/font-awesome/4.5.0/css/font-awesome.min.css" />
 

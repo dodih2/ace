@@ -44,7 +44,7 @@ class Login extends CI_Controller{
       // access login for author
     }
   }else {
-    echo $this->session->set_flashdata('msg','nik or Password is wrong');
+    echo $this->session->set_flashdata('msg','NIK/EMAIL or PASSWORD SALAH!!!');
     redirect('login');
   }
   }
