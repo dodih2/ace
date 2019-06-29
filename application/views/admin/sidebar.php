@@ -4,7 +4,7 @@
 				</script>
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="<?php echo base_url('index.php/admin/admin_control')  ?>">
+						<a href="<?php echo base_url('index.php/admin/admin_control') ?>">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Home </span>
 						</a>
@@ -32,7 +32,7 @@
 							</li>
 							<li class="">
 								<!-- <a href="#" class="dropdown-toggle"> -->
-									<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control') ?>">
+									<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Mahasiswa
 									<b class="arrow fa fa-angle-down"></b>
@@ -40,26 +40,41 @@
 								<b class="arrow"></b>
 								<ul class="submenu">
 									<li class="">
-										<a href="#">
+										<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control') ?>" value="124">
 											<i class="menu-icon glyphicon glyphicon-minus "></i>
-											Teknik Informatika
+											D3 T. Informatika
 										</a>
 										<b class="arrow"></b>
 									</li>
 									<li class="">
 										<a href="#">
 											<i class="menu-icon glyphicon glyphicon-minus"></i>
-											Teknik Mesin
+											D3 T. Mesin
 										</a>
 										<b class="arrow"></b>
 									</li>
 									<li class="">
 										<a href="#">
 											<i class="menu-icon glyphicon glyphicon-minus"></i>
-											Teknik Pendingin
+											D3 T. Pendingin
 										</a>
 										<b class="arrow"></b>
 									</li>
+									<li class="">
+										<a href="#">
+											<i class="menu-icon glyphicon glyphicon-minus"></i>
+											D4 T. RPL
+										</a>
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="#">
+											<i class="menu-icon glyphicon glyphicon-minus"></i>
+											D4 T. Manufaktur
+										</a>
+										<b class="arrow"></b>
+									</li>
+
 								</ul>
 							</li>
 						</ul>
@@ -74,7 +89,7 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('index.php/admin/jadwal_control') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus "></i>
 									Jadwal
 								</a>
