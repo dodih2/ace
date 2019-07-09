@@ -13,7 +13,7 @@ class Jadwal_control extends CI_Controller{
   function index()
   {
     $x['jadwal'] = $this->jadwal_model->get_jadwal();
-    $this->load->view('admin/konten/test', $x);
+    $this->load->view('admin/konten/v_jadwal', $x);
   }
 
   function get_jadwal_json(){ //data data produk by JSON object

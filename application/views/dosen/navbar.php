@@ -281,7 +281,7 @@
 								<img class="nav-user-photo" src="<?php echo base_url('assets/template/back') ?> /images/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>Welcome,</small>
-									<?php echo $this->session->userdata('username'); ?>
+									<?php echo $this->session->userdata('nama'); ?>
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -289,14 +289,7 @@
 
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-cog"></i>
-										Settings
-									</a>
-								</li>
-
-								<li>
-									<a href="profile.html">
+									<a href="<?php echo site_url('dosen/profile_control') ?>">
 										<i class="ace-icon fa fa-user"></i>
 										Profile
 									</a>

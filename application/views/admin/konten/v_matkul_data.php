@@ -37,13 +37,6 @@
 
 
 						<div class="page-header">
-							<h1>
-								Matakuliah
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									List Data Mata Kuliah
-								</small>
-							</h1>
 						</div><!-- /.page-header -->
 
 						<div class="row">

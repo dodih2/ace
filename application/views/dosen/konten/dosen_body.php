@@ -1,17 +1,17 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<?php $this->load->view('admin/header') ?>
+	<?php $this->load->view('dosen/header') ?>
 
 	<body class="no-skin">
-		<?php $this->load->view('admin/navbar') ?>
+		<?php $this->load->view('dosen/navbar') ?>
 
 		<div class="main-container ace-save-state" id="main-container">
 			<script type="text/javascript">
 				try{ace.settings.loadState('main-container')}catch(e){}
 			</script>
 
-			<?php $this->load->view('admin/sidebar') ?>
+			<?php $this->load->view('dosen/sidebar') ?>
 
 			<div class="main-content">
 				<div class="main-content-inner">
@@ -21,7 +21,7 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-							<li class="active">Dashboard</li>
+							<li class="active">Produk</li>
 						</ul><!-- /.breadcrumb -->
 
 						<div class="nav-search" id="nav-search">

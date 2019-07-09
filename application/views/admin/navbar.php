@@ -289,14 +289,7 @@
 
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-cog"></i>
-										Settings
-									</a>
-								</li>
-
-								<li>
-									<a href="profile.html">
+									<a href="<?php echo site_url('admin/profile_control')?>">
 										<i class="ace-icon fa fa-user"></i>
 										Profile
 									</a>

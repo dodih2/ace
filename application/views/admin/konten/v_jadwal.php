@@ -37,13 +37,6 @@
 
 
 						<div class="page-header">
-							<h1>
-								Jadwal
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									List Jadwal
-								</small>
-							</h1>
 						</div><!-- /.page-header -->
 
 						<div class="row">

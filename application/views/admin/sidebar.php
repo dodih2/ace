@@ -40,7 +40,7 @@
 								<b class="arrow"></b>
 								<ul class="submenu">
 									<li class="">
-										<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control') ?>" value="124">
+										<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control') ?>">
 											<i class="menu-icon glyphicon glyphicon-minus "></i>
 											D3 T. Informatika
 										</a>
@@ -115,12 +115,33 @@
 					<li class="">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
-							<span class="menu-text"> forms </span>
-
+							<span class="menu-text"> Akademik </span>
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
-
 						<b class="arrow"></b>
+						<ul class="submenu">
+							<li>
+								<a href="<?php echo base_url('index.php/admin/matkul_control') ?>">
+									<i class="menu-icon glyphicon glyphicon-minus"></i>
+									Kelas
+								</a>
+								<b class="arrow"></b>
+							</li>
+							<li>
+								<a href="<?php echo base_url('index.php/admin/matkul_control') ?>">
+									<i class="menu-icon glyphicon glyphicon-minus"></i>
+									Ruangan
+								</a>
+								<b class="arrow"></b>
+							</li>
+							<li>
+								<a href="<?php echo base_url('index.php/admin/matkul_control') ?>">
+									<i class="menu-icon glyphicon glyphicon-minus"></i>
+									Jurusan
+								</a>
+								<b class="arrow"></b>
+							</li>
+						</ul>
 					</li>
 
 

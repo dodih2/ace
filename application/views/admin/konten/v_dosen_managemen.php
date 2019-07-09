@@ -37,13 +37,6 @@
 
 
 						<div class="page-header">
-							<h1>
-								Dosen
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									List Data Dosen
-								</small>
-							</h1>
 						</div><!-- /.page-header -->
 
 						<div class="row">
@@ -58,7 +51,6 @@
                           <th style="width:0.5%;">Nik</th>
                           <th style="width:0.5%;">Nama</th>
                           <th style="width:0.5%;">Jenis Kelamin</th>
-                          <th style="width:0.5%;">Level</th>
                           <th style="width:25%;">Alamat</th>
                           <th style="width:0.5%;">Dosen Jurusan</th>
                           <th style="width:0.5%;">Email</th>
@@ -89,7 +81,7 @@
 
                           <div class="form-group">
                             <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
-
+															<option value="0" selected>Jurusan</option>
                               <option value="1">Teknik Informatika</option>
                               <option value="2">Teknik Pendingin</option>
                               <option value="3">Teknik Mesin</option>
@@ -131,7 +123,7 @@
 
                           <div class="form-group">
                             <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
-
+															<option value="0" selected>Jurusan</option>
                               <option value="1">Teknik Informatika</option>
                               <option value="2">Teknik Pendingin</option>
                               <option value="3">Teknik Mesin</option>
@@ -184,6 +176,7 @@
 
                           <div class="form-group">
                             <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
+															<option value="0"></option>
                               <option value="1">Teknik Informatika</option>
                               <option value="2">Teknik Pendingin</option>
                               <option value="3">Teknik Mesin</option>
@@ -317,7 +310,6 @@
                     {"data": "nik"},
                     {"data": "nama"},
                     {"data": "j_k"},
-                    {"data": "level"},
                     {"data": "alamat"},
                     {"data": "dosen_jurusan"},
                     {"data": "email"},
