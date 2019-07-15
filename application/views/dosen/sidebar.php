@@ -1,4 +1,4 @@
-<div id="sidebar" class="sidebar                  responsive                    ace-save-state">
+<div id="sidebar" class="sidebar responsive ace-save-state">
 				<script type="text/javascript">
 					try{ace.settings.loadState('sidebar')}catch(e){}
 				</script>
@@ -78,7 +78,7 @@
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('index.php/dosen/absen_control') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
 									Absensi
 								</a>

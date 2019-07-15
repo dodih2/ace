@@ -27,12 +27,14 @@ class Login extends CI_Controller{
       $j_k = $data['j_k'];
       $email = $data['email'];
       $alamat = $data['alamat'];
+      $dosen_jurusan = $data['dosen_jurusan'];
       $level = $data['level'];
       $sesdata = array(
         'nik' => $nik,
         'nama'     => $nama,
         'j_k' => $j_k,
         'alamat' => $alamat,
+        'dosen_jurusan' => $dosen_jurusan,
         'email'    => $email,
         'level'    => $level,
         'logged_in'=> TRUE
