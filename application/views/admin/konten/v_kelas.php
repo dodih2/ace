@@ -47,9 +47,9 @@
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th>Kode Mata Kuliah</th>
+                          <th>Kode Kelas</th>
 													<th>Nama Jurusan</th>
-                          <th>Nama Mata Kuliah</th>
+                          <th>Nama Kelas</th>
                           <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
@@ -57,7 +57,7 @@
                 </div>
 
                 <!-- Modal Add Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/admin_kelas_control/simpan' ?>" method="post">
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/kelas_control/simpan' ?>" method="post">
                   <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -94,7 +94,7 @@
                 </form>
 
 	                <!-- Modal Update Produk -->
-								<form id="add-row-form" action="<?php echo base_url().'index.php/admin/admin_kelas_control/update' ?>" method="post">
+								<form id="add-row-form" action="<?php echo base_url().'index.php/admin/kelas_control/update' ?>" method="post">
                   <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -130,7 +130,7 @@
                 </form>
 
                 <!-- Modal Hapus Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/admin_kelas_control/delete' ?>" method="post">
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/kelas_control/delete' ?>" method="post">
                   <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -235,7 +235,7 @@
         },
             processing: true,
             serverSide: true,
-            ajax: {"url": "<?php echo base_url().'index.php/admin/admin_kelas_control/get_kelas_json' ?>", "type": "POST"},
+            ajax: {"url": "<?php echo base_url().'index.php/admin/kelas_control/get_kelas_json' ?>", "type": "POST"},
                   columns: [
                     {"data": "kelas_id"},
 										{"data": "nama_jurusan"},

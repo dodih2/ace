@@ -20,7 +20,7 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Akademik</a>
 							</li>
-							<li class="active">Jurusan</li>
+							<li class="active">Ruangan</li>
 						</ul><!-- /.breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -42,12 +42,13 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Tambah</button>
+                    <button type="reset" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Tambah</button>
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th>Kode Jurusan</th>
+                          <th>Kode Ruangan</th>
+													<th>Nama Ruangan</th>
                           <th>Nama Jurusan</th>
                           <th style="width:0.5%;">Action</th>
                         </tr>
@@ -56,22 +57,30 @@
                 </div>
 
                 <!-- Modal Add Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/jurusan_control/simpan' ?>" method="post">
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/ruangan_control/simpan' ?>" method="post">
                   <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Tambah Jurusan</h4>
+                          <h4 class="modal-title" id="myModalLabel">Tambah Ruangan</h4>
                         </div>
                         <div class="modal-body">
 
+													<div class="form-group">
+														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
+
                           <div class="form-group">
-                            <input type="text" name="data_id" class="form-control" placeholder="Kode Jurusan" required>
+                            <input type="number" name="data_id" class="form-control" placeholder="Kode Ruangan" required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Jurusan" required>
+                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Ruangan" required>
                           </div>
 
                         </div>
@@ -85,21 +94,29 @@
                 </form>
 
 	                <!-- Modal Update Produk -->
-								<form id="add-row-form" action="<?php echo base_url().'index.php/admin/jurusan_control/update' ?>" method="post">
+								<form id="add-row-form" action="<?php echo base_url().'index.php/admin/ruangan_control/update' ?>" method="post">
                   <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                          <h4 class="modal-title" id="myModalLabel">Update Jurusan</h4>
+                          <h4 class="modal-title" id="myModalLabel">Update Ruangan</h4>
                         </div>
                         <div class="modal-body">
+													<div class="form-group">
+														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
+
                           <div class="form-group">
-                            <input type="text" name="data_id" class="form-control" placeholder="Kode Jurusan" required>
+                            <input type="number" name="data_id" class="form-control" placeholder="Kode Ruangan" readonly required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Jurusan" required>
+                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Ruangan" required>
                           </div>
 
                         </div>
@@ -113,17 +130,17 @@
                 </form>
 
                 <!-- Modal Hapus Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/jurusan_control/delete' ?>" method="post">
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/ruangan_control/delete' ?>" method="post">
                   <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                          <h4 class="modal-title" id="myModalLabel">Hapus Jurusan</h4>
+                          <h4 class="modal-title" id="myModalLabel">Hapus Ruangan</h4>
                         </div>
                         <div class="modal-body">
-                          <input type="hidden" name="data_id" class="form-control" placeholder="Jurusan" required>
-                          <strong>Anda yakin mau menghapus Jurusan ini?</strong>
+                          <input type="hidden" name="data_id" class="form-control" placeholder="Ruangan" required>
+                          <strong>Anda yakin mau menghapus Ruangan ini?</strong>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
@@ -218,9 +235,10 @@
         },
             processing: true,
             serverSide: true,
-            ajax: {"url": "<?php echo base_url().'index.php/admin/jurusan_control/get_jurusan_json' ?>", "type": "POST"},
+            ajax: {"url": "<?php echo base_url().'index.php/admin/ruangan_control/get_ruangan_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "id_jurusan"},
+                    {"data": "id_ruangan"},
+										{"data": "nama_ruangan"},
                     {"data": "nama_jurusan"},
                     {"data": "view"}
                   ],
@@ -236,16 +254,18 @@
           // end setup datatables
           // get edit records
           $('#mytable').on('click','.edit_record',function(){
-            var id=$(this).data('id_jurusan');
-            var nama=$(this).data('nama_jurusan');
+            var id=$(this).data('id_ruangan');
+						var nama=$(this).data('nama_ruangan');
+            var jurusan=$(this).data('jurusan');
             $('#ModalUpdate').modal('show');
             $('[name="data_id"]').val(id);
-            $('[name="data_nama"]').val(nama);;
+            $('[name="data_nama"]').val(nama);
+            $('[name="jurusan"]').val(jurusan);
           });
           // End Edit Records
           // get Hapus Records
           $('#mytable').on('click','.hapus_record', function(){
-            var id=$(this).data('id_jurusan');
+            var id=$(this).data('id_ruangan');
             $('#ModalHapus').modal('show');
             $('[name="data_id"]').val(id);
           });

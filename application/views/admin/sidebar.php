@@ -121,21 +121,21 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li>
-								<a href="<?php echo base_url('index.php/admin/admin_kelas_control') ?>">
+								<a href="<?php echo base_url('index.php/admin/kelas_control') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
 									Kelas
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li>
-								<a href="<?php echo base_url('index.php/admin/matkul_control') ?>">
+								<a href="<?php echo base_url('index.php/admin/ruangan_control') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
 									Ruangan
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li>
-								<a href="<?php echo base_url('index.php/admin/admin_jurusan_control') ?>">
+								<a href="<?php echo base_url('index.php/admin/jurusan_control') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
 									Jurusan
 								</a>

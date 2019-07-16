@@ -12,7 +12,9 @@ class Jadwal_control extends CI_Controller{
 
   function index()
   {
-    $x['jadwal'] = $this->jadwal_model->get_jadwal();
+    $x['kelas'] = $this->jadwal_model->get_kelas();
+    $x['jurusan'] = $this->jadwal_model->get_jurusan();
+    $x['ruangan'] = $this->jadwal_model->get_ruangan();
     $this->load->view('admin/konten/v_jadwal', $x);
   }
 
@@ -23,17 +25,16 @@ class Jadwal_control extends CI_Controller{
 
   function simpan(){
     $data = array(
-      'id_hari' => $this->input->post('data_id'),
       'nama_hari' => $this->input->post('data_nama'),
       'kode_matkul' => $this->input->post('data_kode'),
-      'kelas' => $this->input->post('data_kelas'),
+      'kelas' => $this->input->post('kelas'),
+      'ruangan_id' => $this->input->post('ruangan'),
+      'jurusan_id' => $this->input->post('jurusan'),
       'semester' => $this->input->post('data_semester'),
       'nik' => $this->input->post('data_nik'),
       'jam_mulai' => $this->input->post('data_jamm'),
       'jam_selesai' => $this->input->post('data_jams'),
-      'jam_istirahat' => $this->input->post('data_jami'),
-      'id_ruangan' => $this->input->post('data_ruang'),
-      'id_jurusan' => $this->input->post('data_jurusan')
+      'jam_istirahat' => $this->input->post('data_jami')
     );
     $this->db->insert('jadwal', $data);
     redirect('admin/jadwal_control');
@@ -44,14 +45,14 @@ class Jadwal_control extends CI_Controller{
     $data = array(
       'nama_hari' => $this->input->post('data_nama'),
       'kode_matkul' => $this->input->post('data_kode'),
-      'kelas' => $this->input->post('data_kelas'),
+      'kelas' => $this->input->post('kelas'),
+      'ruangan_id' => $this->input->post('ruangan'),
+      'jurusan_id' => $this->input->post('jurusan'),
       'semester' => $this->input->post('data_semester'),
       'nik' => $this->input->post('data_nik'),
       'jam_mulai' => $this->input->post('data_jamm'),
       'jam_selesai' => $this->input->post('data_jams'),
-      'jam_istirahat' => $this->input->post('data_jami'),
-      'id_ruangan' => $this->input->post('data_ruang'),
-      'id_jurusan' => $this->input->post('data_jurusan')
+      'jam_istirahat' => $this->input->post('data_jami')
     );
     $this->db->where('id_hari', $kode);
     $this->db->update('jadwal', $data);

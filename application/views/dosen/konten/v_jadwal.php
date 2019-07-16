@@ -51,13 +51,11 @@
                           <th style="width:0.5%;">Kode Matkul</th>
                           <th style="width:0.5%;">Kelas</th>
                           <th style="width:0.5%;">Semester</th>
-                          <th style="width:0.5%;">Nik</th>
                           <th style="width:0.5%;">Jam Mulai</th>
 													<th style="width:0.5%;">Jam Selesai</th>
 													<th style="width:0.5%;">Jam Istirahat</th>
 													<th style="width:0.5%;">Ruangan</th>
 													<th style="width:0.5%;">Jurusan</th>
-                          <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
                     </table>
@@ -154,15 +152,13 @@
                     {"data": "id_hari"},
                     {"data": "nama_hari"},
                     {"data": "kode_matkul"},
-                    {"data": "kelas"},
+                    {"data": "kelas_nama"},
                     {"data": "semester"},
-                    {"data": "nik"},
                     {"data": "jam_mulai"},
 										{"data": "jam_selesai"},
 										{"data": "jam_istirahat"},
-										{"data": "id_ruangan"},
-										{"data": "id_jurusan"},
-                    {"data": "view"}
+										{"data": "nama_ruangan"},
+										{"data": "nama_jurusan"}
                   ],
 
             order: [[1, 'asc']],
@@ -175,40 +171,6 @@
             }
       });
           // end setup datatables
-          // get edit records
-          $('#mytable').on('click','.edit_record',function(){
-            var id=$(this).data('id_hari');
-            var nama=$(this).data('nama_hari');
-            var kode=$(this).data('kode_matkul');
-            var kelas=$(this).data('kelas');
-            var semester=$(this).data('semester');
-            var nik=$(this).data('nik');
-            var jamm=$(this).data('jam_mulai');
-						var jams=$(this).data('jam_selesai');
-						var jami=$(this).data('jam_istirahat');
-						var ruang=$(this).data('id_ruangan');
-						var jurusan=$(this).data('id_jurusan');
-            $('#ModalUpdate').modal('show');
-            $('[name="data_id"]').val(nik);
-            $('[name="data_nama"]').val(nama);
-            $('[name="data_kode"]').val(kode);
-            $('[name="data_kelas"]').val(kelas);
-            $('[name="data_semester"]').val(semester);
-            $('[name="data_nik"]').val(nik);
-            $('[name="data_jamm"]').val(jamm);
-						$('[name="data_jams"]').val(jams);
-						$('[name="data_jami"]').val(jami);
-						$('[name="data_ruang"]').val(ruang);
-						$('[name="data_jurusan"]').val(jurusan);
-          });
-          // End Edit Records
-          // get Hapus Records
-          $('#mytable').on('click','.hapus_record', function(){
-            var id=$(this).data('id_hari');
-            $('#ModalHapus').modal('show');
-            $('[name="data_id"]').val(id);
-          });
-          // End Hapus Records
     });
     </script>
 	</body>

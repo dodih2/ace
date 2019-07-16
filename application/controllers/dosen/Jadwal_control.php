@@ -12,7 +12,9 @@ class Jadwal_control extends CI_Controller{
 
   function index()
   {
-    $x['jadwal'] = $this->jadwal_dosen_model->get_jadwal();
+    $x['kelas'] = $this->jadwal_dosen_model->get_kelas();
+    $x['jurusan'] = $this->jadwal_dosen_model->get_jurusan();
+    $x['ruangan'] = $this->jadwal_dosen_model->get_ruangan();
     $this->load->view('dosen/konten/v_jadwal', $x);
   }
 

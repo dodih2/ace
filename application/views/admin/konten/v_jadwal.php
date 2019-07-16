@@ -47,7 +47,6 @@
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th style="width:0.5%;">ID Hari</th>
                           <th style="width:0.5%;">Nama Hari</th>
                           <th style="width:0.5%;">Kode Matkul</th>
                           <th style="width:0.5%;">Kelas</th>
@@ -64,7 +63,7 @@
                     </table>
                 </div>
 
-                <!-- Modal Add Dosen -->
+                <!-- Modal Add -->
                 <form id="add-row-form" action="<?php echo base_url().'index.php/admin/jadwal_control/simpan' ?>" method="post">
                   <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -75,10 +74,6 @@
                         </div>
                         <div class="modal-body">
 
-                          <div class="form-group">
-                            <input type="text" name="data_id" class="form-control" placeholder="Id Hari" required>
-                          </div>
-
 													<div class="form-group">
                             <input type="text" name="data_nama" class="form-control" placeholder="Nama Hari" required>
                           </div>
@@ -88,8 +83,12 @@
                           </div>
 
 													<div class="form-group">
-                            <input type="text" name="data_kelas" class="form-control" placeholder="kelas" required>
-                          </div>
+														<select class="form-control" name="kelas" placeholder="Kelas" required>
+															<?php foreach ($kelas->result() as $row): ?>
+																<option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 
 													<div class="form-group">
                             <input type="text" name="data_semester" class="form-control" placeholder="semester" required>
@@ -112,54 +111,20 @@
                           </div>
 
 													<div class="form-group">
-                            <input type="text" name="data_ruang" class="form-control" placeholder="Ruangan" required>
-                          </div>
-
-													<div class="form-group">
-                            <input type="text" name="data_jurusan" class="form-control" placeholder="Jurusan" required>
-                          </div>
-
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="submit" id="add-row" class="btn btn-success">Save</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-
-								<!-- Modal Add Admin -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/jadwal_control/simpan' ?>" method="post">
-                  <div class="modal fade" id="myModalAdd2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Add New</h4>
-                        </div>
-                        <div class="modal-body">
-
-                          <div class="form-group">
-                            <input type="text" name="data_nik" class="form-control" placeholder="Nik" required>
-                          </div>
-
-													<div hidden="true" class="form-group">
-														<input type="text" name="data_level" class="form-control" placeholder="Level" value="1" required>
+														<select class="form-control" name="ruangan" placeholder="Ruangan" required>
+															<?php foreach ($ruangan->result() as $row): ?>
+																<option value="<?php echo $row->id_ruangan; ?>"><?php echo $row->nama_ruangan; ?></option>
+															<?php endforeach; ?>
+														</select>
 													</div>
 
-                          <div class="form-group">
-                            <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
-
-                              <option value="1">Teknik Informatika</option>
-                              <option value="2">Teknik Pendingin</option>
-                              <option value="3">Teknik Mesin</option>
-                            </select>
-                          </div>
-
-                          <div class="form-group">
-                            <input type="text" name="data_password" class="form-control" placeholder="Password" required>
-                          </div>
+													<div class="form-group">
+														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 
                         </div>
                         <div class="modal-footer">
@@ -171,19 +136,20 @@
                   </div>
                 </form>
 
-                <!-- Modal Update Dosen -->
+
+                <!-- Modal Update Jadwal -->
                 <form id="add-row-form" action="<?php echo base_url().'index.php/admin/jadwal_control/update' ?>" method="post">
                   <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                          <h4 class="modal-title" id="myModalLabel">Update Dosen</h4>
+                          <h4 class="modal-title" id="myModalLabel">Update Jadwal</h4>
                         </div>
                         <div class="modal-body">
-													<div class="form-group">
-                            <input type="text" name="data_id" class="form-control" placeholder="Id Hari" required>
-                          </div>
+													<div class="form-group" hidden="true">
+														<input type="text" name="data_id" class="form-control" placeholder="Id Hari" required>
+													</div>
 
 													<div class="form-group">
                             <input type="text" name="data_nama" class="form-control" placeholder="Nama Hari" required>
@@ -194,8 +160,12 @@
                           </div>
 
 													<div class="form-group">
-                            <input type="text" name="data_kelas" class="form-control" placeholder="kelas" required>
-                          </div>
+														<select class="form-control" name="kelas" placeholder="Kelas" required>
+															<?php foreach ($kelas->result() as $row): ?>
+																<option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 
 													<div class="form-group">
                             <input type="text" name="data_semester" class="form-control" placeholder="semester" required>
@@ -218,12 +188,20 @@
                           </div>
 
 													<div class="form-group">
-                            <input type="text" name="data_ruang" class="form-control" placeholder="Ruangan" required>
-                          </div>
+														<select class="form-control" name="ruangan" placeholder="Ruangan" required>
+															<?php foreach ($ruangan->result() as $row): ?>
+																<option value="<?php echo $row->id_ruangan; ?>"><?php echo $row->nama_ruangan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 
 													<div class="form-group">
-                            <input type="text" name="data_jurusan" class="form-control" placeholder="Jurusan" required>
-                          </div>
+														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 
                         </div>
                         <div class="modal-footer">
@@ -235,14 +213,14 @@
                   </div>
                 </form>
 
-                <!-- Modal Hapus Dosen -->
+                <!-- Modal Hapus Jadwal -->
                 <form id="add-row-form" action="<?php echo base_url().'index.php/admin/jadwal_control/delete' ?>" method="post">
                   <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                          <h4 class="modal-title" id="myModalLabel">Hapus Dosen</h4>
+                          <h4 class="modal-title" id="myModalLabel">Hapus Jadwal</h4>
                         </div>
                         <div class="modal-body">
                           <input type="hidden" name="data_id" class="form-control" placeholder="Id hari" required>
@@ -345,17 +323,16 @@
 
             ajax: {"url": "<?php echo base_url().'index.php/admin/jadwal_control/get_jadwal_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "id_hari"},
                     {"data": "nama_hari"},
                     {"data": "kode_matkul"},
-                    {"data": "kelas"},
+                    {"data": "kelas_nama"},
                     {"data": "semester"},
                     {"data": "nik"},
                     {"data": "jam_mulai"},
 										{"data": "jam_selesai"},
 										{"data": "jam_istirahat"},
-										{"data": "id_ruangan"},
-										{"data": "id_jurusan"},
+										{"data": "nama_ruangan"},
+										{"data": "nama_jurusan"},
                     {"data": "view"}
                   ],
 
@@ -375,25 +352,25 @@
             var nama=$(this).data('nama_hari');
             var kode=$(this).data('kode_matkul');
             var kelas=$(this).data('kelas');
+						var ruangan=$(this).data('ruangan');
+						var jurusan=$(this).data('jurusan');
             var semester=$(this).data('semester');
             var nik=$(this).data('nik');
             var jamm=$(this).data('jam_mulai');
 						var jams=$(this).data('jam_selesai');
 						var jami=$(this).data('jam_istirahat');
-						var ruang=$(this).data('id_ruangan');
-						var jurusan=$(this).data('id_jurusan');
             $('#ModalUpdate').modal('show');
-            $('[name="data_id"]').val(nik);
+            $('[name="data_id"]').val(id);
             $('[name="data_nama"]').val(nama);
             $('[name="data_kode"]').val(kode);
-            $('[name="data_kelas"]').val(kelas);
+            $('[name="kelas"]').val(kelas);
+						$('[name="ruangan"]').val(ruangan);
+						$('[name="jurusan"]').val(jurusan);
             $('[name="data_semester"]').val(semester);
             $('[name="data_nik"]').val(nik);
             $('[name="data_jamm"]').val(jamm);
 						$('[name="data_jams"]').val(jams);
 						$('[name="data_jami"]').val(jami);
-						$('[name="data_ruang"]').val(ruang);
-						$('[name="data_jurusan"]').val(jurusan);
           });
           // End Edit Records
           // get Hapus Records

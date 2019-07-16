@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_jurusan_model extends CI_Model{
+class Jurusan_model extends CI_Model{
 
   function get_jurusan(){ //ambil data nik dari tabel user_mahasiswa
     $hsl = $this->db->get('jurusan');
