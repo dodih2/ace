@@ -30,6 +30,7 @@ class List_mahasiswa_control extends CI_Controller{
       'nama' => $this->input->post('data_nama'),
       'jenis_kelamin'=> $this->input->post('data_jk'),
       'user_kelas_id' => $this->input->post('kelas'),
+      'semester' => $this->input->post('data_semester'),
       'alamat' => $this->input->post('data_alamat'),
       'jurusan_id' => $this->input->post('jurusan'),
       'email' => $this->input->post('data_email')
@@ -44,6 +45,7 @@ class List_mahasiswa_control extends CI_Controller{
       'nama' => $this->input->post('data_nama'),
       'jenis_kelamin'=> $this->input->post('data_jk'),
       'user_kelas_id' => $this->input->post('kelas'),
+      'semester' => $this->input->post('data_semester'),
       'alamat' => $this->input->post('data_alamat'),
       'jurusan_id' => $this->input->post('jurusan'),
       'email' => $this->input->post('data_email')

@@ -51,6 +51,7 @@
                           <th style="width:0.5%;">Nama</th>
                           <th style="width:0.5%;">Jenis Kelamin</th>
                           <th style="width:0.5%;">Kelas</th>
+													<th style="width:0.5%;">Semester</th>
                           <th style="width:25%;">Alamat</th>
                           <th style="width:0.5%;">Jurusan</th>
                           <th style="width:0.5%;">Email</th>
@@ -92,9 +93,11 @@
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
+                            <input type="number" name="data_semester" class="form-control" placeholder="Semester" required>
                           </div>
-
+													<div class="form-group">
+														<input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
+													</div>
 													<div class="form-group">
 														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
 															<?php foreach ($jurusan->result() as $row): ?>
@@ -146,7 +149,9 @@
                               <?php endforeach; ?>
                             </select>
                           </div>
-
+													<div class="form-group">
+                            <input type="number" name="data_semester" class="form-control" placeholder="Semester" required>
+                          </div>
                           <div class="form-group">
                             <input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
                           </div>
@@ -285,6 +290,7 @@
                     {"data": "nama"},
                     {"data": "jenis_kelamin"},
                     {"data": "kelas_nama"},
+										{"data": "semester"},
                     {"data": "alamat"},
                     {"data": "nama_jurusan"},
                     {"data": "email"},
@@ -305,6 +311,7 @@
             var nim=$(this).data('nim');
             var nama=$(this).data('nama');
             var kelas=$(this).data('kelas');
+						var semester=$(this).data('semester');
             var jk=$(this).data('jk');
             var alamat=$(this).data('alamat');
             var jurusan=$(this).data('jurusan');
@@ -313,6 +320,7 @@
             $('[name="data_nim"]').val(nim);
             $('[name="data_nama"]').val(nama);
             $('[name="kelas"]').val(kelas);
+						$('[name="data_semester"]').val(semester);
             $('[name="data_jk"]').val(jk);
             $('[name="data_alamat"]').val(alamat);
             $('[name="jurusan"]').val(jurusan);
