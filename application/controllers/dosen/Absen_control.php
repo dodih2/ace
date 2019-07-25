@@ -31,18 +31,12 @@ class Absen_control extends CI_Controller{
   }
 
   function update(){
-    $kode = $this->input->post('data_id');
     $data = array(
-      'hadir' => $this->input->post('data_hadir')
+      'id_absen' => $this->input->post('data_id'),
+      'hadir' => $this->input->post('data_hadir'),
+      'nik' => $this->input->post('data_nik')
     );
-    $this->db->where('id_absen', $kode);
-    $this->db->update('absen', $data);
-
-    $data2 = array(
-            'id_absen' => NULL,
-      'hadir' => 0
-    );
-    $this->db->insert('absen', $data2);
+    $this->db->insert('absen', $data);
     redirect('dosen/absen_control');
   }
 

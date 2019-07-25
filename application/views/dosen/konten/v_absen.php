@@ -22,15 +22,6 @@
 							</li>
 							<li class="active">Absen</li>
 						</ul><!-- /.breadcrumb -->
-
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
 					</div>
 
 					<div class="page-content">
@@ -84,6 +75,10 @@
                           <div class="form-group">
                             <input type="text" name="data_hadir" class="form-control" placeholder="HADIR" required>
                           </div>
+
+													<div class="form-group">
+														<input type="text" name="data_nik" class="form-control" placeholder="NIK" required>
+													</div>
 
                         </div>
                         <div class="modal-footer">
@@ -261,9 +256,11 @@
           $('#mytable').on('click','.edit_record',function(){
             var id=$(this).data('id_absen');
             var hadir=$(this).data('hadir');
+						var nik=$(this).data('nik');
             $('#ModalUpdate').modal('show');
             $('[name="data_id"]').val(id);
-            $('[name="data_hadir"]').val(hadir);;
+            $('[name="data_hadir"]').val(hadir);
+						$('[name="data_nik"]').val(nik);
           });
           // End Edit Records
           // get Hapus Records
