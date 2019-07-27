@@ -104,10 +104,14 @@
                             <input type="text" name="data_id" class="form-control" placeholder="ID Absen" required>
                           </div>
 
-                          <div class="form-group">
-                            <input type="check" name="data_hadir" class="form-control" value="1" />
-                          </div>
-													form_checkbox(name, value, TRUE);
+													<div class="form-group">
+														<input type="radio" name="data_hadir" id="hadir1" class="ace" value="1" />
+														<span class="lbl">Hadir</span>
+														<input type="radio" name="data_alpa" id="alpa1" class="ace" value="1" />
+														<span class="lbl">Alpa</span>
+														<input type="radio" name="data_izin" id="izin1" class="ace" value="1" />
+														<span class="lbl">Izin</span>
+													</div>
 
                         </div>
                         <div class="modal-footer">
@@ -225,6 +229,8 @@
         },
             processing: true,
             serverSide: true,
+						"aLengthMenu": [[30, 50, 60, -1], [30, 50, 60, "All"]],
+"iDisplayLength": 30,
             ajax: {"url": "<?php echo base_url().'index.php/dosen/absen_control/get_absen_json' ?>", "type": "POST"},
                   columns: [
                     {"data": "id_absen"},
@@ -234,9 +240,23 @@
 										{"data": "jurusan_id"},
 										{"data": "ruangan_id"},
 										{"data": "kode_matkul"},
-										{"data": "hadir"},
-										{"data": "alpa"},
-										{"data": "izin"},
+										{"data": "hadir",
+										render : function (data, type, row){
+											return data == '1' ? '<span class="badge badge-success"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
+										}
+									},
+										{"data": "alpa",
+										render : function (data, type, row){
+											return data == '1' ? '<span class="badge badge-danger"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
+										}
+
+									},
+										{"data": "izin",
+										render : function (data, type, row){
+											return data == '1' ? '<span class="badge badge-info"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
+										}
+
+									},
 										{"data": "ket_telat"},
 										{"data": "keterangan"},
 										{"data": "waktu"},
@@ -271,6 +291,35 @@
           });
           // End Hapus Records
     });
-    </script>
+		</script>
+		<script>
+		    $(document).ready(function(){
+		        $("#hadir1").click(function(){
+		        	var radioValue = $("input[name='data_hadir']:checked").val();
+		            if(radioValue){
+		               $("input[name='data_hadir']").val(1);
+									 document.getElementById("alpa1").checked = false;
+									 document.getElementById("izin1").checked = false;
+		            }
+		        });
+						$("#alpa1").click(function(){
+							var radioValue = $("input[name='data_alpa']:checked").val();
+								if(radioValue){
+									 $("input[name='data_alpa']").val(1);
+									 document.getElementById("hadir1").checked = false;
+									 document.getElementById("izin1").checked = false;
+								}
+						});
+						$("#izin1").click(function(){
+							var radioValue = $("input[name='data_izin']:checked").val();
+								if(radioValue){
+									 $("input[name='data_izin']").val(1);
+									 document.getElementById("hadir1").checked = false;
+									 document.getElementById("alpa1").checked = false;
+								}
+						});
+
+		    });
+		</script>
 	</body>
 </html>

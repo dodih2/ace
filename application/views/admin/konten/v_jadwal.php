@@ -66,7 +66,14 @@
                         <div class="modal-body">
 
 													<div class="form-group">
-                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Hari" required>
+														<select class="form-control" name="data_nama" placeholder="Hari" required>
+																<option value="1">Senin</option>
+																<option value="2">Selasa</option>
+																<option value="3">Rabu</option>
+																<option value="4">Kamis</option>
+																<option value="5">Jumat</option>
+																<option value="6">Sabtu</option>
+														</select>
                           </div>
 
                           <div class="form-group">
@@ -314,7 +321,19 @@
 
             ajax: {"url": "<?php echo base_url().'index.php/admin/jadwal_control/get_jadwal_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "nama_hari"},
+                    {"data": "nama_hari",
+										render : function (data, type, row){
+											switch(data) {
+					               case 'Mon' : return 'Senin'; break;
+												 case 'Tue' : return 'Selasa'; break;
+												 case 'Wed' : return 'Rabu'; break;
+												 case 'Thu' : return 'Kamis'; break;
+												 case 'Fri' : return 'Jumat'; break;
+					               case 'Sat' : return 'Sabtu'; break;
+					               default  : return 'N/A';
+					            }
+										}
+									},
                     {"data": "kode_matkul"},
                     {"data": "kelas_nama"},
                     {"data": "semester"},

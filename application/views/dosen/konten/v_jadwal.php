@@ -32,6 +32,7 @@
 
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
+
                 <div class="col-xs-12">
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
@@ -141,7 +142,19 @@
             ajax: {"url": "<?php echo base_url().'index.php/dosen/jadwal_control/get_jadwal_json' ?>", "type": "POST"},
                   columns: [
                     {"data": "id_hari"},
-                    {"data": "nama_hari"},
+                    {"data": "nama_hari",
+										render : function (data, type, row){
+											switch(data) {
+					               case 'Mon' : return 'Senin'; break;
+												 case 'Tue' : return 'Selasa'; break;
+												 case 'Wed' : return 'Rabu'; break;
+												 case 'Thu' : return 'Kamis'; break;
+												 case 'Fri' : return 'Jumat'; break;
+					               case 'Sat' : return 'Sabtu'; break;
+					               default  : return 'N/A';
+					            }
+										}
+									},
                     {"data": "kode_matkul"},
                     {"data": "kelas_nama"},
                     {"data": "semester"},
@@ -152,7 +165,7 @@
 										{"data": "nama_jurusan"}
                   ],
 
-            order: [[1, 'asc']],
+            order: [[5, 'asc']],
 
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();

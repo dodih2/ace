@@ -19,6 +19,8 @@ class Jadwal_dosen_model extends CI_Model{
   }
 
   function get_all_jadwal(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
+        // $tgl = Date('D',strtotime('+2 days')); menambahkan waktu 2 hari
+    $tgl = Date('D');
     $id = $this->session->userdata('nik');
     $jurus = $this->session->userdata('dosen_jurusan');
     $this->datatables->select('id_hari, nama_hari, kode_matkul, semester, nik, jam_mulai, jam_selesai, jam_istirahat, kelas_id, kelas_nama, id_ruangan, nama_ruangan, id_jurusan, nama_jurusan');
@@ -27,7 +29,10 @@ class Jadwal_dosen_model extends CI_Model{
     $this->datatables->join('jurusan','jadwal.jurusan_id=id_jurusan');
     $this->datatables->join('ruangan','jadwal.ruangan_id=id_ruangan');
     $this->datatables->where("(nik = '$id' AND id_jurusan='$jurus')");
+    $this->datatables->like('nama_hari', $tgl);
     return $this->datatables->generate();
   }
+
+
 
 }
