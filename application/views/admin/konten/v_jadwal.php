@@ -358,7 +358,7 @@
           // end setup datatables
           // get edit records
           $('#mytable').on('click','.edit_record',function(){
-            var id=$(this).data('id_hari');
+            var id=$(this).data('id_jadwal');
             var nama=$(this).data('nama_hari');
             var kode=$(this).data('kode_matkul');
             var kelas=$(this).data('kelas');
@@ -385,7 +385,7 @@
           // End Edit Records
           // get Hapus Records
           $('#mytable').on('click','.hapus_record', function(){
-            var id=$(this).data('id_hari');
+            var id=$(this).data('id_jadwal');
             $('#ModalHapus').modal('show');
             $('[name="data_id"]').val(id);
           });

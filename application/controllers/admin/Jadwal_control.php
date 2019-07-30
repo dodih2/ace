@@ -54,14 +54,14 @@ class Jadwal_control extends CI_Controller{
       'jam_selesai' => $this->input->post('data_jams'),
       'jam_istirahat' => $this->input->post('data_jami')
     );
-    $this->db->where('id_hari', $kode);
+    $this->db->where('id_jadwal', $kode);
     $this->db->update('jadwal', $data);
     redirect('admin/jadwal_control');
   }
 
   function delete(){
     $kode = $this->input->post('data_id');
-    $this->db->where('id_hari', $kode);
+    $this->db->where('id_jadwal', $kode);
     $this->db->delete('jadwal');
     redirect('admin/jadwal_control');
   }
