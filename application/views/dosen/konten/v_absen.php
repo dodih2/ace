@@ -134,19 +134,19 @@
 													</div>
 
 													<div class="form-group">
-														<input type="text" name="data_kelasid" class="form-control" placeholder="kelas" >
+														<input type="text" name="data_kelas_id" class="form-control" placeholder="kelas" >
 													</div>
 
 													<div class="form-group">
-														<input type="text" name="data_jurusanid" class="form-control" placeholder="jurusan" >
+														<input type="text" name="data_jurusan_id" class="form-control" placeholder="jurusan" >
 													</div>
 
 													<div class="form-group">
-														<input type="text" name="data_ruanganid" class="form-control" placeholder="ruangan" >
+														<input type="text" name="data_ruangan_id" class="form-control" placeholder="ruangan" >
 													</div>
 
 													<div class="form-group">
-														<input type="text" name="data_matkul" class="form-control" placeholder="matkul" >
+														<input type="text" name="data_kode_matkul" class="form-control" placeholder="matkul" >
 													</div>
 
 													<div class="form-group">
