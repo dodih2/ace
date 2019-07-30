@@ -113,6 +113,51 @@
 														<span class="lbl">Izin</span>
 													</div>
 
+													<div class="form-group">
+														<input type="text" name="data_kettelat" class="form-control" placeholder="ket telat" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_keterangan" class="form-control" placeholder="keterangan" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_waktu" class="form-control" placeholder="waktu" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_nik" class="form-control" placeholder="nik" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_nim" class="form-control" placeholder="nim" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_kelasid" class="form-control" placeholder="kelas" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_jurusanid" class="form-control" placeholder="jurusan" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_ruanganid" class="form-control" placeholder="ruangan" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_matkul" class="form-control" placeholder="matkul" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_tanggal" class="form-control" placeholder="tanggal" >
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_hari" class="form-control" placeholder="Hari" >
+													</div>
+
+
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -276,11 +321,35 @@
           $('#mytable').on('click','.edit_record',function(){
             var id=$(this).data('id_absen');
             var hadir=$(this).data('hadir');
+						var alpa=$(this).data('alpa');
+						var izin=$(this).data('izin');
+						var ket_telat=$(this).data('ket_telat');
+						var keterangan=$(this).data('keterangan');
+						var waktu=$(this).data('waktu');
 						var nik=$(this).data('nik');
+						var nim=$(this).data('nim');
+						var kelas_id=$(this).data('kelas_id');
+						var jurusan_id=$(this).data('jurusan_id');
+						var ruangan_id=$(this).data('ruangan_id');
+						var kode_matkul=$(this).data('kode_matkul');
+						var tanggal=$(this).data('tanggal');
+						var hari=$(this).data('hari');
             $('#ModalUpdate').modal('show');
             $('[name="data_id"]').val(id);
             $('[name="data_hadir"]').val(hadir);
+						$('[name="data_alpa"]').val(alpa);
+						$('[name="data_izin"]').val(izin);
+						$('[name="data_kettelat"]').val(ket_telat);
+						$('[name="data_keterangan"]').val(keterangan);
+						$('[name="data_waktu"]').val(waktu);
 						$('[name="data_nik"]').val(nik);
+						$('[name="data_nim"]').val(nim);
+						$('[name="data_kelas_id"]').val(kelas_id);
+						$('[name="data_jurusan_id"]').val(jurusan_id);
+						$('[name="data_ruangan_id"]').val(ruangan_id);
+						$('[name="data_kode_matkul"]').val(kode_matkul);
+						$('[name="data_tanggal"]').val(tanggal);
+						$('[name="data_hari"]').val(hari);
           });
           // End Edit Records
           // get Hapus Records
