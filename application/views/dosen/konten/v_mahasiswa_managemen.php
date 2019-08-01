@@ -45,7 +45,6 @@
                           <th style="width:25%;">Alamat</th>
                           <th style="width:0.5%;">Jurusan</th>
                           <th style="width:0.5%;">Email</th>
-                          <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
                     </table>
@@ -278,8 +277,7 @@
                     {"data": "kelas_nama"},
                     {"data": "alamat"},
                     {"data": "nama_jurusan"},
-                    {"data": "email"},
-                    {"data": "view"}
+                    {"data": "email"}
                   ],
 
             order: [[1, 'asc']],

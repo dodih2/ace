@@ -59,24 +59,6 @@
 
 											<div class="space-6"></div>
 
-											<div class="profile-contact-info">
-												<div class="space-6"></div>
-
-												<div class="profile-social-links align-center">
-													<a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
-														<i class="middle ace-icon fa fa-facebook-square fa-2x blue"></i>
-													</a>
-
-													<a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
-														<i class="middle ace-icon fa fa-twitter-square fa-2x light-blue"></i>
-													</a>
-
-													<a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
-														<i class="middle ace-icon fa fa-pinterest-square fa-2x red"></i>
-													</a>
-												</div>
-											</div>
-
 											<div class="hr hr12 dotted"></div>
 
 
@@ -88,52 +70,34 @@
 
 											<div class="profile-user-info profile-user-info-striped">
 												<div class="profile-info-row">
-													<div class="profile-info-name"> Username </div>
+													<div class="profile-info-name">NIK</div>
 
 													<div class="profile-info-value">
-														<span class="editable" id="username">alexdoe</span>
+														<span><?php echo $this->session->userdata('nik'); ?></span>
 													</div>
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> Location </div>
+													<div class="profile-info-name">Jenis Kelamin</div>
 
 													<div class="profile-info-value">
-														<i class="fa fa-map-marker light-orange bigger-110"></i>
-														<span class="editable" id="country">Netherlands</span>
-														<span class="editable" id="city">Amsterdam</span>
+														<span><?php echo $this->session->userdata('j_k'); ?></span>
 													</div>
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> Age </div>
+													<div class="profile-info-name">Email</div>
 
 													<div class="profile-info-value">
-														<span class="editable" id="age">38</span>
+														<span><?php echo $this->session->userdata('email'); ?></span>
 													</div>
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> Joined </div>
+													<div class="profile-info-name">Alamat</div>
 
 													<div class="profile-info-value">
-														<span class="editable" id="signup">2010/06/20</span>
-													</div>
-												</div>
-
-												<div class="profile-info-row">
-													<div class="profile-info-name"> Last Online </div>
-
-													<div class="profile-info-value">
-														<span class="editable" id="login">3 hours ago</span>
-													</div>
-												</div>
-
-												<div class="profile-info-row">
-													<div class="profile-info-name"> About Me </div>
-
-													<div class="profile-info-value">
-														<span class="editable" id="about">Editable as WYSIWYG</span>
+														<span><?php echo $this->session->userdata('alamat'); ?></span>
 													</div>
 												</div>
 											</div>

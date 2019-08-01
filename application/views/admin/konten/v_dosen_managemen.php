@@ -34,7 +34,6 @@
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
                     <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Tambah Dosen</button>
-										<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd2">Tambah Admin</button>
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>
@@ -92,47 +91,6 @@
                   </div>
                 </form>
 
-								<!-- Modal Add Admin -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_dosen_control/simpan' ?>" method="post">
-                  <div class="modal fade" id="myModalAdd2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Add New</h4>
-                        </div>
-                        <div class="modal-body">
-
-                          <div class="form-group">
-                            <input type="text" name="data_nik" class="form-control" placeholder="Nik" required>
-                          </div>
-
-													<div hidden="true" class="form-group">
-														<input type="text" name="data_level" class="form-control" placeholder="Level" value="1" required>
-													</div>
-
-													<div class="form-group">
-														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
-															<?php foreach ($jurusan->result() as $row): ?>
-																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
-
-                          <div class="form-group">
-                            <input type="text" name="data_password" class="form-control" placeholder="Password" required>
-                          </div>
-
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="submit" id="add-row" class="btn btn-success">Save</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-
                 <!-- Modal Update Dosen -->
                 <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_dosen_control/update' ?>" method="post">
                   <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -155,7 +113,7 @@
                             <input type="text" name="data_jk" class="form-control" placeholder="Jenis Kelamin" required>
                           </div>
 
-                          <div class="form-group">
+                          <div hidden="true" class="form-group">
                             <input type="text" name="data_level" class="form-control" placeholder="level" required>
                           </div>
 
@@ -304,7 +262,7 @@
                     {"data": "view"}
                   ],
 
-            order: [[1, 'asc']],
+            order: [[0, 'asc'],[1, 'asc']],
 
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
@@ -321,16 +279,16 @@
             var level=$(this).data('level');
             var jk=$(this).data('jk');
             var alamat=$(this).data('alamat');
-            var jurusan=$(this).data('jurusan');
-            var email=$(this).data('email');
+						var email=$(this).data('email');
+						var jurusan=$(this).data('jurusan');
             $('#ModalUpdate').modal('show');
             $('[name="data_nik"]').val(nik);
             $('[name="data_nama"]').val(nama);
             $('[name="data_level"]').val(level);
             $('[name="data_jk"]').val(jk);
             $('[name="data_alamat"]').val(alamat);
+						$('[name="data_email"]').val(email);
             $('[name="data_jurusan"]').val(jurusan);
-            $('[name="data_email"]').val(email);
           });
           // End Edit Records
           // get Hapus Records

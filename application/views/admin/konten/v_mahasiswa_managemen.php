@@ -293,7 +293,7 @@
                     {"data": "view"}
                   ],
 
-            order: [[1, 'asc']],
+            order: [[6, 'asc'],[0, 'asc']],
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
               var page = info.iPage;

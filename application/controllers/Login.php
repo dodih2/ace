@@ -25,6 +25,7 @@ class Login extends CI_Controller{
       $nik = $data['nik'];
       $nama = $data['nama'];
       $j_k = $data['j_k'];
+      $ttl = $data['ttl'];
       $email = $data['email'];
       $alamat = $data['alamat'];
       $dosen_jurusan = $data['dosen_jurusan'];
@@ -33,6 +34,7 @@ class Login extends CI_Controller{
         'nik' => $nik,
         'nama'     => $nama,
         'j_k' => $j_k,
+        'ttl' => $ttl,
         'alamat' => $alamat,
         'dosen_jurusan' => $dosen_jurusan,
         'email'    => $email,

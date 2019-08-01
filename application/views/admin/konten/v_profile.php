@@ -59,24 +59,9 @@
 
 											<div class="profile-contact-info">
 												<div class="space-6"></div>
-
-												<div class="profile-social-links align-center">
-													<a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
-														<i class="middle ace-icon fa fa-facebook-square fa-2x blue"></i>
-													</a>
-
-													<a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
-														<i class="middle ace-icon fa fa-twitter-square fa-2x light-blue"></i>
-													</a>
-
-													<a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
-														<i class="middle ace-icon fa fa-pinterest-square fa-2x red"></i>
-													</a>
-												</div>
 											</div>
 
 											<div class="hr hr12 dotted"></div>
-
 
 											<div class="hr hr16 dotted"></div>
 										</div>

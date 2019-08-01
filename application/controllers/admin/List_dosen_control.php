@@ -37,18 +37,6 @@ class List_dosen_control extends CI_Controller{
     redirect('admin/list_dosen_control');
   }
 
-// Simpan data Admin
-	function simpan2(){
-		$data = array(
-			'nik' => $this->input->post('data_nik'),
-			'level' => $this->input->post('data_level'),
-			'dosen_jurusan' => $this->input->post('jurusan'),
-			'password' => $this->input->post('data_password')
-		);
-		$this->db->insert('user_dosen', $data);
-		redirect('admin/list_dosen_control');
-	}
-
 
   function update(){
     $kode = $this->input->post('data_nik');
