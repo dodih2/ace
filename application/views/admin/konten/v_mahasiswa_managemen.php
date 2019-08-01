@@ -76,7 +76,16 @@
                           </div>
 
 													<div class="form-group">
+														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
+
+													<div class="form-group">
                             <select class="form-control" name="kelas" placeholder="Kelas" required>
+
                               <?php foreach ($kelas->result() as $row): ?>
                                 <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
                               <?php endforeach; ?>
@@ -86,15 +95,9 @@
                           <div class="form-group">
                             <input type="number" name="data_semester" class="form-control" placeholder="Semester" required>
                           </div>
+
 													<div class="form-group">
 														<input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
-													</div>
-													<div class="form-group">
-														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
-															<?php foreach ($jurusan->result() as $row): ?>
-																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
-															<?php endforeach; ?>
-														</select>
 													</div>
 
                           <div class="form-group">
@@ -134,6 +137,14 @@
                           </div>
 
 													<div class="form-group">
+														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
+
+													<div class="form-group">
                             <select class="form-control" name="kelas" placeholder="Kelas" required>
                               <?php foreach ($kelas->result() as $row): ?>
                                 <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
@@ -147,13 +158,7 @@
                             <input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
                           </div>
 
-													<div class="form-group">
-														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
-															<?php foreach ($jurusan->result() as $row): ?>
-																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
+
 
                           <div class="form-group">
                             <input type="text" name="data_email" class="form-control" placeholder="Email" required>
@@ -301,19 +306,19 @@
           $('#mytable').on('click','.edit_record',function(){
             var nim=$(this).data('nim');
             var nama=$(this).data('nama');
-            var kelas=$(this).data('kelas');
 						var semester=$(this).data('semester');
             var jk=$(this).data('jk');
             var alamat=$(this).data('alamat');
+						var kelas=$(this).data('kelas');
             var jurusan=$(this).data('jurusan');
             var email=$(this).data('email');
             $('#ModalUpdate').modal('show');
             $('[name="data_nim"]').val(nim);
             $('[name="data_nama"]').val(nama);
-            $('[name="kelas"]').val(kelas);
 						$('[name="data_semester"]').val(semester);
             $('[name="data_jk"]').val(jk);
             $('[name="data_alamat"]').val(alamat);
+						$('[name="kelas"]').val(kelas);
             $('[name="jurusan"]').val(jurusan);
             $('[name="data_email"]').val(email);
           });

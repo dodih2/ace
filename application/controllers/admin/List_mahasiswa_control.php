@@ -36,6 +36,13 @@ class List_mahasiswa_control extends CI_Controller{
       'email' => $this->input->post('data_email')
     );
     $this->db->insert('user_mahasiswa', $data);
+    $data2 = array(
+      'nim' => $this->input->post('data_nim'),
+      'kelas_id' => $this->input->post('kelas'),
+      'jurusan_id' => $this->input->post('jurusan'),
+      'konfirmasi' => 2
+    );
+    $this->db->insert('absen', $data2);
     redirect('admin/list_mahasiswa_control');
   }
 

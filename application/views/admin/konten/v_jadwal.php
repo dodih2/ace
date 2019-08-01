@@ -45,7 +45,6 @@
                           <th style="width:0.5%;">Nik</th>
                           <th style="width:0.5%;">Jam Mulai</th>
 													<th style="width:0.5%;">Jam Selesai</th>
-													<th style="width:0.5%;">Jam Istirahat</th>
 													<th style="width:0.5%;">Ruangan</th>
 													<th style="width:0.5%;">Jurusan</th>
                           <th style="width:0.5%;">Action</th>
@@ -102,10 +101,6 @@
 
 													<div class="form-group">
                             <input type="text" name="data_jams" class="form-control" placeholder="jam selesai" required>
-                          </div>
-
-													<div class="form-group">
-                            <input type="text" name="data_jami" class="form-control" placeholder="jam istirahat" required>
                           </div>
 
 													<div class="form-group">
@@ -181,9 +176,7 @@
                             <input type="text" name="data_jams" class="form-control" placeholder="jam selesai" required>
                           </div>
 
-													<div class="form-group">
-                            <input type="text" name="data_jami" class="form-control" placeholder="jam istirahat" required>
-                          </div>
+
 
 													<div class="form-group">
 														<select class="form-control" name="ruangan" placeholder="Ruangan" required>
@@ -340,7 +333,6 @@
                     {"data": "nik"},
                     {"data": "jam_mulai"},
 										{"data": "jam_selesai"},
-										{"data": "jam_istirahat"},
 										{"data": "nama_ruangan"},
 										{"data": "nama_jurusan"},
                     {"data": "view"}
@@ -368,7 +360,6 @@
             var nik=$(this).data('nik');
             var jamm=$(this).data('jam_mulai');
 						var jams=$(this).data('jam_selesai');
-						var jami=$(this).data('jam_istirahat');
             $('#ModalUpdate').modal('show');
             $('[name="data_id"]').val(id);
             $('[name="data_nama"]').val(nama);
@@ -380,7 +371,6 @@
             $('[name="data_nik"]').val(nik);
             $('[name="data_jamm"]').val(jamm);
 						$('[name="data_jams"]').val(jams);
-						$('[name="data_jami"]').val(jami);
           });
           // End Edit Records
           // get Hapus Records

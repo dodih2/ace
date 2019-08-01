@@ -33,10 +33,21 @@ class Jadwal_control extends CI_Controller{
       'semester' => $this->input->post('data_semester'),
       'nik' => $this->input->post('data_nik'),
       'jam_mulai' => $this->input->post('data_jamm'),
-      'jam_selesai' => $this->input->post('data_jams'),
-      'jam_istirahat' => $this->input->post('data_jami')
+      'jam_selesai' => $this->input->post('data_jams')
     );
     $this->db->insert('jadwal', $data);
+
+    $kode = $this->input->post('kelas');
+    $data2 = array(
+    'nik' => $this->input->post('data_nik') ,
+    'ruangan_id' => $this->input->post('jurusan'),
+    'kode_matkul' => $this->input->post('data_kode'),
+    'hari' => $this->input->post('data_nama'),
+    'jam_mulai' => $this->input->post('data_jamm'),
+    'jam_selesai' => $this->input->post('data_jams')
+    );
+    $this->db->where('kelas_id', $kode);
+    $this->db->update('absen', $data2);
     redirect('admin/jadwal_control');
   }
 
@@ -51,8 +62,7 @@ class Jadwal_control extends CI_Controller{
       'semester' => $this->input->post('data_semester'),
       'nik' => $this->input->post('data_nik'),
       'jam_mulai' => $this->input->post('data_jamm'),
-      'jam_selesai' => $this->input->post('data_jams'),
-      'jam_istirahat' => $this->input->post('data_jami')
+      'jam_selesai' => $this->input->post('data_jams')
     );
     $this->db->where('id_jadwal', $kode);
     $this->db->update('jadwal', $data);

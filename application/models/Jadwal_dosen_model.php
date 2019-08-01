@@ -24,7 +24,7 @@ class Jadwal_dosen_model extends CI_Model{
     $waktu1 = Date('H:I:S');
     $id = $this->session->userdata('nik');
     $jurus = $this->session->userdata('dosen_jurusan');
-    $this->datatables->select('id_hari, nama_hari, kode_matkul, semester, nik, jam_mulai, jam_selesai, jam_istirahat, kelas_id, kelas_nama, id_ruangan, nama_ruangan, id_jurusan, nama_jurusan');
+    $this->datatables->select('id_jadwal, nama_hari, kode_matkul, semester, nik, jam_mulai, jam_selesai, kelas_id, kelas_nama, id_ruangan, nama_ruangan, id_jurusan, nama_jurusan');
     $this->datatables->from('jadwal');
     $this->datatables->join('kelas', 'jadwal.kelas=kelas_id');
     $this->datatables->join('jurusan','jadwal.jurusan_id=id_jurusan');

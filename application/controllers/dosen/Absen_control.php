@@ -33,9 +33,11 @@ class Absen_control extends CI_Controller{
   function update(){
     $kode = $this->input->post('data_id');
     $data = array(
+      'nik' => $this->session->userdata('nik'),
       'hadir' => $this->input->post('data_hadir'),
       'alpa' => $this->input->post('data_alpa'),
-      'izin' => $this->input->post('data_izin')
+      'izin' => $this->input->post('data_izin'),
+      'konfirmasi' => 1
     );
     $this->db->where('id_absen', $kode);
     $this->db->update('absen', $data);

@@ -45,7 +45,6 @@
                           <th style="width:0.5%;">Semester</th>
                           <th style="width:0.5%;">Jam Mulai</th>
 													<th style="width:0.5%;">Jam Selesai</th>
-													<th style="width:0.5%;">Jam Istirahat</th>
 													<th style="width:0.5%;">Ruangan</th>
 													<th style="width:0.5%;">Jurusan</th>
                         </tr>
@@ -141,7 +140,7 @@
 
             ajax: {"url": "<?php echo base_url().'index.php/dosen/jadwal_control/get_jadwal_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "id_hari"},
+                    {"data": "id_jadwal"},
                     {"data": "nama_hari",
 										render : function (data, type, row){
 											switch(data) {
@@ -160,7 +159,6 @@
                     {"data": "semester"},
                     {"data": "jam_mulai"},
 										{"data": "jam_selesai"},
-										{"data": "jam_istirahat"},
 										{"data": "nama_ruangan"},
 										{"data": "nama_jurusan"}
                   ],

@@ -126,7 +126,7 @@
 													</div>
 
 													<div class="form-group">
-														<input type="text" name="data_nik" class="form-control" placeholder="nik" >
+														<input type="text" name="data_nik" class="form-control" placeholder="nik" value="" >
 													</div>
 
 													<div class="form-group">

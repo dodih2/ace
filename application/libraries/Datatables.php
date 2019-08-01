@@ -147,7 +147,7 @@
       $this->ci->db->or_where($key_condition, $val, $backtick_protect);
       return $this;
     }
-    
+
     /**
     * Generates the WHERE IN portion of the query
     *
@@ -381,7 +381,7 @@
         $this->ci->db->where($val[0], $val[1], $val[2]);
       foreach($this->or_where as $val)
         $this->ci->db->or_where($val[0], $val[1], $val[2]);
-        
+
       foreach($this->where_in as $val)
         $this->ci->db->where_in($val[0], $val[1]);
       foreach($this->group_by as $val)
@@ -408,7 +408,7 @@
     private function exec_replace($custom_val, $row_data)
     {
       $replace_string = '';
-      
+
       // Go through our array backwards, else $1 (foo) will replace $11, $12 etc with foo1, foo2 etc
       $custom_val['replacement'] = array_reverse($custom_val['replacement'], true);
       if(isset($custom_val['replacement']) && is_array($custom_val['replacement']))
@@ -545,7 +545,7 @@
         return '{' . join(',', $json) . '}';
       }
     }
-	
+
 	 /**
      * returns the sql statement of the last query run
      * @return type
