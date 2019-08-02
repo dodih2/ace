@@ -42,7 +42,6 @@
                           <th style="width:0.5%;">Nama Hari</th>
                           <th style="width:0.5%;">Kode Matkul</th>
                           <th style="width:0.5%;">Kelas</th>
-                          <th style="width:0.5%;">Semester</th>
                           <th style="width:0.5%;">Jam Mulai</th>
 													<th style="width:0.5%;">Jam Selesai</th>
 													<th style="width:0.5%;">Ruangan</th>
@@ -156,7 +155,6 @@
 									},
                     {"data": "kode_matkul"},
                     {"data": "kelas_nama"},
-                    {"data": "semester"},
                     {"data": "jam_mulai"},
 										{"data": "jam_selesai"},
 										{"data": "nama_ruangan"},

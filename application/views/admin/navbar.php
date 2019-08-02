@@ -11,12 +11,12 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="<?php echo base_url('index.php/admin/bodyadmin') ?>" class="navbar-brand">
-						<small>
-							<i class="fa fa-leaf"></i>
-							ABSENSI
-						</small>
-					</a>
+						<a href="<?php  echo site_url('admin/admin_control') ?>" class="navbar-brand">
+							<small>
+								<img src="<?php echo base_url('assets/images') ?>/data/logopolindra.png" style="width:25px;" alt="logo">
+								Absensi
+							</small>
+						</a>
 				</div>
 
 				<div class="navbar-buttons navbar-header pull-right" role="navigation">

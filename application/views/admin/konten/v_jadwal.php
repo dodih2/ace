@@ -41,7 +41,6 @@
                           <th style="width:0.5%;">Nama Hari</th>
                           <th style="width:0.5%;">Kode Matkul</th>
                           <th style="width:0.5%;">Kelas</th>
-                          <th style="width:0.5%;">Semester</th>
                           <th style="width:0.5%;">Nik</th>
                           <th style="width:0.5%;">Jam Mulai</th>
 													<th style="width:0.5%;">Jam Selesai</th>
@@ -87,9 +86,6 @@
 														</select>
 													</div>
 
-													<div class="form-group">
-                            <input type="text" name="data_semester" class="form-control" placeholder="semester" required>
-                          </div>
 
 													<div class="form-group">
                             <input type="text" name="data_nik" class="form-control" placeholder="nik" required>
@@ -160,9 +156,6 @@
 														</select>
 													</div>
 
-													<div class="form-group">
-                            <input type="text" name="data_semester" class="form-control" placeholder="semester" required>
-                          </div>
 
 													<div class="form-group">
                             <input type="text" name="data_nik" class="form-control" placeholder="nik" required>
@@ -329,7 +322,6 @@
 									},
                     {"data": "kode_matkul"},
                     {"data": "kelas_nama"},
-                    {"data": "semester"},
                     {"data": "nik"},
                     {"data": "jam_mulai"},
 										{"data": "jam_selesai"},
@@ -356,7 +348,6 @@
             var kelas=$(this).data('kelas');
 						var ruangan=$(this).data('ruangan');
 						var jurusan=$(this).data('jurusan');
-            var semester=$(this).data('semester');
             var nik=$(this).data('nik');
             var jamm=$(this).data('jam_mulai');
 						var jams=$(this).data('jam_selesai');
@@ -367,7 +358,6 @@
             $('[name="kelas"]').val(kelas);
 						$('[name="ruangan"]').val(ruangan);
 						$('[name="jurusan"]').val(jurusan);
-            $('[name="data_semester"]').val(semester);
             $('[name="data_nik"]').val(nik);
             $('[name="data_jamm"]').val(jamm);
 						$('[name="data_jams"]').val(jams);

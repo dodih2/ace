@@ -33,62 +33,23 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Tambah</button>
-                    <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
                           <th>ID Absen</th>
 													<th>NIK</th>
-													<th>NIM</th>
+													<th>NAMA</th>
 													<th>KELAS</th>
-													<th>JURUSAN</th>
-													<th>RUANGAN</th>
-													<th>MATKUL</th>
                           <th>HADIR</th>
 													<th>ALPA</th>
 													<th>IZIN</th>
-													<th>TELAT</th>
 													<th>KETERANGAN</th>
-													<th>WAKTU</th>
+													<th>Jadwal</th>
                           <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
                     </table>
                 </div>
-
-                <!-- Modal Add Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/dosen/absen_control/simpan' ?>" method="post">
-                  <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Tambah Absen</h4>
-                        </div>
-                        <div class="modal-body">
-
-                          <div class="form-group">
-                            <input type="text" name="data_id" class="form-control" placeholder="ID ABSEN" required>
-                          </div>
-
-                          <div class="form-group">
-                            <input type="text" name="data_hadir" class="form-control" placeholder="HADIR" required>
-                          </div>
-
-													<div class="form-group">
-														<input type="text" name="data_nik" class="form-control" placeholder="NIK" required>
-													</div>
-
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                          <button type="submit" id="add-row" class="btn btn-success">Simpan</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
 
 	                <!-- Modal Update Produk -->
 								<form id="add-row-form" action="<?php echo base_url().'index.php/dosen/absen_control/update' ?>" method="post">
@@ -113,17 +74,11 @@
 														<span class="lbl">Izin</span>
 													</div>
 
-													<div class="form-group">
-														<input type="text" name="data_kettelat" class="form-control" placeholder="ket telat" >
-													</div>
 
 													<div class="form-group">
 														<input type="text" name="data_keterangan" class="form-control" placeholder="keterangan" >
 													</div>
 
-													<div class="form-group">
-														<input type="text" name="data_waktu" class="form-control" placeholder="waktu" >
-													</div>
 
 													<div class="form-group">
 														<input type="text" name="data_nik" class="form-control" placeholder="nik" value="" >
@@ -134,28 +89,13 @@
 													</div>
 
 													<div class="form-group">
-														<input type="text" name="data_kelas_id" class="form-control" placeholder="kelas" >
+														<input type="text" name="data_kelas" class="form-control" placeholder="kelas" >
 													</div>
 
 													<div class="form-group">
-														<input type="text" name="data_jurusan_id" class="form-control" placeholder="jurusan" >
+														<input type="text" name="data_jadwal" class="form-control" placeholder="jadwal" >
 													</div>
 
-													<div class="form-group">
-														<input type="text" name="data_ruangan_id" class="form-control" placeholder="ruangan" >
-													</div>
-
-													<div class="form-group">
-														<input type="text" name="data_kode_matkul" class="form-control" placeholder="matkul" >
-													</div>
-
-													<div class="form-group">
-														<input type="text" name="data_tanggal" class="form-control" placeholder="tanggal" >
-													</div>
-
-													<div class="form-group">
-														<input type="text" name="data_hari" class="form-control" placeholder="Hari" >
-													</div>
 
 
                         </div>
@@ -279,12 +219,9 @@
             ajax: {"url": "<?php echo base_url().'index.php/dosen/absen_control/get_absen_json' ?>", "type": "POST"},
                   columns: [
                     {"data": "id_absen"},
-                    {"data": "nik"},
-										{"data": "nim"},
-										{"data": "kelas_id"},
-										{"data": "jurusan_id"},
-										{"data": "ruangan_id"},
-										{"data": "kode_matkul"},
+                    {"data": "nik_id"},
+										{"data": "nama"},
+										{"data": "kelas_nama"},
 										{"data": "hadir",
 										render : function (data, type, row){
 											return data == '1' ? '<span class="badge badge-success"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
@@ -302,9 +239,8 @@
 										}
 
 									},
-										{"data": "ket_telat"},
 										{"data": "keterangan"},
-										{"data": "waktu"},
+										{"data": "nama_hari"},
                     {"data": "view"}
                   ],
 
@@ -323,33 +259,21 @@
             var hadir=$(this).data('hadir');
 						var alpa=$(this).data('alpa');
 						var izin=$(this).data('izin');
-						var ket_telat=$(this).data('ket_telat');
 						var keterangan=$(this).data('keterangan');
-						var waktu=$(this).data('waktu');
 						var nik=$(this).data('nik');
 						var nim=$(this).data('nim');
-						var kelas_id=$(this).data('kelas_id');
-						var jurusan_id=$(this).data('jurusan_id');
-						var ruangan_id=$(this).data('ruangan_id');
-						var kode_matkul=$(this).data('kode_matkul');
-						var tanggal=$(this).data('tanggal');
-						var hari=$(this).data('hari');
+						var kelas_id=$(this).data('kelas');
+						var jadwal_id=$(this).data('jadwal');
             $('#ModalUpdate').modal('show');
             $('[name="data_id"]').val(id);
             $('[name="data_hadir"]').val(hadir);
 						$('[name="data_alpa"]').val(alpa);
 						$('[name="data_izin"]').val(izin);
-						$('[name="data_kettelat"]').val(ket_telat);
 						$('[name="data_keterangan"]').val(keterangan);
-						$('[name="data_waktu"]').val(waktu);
 						$('[name="data_nik"]').val(nik);
 						$('[name="data_nim"]').val(nim);
-						$('[name="data_kelas_id"]').val(kelas_id);
-						$('[name="data_jurusan_id"]').val(jurusan_id);
-						$('[name="data_ruangan_id"]').val(ruangan_id);
-						$('[name="data_kode_matkul"]').val(kode_matkul);
-						$('[name="data_tanggal"]').val(tanggal);
-						$('[name="data_hari"]').val(hari);
+						$('[name="data_kelas"]').val(kelas_id);
+						$('[name="data_jadwal"]').val(jadwal_id);
           });
           // End Edit Records
           // get Hapus Records

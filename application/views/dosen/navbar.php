@@ -11,10 +11,10 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<a href="<?php  echo site_url('dosen/test') ?>" class="navbar-brand">
 						<small>
-							<i class="fa fa-leaf"></i>
-							Ace Admin
+							<img src="<?php echo base_url('assets/images') ?>/data/logopolindra.png" style="width:25px;" alt="logo">
+							Absensi
 						</small>
 					</a>
 				</div>
