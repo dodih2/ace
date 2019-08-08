@@ -16,6 +16,7 @@ class Absen_control extends CI_Controller{
     $x['kelas'] = $this->absen_dosen_model->get_kelas();
     $x['jadwal'] = $this->absen_dosen_model->get_jadwal();
     $this->load->view('dosen/konten/v_absen', $x);
+    
   }
 
   function get_absen_json(){ //data data produk by JSON object
@@ -23,49 +24,39 @@ class Absen_control extends CI_Controller{
     echo $this->absen_dosen_model->get_all_absen();
   }
 
-  function simpan(){
-    $data = array(
-      'id_absen' => $this->input->post('data_id'),
-      'hadir' => $this->input->post('data_hadir')
-    );
-    $this->db->insert('absen', $data);
-    redirect('dosen/absen_control');
+  function get_absen_jsonn(){ //data data produk by JSON object
+    header('Content-Type: application/json');
+    echo $this->absen_dosen_model->get_all_absenn();
   }
 
-  function update(){
-    $kode = $this->input->post('data_id');
+  function simpan(){
     $data = array(
-      'nik_id' => $this->input->post('data_nik'),
+      'nik_id_id' => $this->session->userdata('nik'),
       'nim_id' => $this->input->post('data_nim'),
-      'kelas' => $this->input->post('data_kelas'),
+      'absen_kelas_id' => $this->input->post('data_kelas'),
       'hadir' => $this->input->post('data_hadir'),
       'alpa' => $this->input->post('data_alpa'),
       'izin' => $this->input->post('data_izin'),
-      'keterangan' => $this->input->post('data_keterangan'),
-      'jadwal_id' => $this->input->post('data_jadwal'),
-      'konfirmasi' => 1
+      'keterangan' => $this->input->post('data_keterangan')
     );
-    $this->db->where('id_absen', $kode);
-    $this->db->update('absen', $data);
-    $data2 = array(
-      'nik_id' => $this->input->post('data_nik'),
-      'nim_id' => $this->input->post('data_nim'),
-      'kelas' => $this->input->post('data_kelas'),
-      'hadir' => 0,
-      'alpa' => 0,
-      'izin' => 0,
-      'keterangan' => $this->input->post('data_keterangan'),
-      'jadwal_id' => $this->input->post('data_jadwal'),
-      'konfirmasi' => 2
-    );
-    $this->db->insert('absen', $data2);
+    $this->db->insert('absen', $data);
+    $kode = $this->input->post('data_nim');
+    $data2 = array('konfirmasi' => 2);
+    $this->db->where('nim', $kode);
+    $this->db->update('user_mahasiswa', $data2);
     redirect('dosen/absen_control');
   }
 
-  function delete(){
+  function simpan2(){
     $kode = $this->input->post('data_id');
+    $data = array(
+      'hadir' => $this->input->post('data_hadir2'),
+      'alpa' => $this->input->post('data_alpa2'),
+      'izin' => $this->input->post('data_izin2'),
+      'keterangan' => $this->input->post('data_keterangan')
+    );
     $this->db->where('id_absen', $kode);
-    $this->db->delete('absen');
+    $this->db->update('absen', $data);
     redirect('dosen/absen_control');
   }
 

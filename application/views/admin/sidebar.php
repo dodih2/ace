@@ -32,7 +32,7 @@
 							</li>
 							<li class="">
 								<!-- <a href="#" class="dropdown-toggle"> -->
-									<a href="#" class="dropdown-toggle">
+									<a href="" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Mahasiswa
 									<b class="arrow fa fa-angle-down"></b>
@@ -42,19 +42,26 @@
 									<li class="">
 										<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control') ?>">
 											<i class="menu-icon glyphicon glyphicon-minus "></i>
+											Semua Mahasiswa
+										</a>
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control/index1') ?>">
+											<i class="menu-icon glyphicon glyphicon-minus "></i>
 											D3 T. Informatika
 										</a>
 										<b class="arrow"></b>
 									</li>
 									<li class="">
-										<a href="#">
+										<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control/index2') ?>">
 											<i class="menu-icon glyphicon glyphicon-minus"></i>
 											D3 T. Mesin
 										</a>
 										<b class="arrow"></b>
 									</li>
 									<li class="">
-										<a href="#">
+										<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control/index3') ?>">
 											<i class="menu-icon glyphicon glyphicon-minus"></i>
 											D3 T. Pendingin
 										</a>

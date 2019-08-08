@@ -18,9 +18,9 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Managemen Data</a>
+								<a href="#">Managemen User</a>
 							</li>
-							<li class="active">Jadwal</li>
+							<li class="active">Mahasiswa</li>
 						</ul><!-- /.breadcrumb -->
 					</div>
 
@@ -33,27 +33,27 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Tambah jadwal</button>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th style="width:0.5%;">Nama Hari</th>
-                          <th style="width:0.5%;">Kode Matkul</th>
+                          <th style="width:0.5%;">Nim</th>
+                          <th style="width:0.5%;">Nama</th>
+                          <th style="width:0.5%;">Jenis Kelamin</th>
                           <th style="width:0.5%;">Kelas</th>
-                          <th style="width:0.5%;">Nik</th>
-                          <th style="width:0.5%;">Jam Mulai</th>
-													<th style="width:0.5%;">Jam Selesai</th>
-													<th style="width:0.5%;">Ruangan</th>
-													<th style="width:0.5%;">Jurusan</th>
+													<th style="width:0.5%;">Semester</th>
+                          <th style="width:25%;">Alamat</th>
+                          <th style="width:0.5%;">Jurusan</th>
+                          <th style="width:0.5%;">Email</th>
                           <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
                     </table>
                 </div>
 
-                <!-- Modal Add -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/jadwal_control/simpan' ?>" method="post">
+                <!-- Modal Add Produk -->
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_mahasiswa_control/simpan' ?>" method="post">
                   <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -63,49 +63,17 @@
                         </div>
                         <div class="modal-body">
 
-													<div class="form-group">
-														<select class="form-control" name="data_nama" placeholder="Hari" required>
-																<option value="1">Senin</option>
-																<option value="2">Selasa</option>
-																<option value="3">Rabu</option>
-																<option value="4">Kamis</option>
-																<option value="5">Jumat</option>
-																<option value="6">Sabtu</option>
-														</select>
+                          <div class="form-group">
+                            <input type="text" name="data_nim" class="form-control" placeholder="NIM" required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="data_kode" class="form-control" placeholder="kode matkul" required>
+                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Lengkap" required>
                           </div>
 
-													<div class="form-group">
-														<select class="form-control" name="kelas" placeholder="Kelas" required>
-															<?php foreach ($kelas->result() as $row): ?>
-																<option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
-
-
-													<div class="form-group">
-                            <input type="text" name="data_nik" class="form-control" placeholder="nik" required>
+                          <div class="form-group">
+                            <input type="text" name="data_jk" class="form-control" placeholder="Jenis Kelamin" required>
                           </div>
-
-													<div class="form-group">
-                            <input type="text" name="data_jamm" class="form-control" placeholder="jam mulai" required>
-                          </div>
-
-													<div class="form-group">
-                            <input type="text" name="data_jams" class="form-control" placeholder="jam selesai" required>
-                          </div>
-
-													<div class="form-group">
-														<select class="form-control" name="ruangan" placeholder="Ruangan" required>
-															<?php foreach ($ruangan->result() as $row): ?>
-																<option value="<?php echo $row->id_ruangan; ?>"><?php echo $row->nama_ruangan; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
 
 													<div class="form-group">
 														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
@@ -114,6 +82,27 @@
 															<?php endforeach; ?>
 														</select>
 													</div>
+
+													<div class="form-group">
+                            <select class="form-control" name="kelas" placeholder="Kelas" required>
+
+                              <?php foreach ($kelas->result() as $row): ?>
+                                <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <input type="number" name="data_semester" class="form-control" placeholder="Semester" required>
+                          </div>
+
+													<div class="form-group">
+														<input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
+													</div>
+
+                          <div class="form-group">
+                            <input type="text" name="data_email" class="form-control" placeholder="Email" required>
+                          </div>
 
                         </div>
                         <div class="modal-footer">
@@ -125,63 +114,27 @@
                   </div>
                 </form>
 
-
-                <!-- Modal Update Jadwal -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/jadwal_control/update' ?>" method="post">
+                <!-- Modal Update Produk -->
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_mahasiswa_control/update' ?>" method="post">
                   <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                          <h4 class="modal-title" id="myModalLabel">Update Jadwal</h4>
+                          <h4 class="modal-title" id="myModalLabel">Update Produk</h4>
                         </div>
                         <div class="modal-body">
-													<div class="form-group" hidden="true">
-														<input type="text" name="data_id" class="form-control" placeholder="Id Hari" required>
-													</div>
-
-													<div class="form-group">
-                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Hari" required>
+                          <div class="form-group">
+                            <input type="text" name="data_nim" class="form-control" placeholder="NIM" required>
                           </div>
 
-													<div class="form-group">
-														<select class="form-control" name="data_kode" placeholder="Mata Kuliah" required>
-															<?php foreach ($mata_kuliah->result() as $row): ?>
-																<option value="<?php echo $row->id_matkul; ?>"><?php echo $row->nama_matkul; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
-
-													<div class="form-group">
-														<select class="form-control" name="kelas" placeholder="Kelas" required>
-															<?php foreach ($kelas->result() as $row): ?>
-																<option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
-
-
-													<div class="form-group">
-                            <input type="text" name="data_nik" class="form-control" placeholder="nik" required>
+                          <div class="form-group">
+                            <input type="text" name="data_nama" class="form-control" placeholder="Nama Lengkap" required>
                           </div>
 
-													<div class="form-group">
-                            <input type="text" name="data_jamm" class="form-control" placeholder="jam mulai" required>
+                          <div class="form-group">
+                            <input type="text" name="data_jk" class="form-control" placeholder="Jenis Kelamin" required>
                           </div>
-
-													<div class="form-group">
-                            <input type="text" name="data_jams" class="form-control" placeholder="jam selesai" required>
-                          </div>
-
-
-
-													<div class="form-group">
-														<select class="form-control" name="ruangan" placeholder="Ruangan" required>
-															<?php foreach ($ruangan->result() as $row): ?>
-																<option value="<?php echo $row->id_ruangan; ?>"><?php echo $row->nama_ruangan; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
 
 													<div class="form-group">
 														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
@@ -190,6 +143,26 @@
 															<?php endforeach; ?>
 														</select>
 													</div>
+
+													<div class="form-group">
+                            <select class="form-control" name="kelas" placeholder="Kelas" required>
+                              <?php foreach ($kelas->result() as $row): ?>
+                                <option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+													<div class="form-group">
+                            <input type="number" name="data_semester" class="form-control" placeholder="Semester" required>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
+                          </div>
+
+
+
+                          <div class="form-group">
+                            <input type="text" name="data_email" class="form-control" placeholder="Email" required>
+                          </div>
 
                         </div>
                         <div class="modal-footer">
@@ -201,17 +174,17 @@
                   </div>
                 </form>
 
-                <!-- Modal Hapus Jadwal -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/jadwal_control/delete' ?>" method="post">
+                <!-- Modal Hapus Produk -->
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_mahasiswa_control/delete' ?>" method="post">
                   <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                          <h4 class="modal-title" id="myModalLabel">Hapus Jadwal</h4>
+                          <h4 class="modal-title" id="myModalLabel">Hapus Produk</h4>
                         </div>
                         <div class="modal-body">
-                          <input type="hidden" name="data_id" class="form-control" placeholder="Id hari" required>
+                          <input type="hidden" name="data_nim" class="form-control" placeholder="NIM" required>
                           <strong>Anda yakin mau menghapus record ini?</strong>
                         </div>
                         <div class="modal-footer">
@@ -231,7 +204,7 @@
 					<div class="footer-content">
 						<span class="bigger-120">
 							<span class="blue bolder">Absensi</span>
-						&copy; 2019
+							&copy; 2019
 						</span>
 					</div>
 				</div>
@@ -296,7 +269,7 @@
 							sLengthMenu		: "Tampilkan _MENU_ data per halaman",
               sProcessing		: "Memuat...",
 							sInfo					: "Tampilkan data _START_ sampai _END_ dari _TOTAL_ data",
-							sEmptyTable		: "Tidak ada Data yang ditampilkan",
+							sEmptyTable		: "Tidak ada Data yang tersedia pada tabel ini",
 							sInfoEmpty		: "Tampilkan data 0 sampai 0 dari 0 data",
 							sSearch				: "Cari Data:",
 							sInfoFiltered	: "(disaring dari _MAX_ entri keseluruhan)",
@@ -304,37 +277,23 @@
 							oPaginate			: {
 								"sPrevious": "Sebelumnya",
 								"sNext"		 : "Selanjutnya"}
-
         },
             processing: true,
             serverSide: true,
-
-            ajax: {"url": "<?php echo base_url().'index.php/admin/jadwal_control/get_jadwal_json' ?>", "type": "POST"},
+            ajax: {"url": "<?php echo base_url().'index.php/admin/list_mahasiswa_control/get_mahasiswa_ti_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "nama_hari",
-										render : function (data, type, row){
-											switch(data) {
-					               case 'Mon' : return 'Senin'; break;
-												 case 'Tue' : return 'Selasa'; break;
-												 case 'Wed' : return 'Rabu'; break;
-												 case 'Thu' : return 'Kamis'; break;
-												 case 'Fri' : return 'Jumat'; break;
-					               default  : return 'N/A';
-					            }
-										}
-									},
-                    {"data": "nama_matkul"},
-                    {"data": "kelas_nama"},
+                    {"data": "nim"},
                     {"data": "nama"},
-                    {"data": "jam_mulai"},
-										{"data": "jam_selesai"},
-										{"data": "nama_ruangan"},
-										{"data": "nama_jurusan"},
+                    {"data": "jenis_kelamin"},
+                    {"data": "kelas_nama"},
+										{"data": "semester"},
+                    {"data": "alamat"},
+                    {"data": "nama_jurusan"},
+                    {"data": "email"},
                     {"data": "view"}
                   ],
 
-            order: [[1, 'asc']],
-
+            order: [[6, 'asc'],[0, 'asc']],
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
               var page = info.iPage;
@@ -345,32 +304,30 @@
           // end setup datatables
           // get edit records
           $('#mytable').on('click','.edit_record',function(){
-            var id=$(this).data('id_jadwal');
-            var nama=$(this).data('nama_hari');
-            var kode=$(this).data('matkul');
-            var kelas=$(this).data('kelas');
-						var ruangan=$(this).data('ruangan');
-						var jurusan=$(this).data('jurusan');
-            var nik=$(this).data('nik');
-            var jamm=$(this).data('jam_mulai');
-						var jams=$(this).data('jam_selesai');
+            var nim=$(this).data('nim');
+            var nama=$(this).data('nama');
+						var semester=$(this).data('semester');
+            var jk=$(this).data('jk');
+            var alamat=$(this).data('alamat');
+						var kelas=$(this).data('kelas');
+            var jurusan=$(this).data('jurusan');
+            var email=$(this).data('email');
             $('#ModalUpdate').modal('show');
-            $('[name="data_id"]').val(id);
+            $('[name="data_nim"]').val(nim);
             $('[name="data_nama"]').val(nama);
-            $('[name="data_kode"]').val(kode);
-            $('[name="kelas"]').val(kelas);
-						$('[name="ruangan"]').val(ruangan);
-						$('[name="jurusan"]').val(jurusan);
-            $('[name="data_nik"]').val(nik);
-            $('[name="data_jamm"]').val(jamm);
-						$('[name="data_jams"]').val(jams);
+						$('[name="data_semester"]').val(semester);
+            $('[name="data_jk"]').val(jk);
+            $('[name="data_alamat"]').val(alamat);
+						$('[name="kelas"]').val(kelas);
+            $('[name="jurusan"]').val(jurusan);
+            $('[name="data_email"]').val(email);
           });
           // End Edit Records
           // get Hapus Records
           $('#mytable').on('click','.hapus_record', function(){
-            var id=$(this).data('id_jadwal');
+            var nim=$(this).data('nim');
             $('#ModalHapus').modal('show');
-            $('[name="data_id"]').val(id);
+            $('[name="data_nim"]').val(nim);
           });
           // End Hapus Records
     });

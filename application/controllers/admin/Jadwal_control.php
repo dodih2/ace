@@ -15,6 +15,8 @@ class Jadwal_control extends CI_Controller{
     $x['kelas'] = $this->jadwal_model->get_kelas();
     $x['jurusan'] = $this->jadwal_model->get_jurusan();
     $x['ruangan'] = $this->jadwal_model->get_ruangan();
+    $x['jadwal'] = $this->jadwal_model->get_jadwal();
+    $x['mata_kuliah'] = $this->jadwal_model->get_matkul();
     $this->load->view('admin/konten/v_jadwal', $x);
   }
 
@@ -31,23 +33,11 @@ class Jadwal_control extends CI_Controller{
       'ruangan_id' => $this->input->post('ruangan'),
       'jurusan_id' => $this->input->post('jurusan'),
       'semester' => $this->input->post('data_semester'),
-      'nik' => $this->input->post('data_nik'),
+      'nik_id' => $this->input->post('data_nik'),
       'jam_mulai' => $this->input->post('data_jamm'),
       'jam_selesai' => $this->input->post('data_jams')
     );
     $this->db->insert('jadwal', $data);
-
-    $kode = $this->input->post('kelas');
-    $data2 = array(
-    'nik' => $this->input->post('data_nik') ,
-    'ruangan_id' => $this->input->post('jurusan'),
-    'kode_matkul' => $this->input->post('data_kode'),
-    'hari' => $this->input->post('data_nama'),
-    'jam_mulai' => $this->input->post('data_jamm'),
-    'jam_selesai' => $this->input->post('data_jams')
-    );
-    $this->db->where('kelas_id', $kode);
-    $this->db->update('absen', $data2);
     redirect('admin/jadwal_control');
   }
 
@@ -60,7 +50,7 @@ class Jadwal_control extends CI_Controller{
       'ruangan_id' => $this->input->post('ruangan'),
       'jurusan_id' => $this->input->post('jurusan'),
       'semester' => $this->input->post('data_semester'),
-      'nik' => $this->input->post('data_nik'),
+      'nik_id' => $this->input->post('data_nik'),
       'jam_mulai' => $this->input->post('data_jamm'),
       'jam_selesai' => $this->input->post('data_jams')
     );

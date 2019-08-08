@@ -38,7 +38,6 @@
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th style="width:0.5%;">ID Hari</th>
                           <th style="width:0.5%;">Nama Hari</th>
                           <th style="width:0.5%;">Kode Matkul</th>
                           <th style="width:0.5%;">Kelas</th>
@@ -139,7 +138,6 @@
 
             ajax: {"url": "<?php echo base_url().'index.php/dosen/jadwal_control/get_jadwal_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "id_jadwal"},
                     {"data": "nama_hari",
 										render : function (data, type, row){
 											switch(data) {
@@ -148,7 +146,6 @@
 												 case 'Wed' : return 'Rabu'; break;
 												 case 'Thu' : return 'Kamis'; break;
 												 case 'Fri' : return 'Jumat'; break;
-					               case 'Sat' : return 'Sabtu'; break;
 					               default  : return 'N/A';
 					            }
 										}

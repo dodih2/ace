@@ -33,26 +33,43 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
+										<div class="center">
+<h3>DAFTAR ABSEN MAHASISWA</h3>
+										</div>
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th>ID Absen</th>
-													<th>NIK</th>
+													<th>NIM</th>
 													<th>NAMA</th>
 													<th>KELAS</th>
-                          <th>HADIR</th>
-													<th>ALPA</th>
-													<th>IZIN</th>
-													<th>KETERANGAN</th>
-													<th>Jadwal</th>
                           <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
                     </table>
+										<br>
+										<div class="center">
+										<h3>DAFTAR MAHASISWA YANG SUDAH ABSEN</h3>
+										</div>
+										<table class="table table-striped" id="mytable2">
+											<thead>
+												<tr>
+													<th>NIK</th>
+													<th>NAMA</th>
+													<th>KELAS</th>
+													<th>HADIR</th>
+													<th>ALPA</th>
+													<th>IZIN</th>
+													<th>TELAT</th>
+													<th>KETERANGAN</th>
+													<th>TANGGAL</th>
+													<th style="width:0.5%;">Action</th>
+												</tr>
+											</thead>
+										</table>
                 </div>
 
 	                <!-- Modal Update Produk -->
-								<form id="add-row-form" action="<?php echo base_url().'index.php/dosen/absen_control/update' ?>" method="post">
+								<form id="add-row-form" action="<?php echo base_url().'index.php/dosen/absen_control/simpan' ?>" method="post">
                   <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -61,7 +78,7 @@
                           <h4 class="modal-title" id="myModalLabel">Update Absen</h4>
                         </div>
                         <div class="modal-body">
-                          <div class="form-group">
+                          <!-- <div class="form-group">
                             <input type="text" name="data_id" class="form-control" placeholder="ID Absen" required>
                           </div>
 
@@ -94,11 +111,88 @@
 
 													<div class="form-group">
 														<input type="text" name="data_jadwal" class="form-control" placeholder="jadwal" >
+													</div> -->
+
+													<div class="form-group">
+														<label>
+															<span class="ace input-lg lbl bigger-100"> Nama &emsp;&emsp;&ensp;: </span>
+															<input name="data_nama" type="text" class="ace input-lg" readonly />
+														</label>
+													</div>
+
+													<div class="form-group">
+														<span class="tab">&emsp;</span>
+														<input type="radio" name="data_hadir" id="hadir1" class="ace input-lg" value="0" />
+														<span class="ace lbl bigger-120"> Hadir</span>
+														<span class="tab">&emsp;</span><span class="tab">&emsp;</span>
+														<input type="radio" name="data_alpa" id="alpa1" class="ace input-lg" value="0" />
+														<span class="lbl bigger-120">Alpa</span>
+														<span class="tab">&emsp;</span><span class="tab">&emsp;</span>
+														<input type="radio" name="data_izin" id="izin1" class="ace input-lg" value="0" />
+														<span class="lbl bigger-120">Izin</span>
 													</div>
 
 
+													<div class="form-group">
+														<label>
+															<span class="ace input-lg lbl bigger-100"> Keterangan : </span>
+															<input  name="data_keterangan" id="form-field-11" type="textarea"  class="limited ace input-lg"/>
+														</label>
+													</div>
+
+													<div class="form-group" hidden="true">
+														<input type="text" name="data_nim" class="form-control" placeholder="nim" >
+													</div>
+
+													<div class="form-group" hidden="true">
+														<input type="text" name="data_kelas" class="form-control" placeholder="kelas" >
+													</div>
 
                         </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="submit" id="add-row" class="btn btn-success">Update</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+								<form id="add-row-form" action="<?php echo base_url().'index.php/dosen/absen_control/simpan2' ?>" method="post">
+                  <div class="modal fade" id="ModalUpdate2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                          <h4 class="modal-title" id="myModalLabel">Update Absen</h4>
+                        </div>
+                        <div class="modal-body">
+                          <div class="form-group">
+                            <input type="text" name="data_id" class="form-control" placeholder="ID Absen" required>
+                          </div>
+
+													<div class="form-group">
+														<input type="text" name="data_keterangan" class="form-control" placeholder="Keterangan">
+													</div>
+
+													<div class="control-group">
+														<div class="radio">
+															<label>
+																<input name="data_hadir2" id="hadir2" type="radio" class="ace input-lg" value="1" />
+																<span class="lbl bigger-120"> Hadir</span>
+															</label>
+															<label>
+																<input name="data_alpa2" id="alpa2" type="radio" class="ace input-lg" value="1" />
+																<span class="lbl bigger-120"> Alpa</span>
+															</label>
+															<label>
+																<input name="data_izin2" id="izin2" type="radio" class="ace input-lg" value="1" />
+																<span class="lbl bigger-120"> Izin</span>
+															</label>
+														</div>
+												</div>
+                    	</div>
+
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                           <button type="submit" id="add-row" class="btn btn-success">Update</button>
@@ -190,7 +284,7 @@
         };
       };
 
-      var table = $("#mytable").dataTable({
+      var table = $("#mytable").DataTable({
         initComplete: function(){
           var api = this.api();
           $('#mytable_filter input')
@@ -218,30 +312,34 @@
 "iDisplayLength": 30,
             ajax: {"url": "<?php echo base_url().'index.php/dosen/absen_control/get_absen_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "id_absen"},
-                    {"data": "nik_id"},
-										{"data": "nama"},
-										{"data": "kelas_nama"},
-										{"data": "hadir",
-										render : function (data, type, row){
-											return data == '1' ? '<span class="badge badge-success"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
-										}
-									},
-										{"data": "alpa",
-										render : function (data, type, row){
-											return data == '1' ? '<span class="badge badge-danger"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
-										}
-
-									},
-										{"data": "izin",
-										render : function (data, type, row){
-											return data == '1' ? '<span class="badge badge-info"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
-										}
-
-									},
-										{"data": "keterangan"},
-										{"data": "nama_hari"},
-                    {"data": "view"}
+                  //   {"data": "id_absen"},
+                  //   {"data": "nik_id_id"},
+									// 	{"data": "nama"},
+									// 	{"data": "kelas_nama"},
+									// 	{"data": "hadir",
+									// 	render : function (data, type, row){
+									// 		return data == '1' ? '<span class="badge badge-success"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
+									// 	}
+									// },
+									// 	{"data": "alpa",
+									// 	render : function (data, type, row){
+									// 		return data == '1' ? '<span class="badge badge-danger"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
+									// 	}
+									//
+									// },
+									// 	{"data": "izin",
+									// 	render : function (data, type, row){
+									// 		return data == '1' ? '<span class="badge badge-info"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
+									// 	}
+									//
+									// },
+									// 	{"data": "keterangan"},
+									// 	{"data": "nama_hari"},
+                  //   {"data": "view"}
+									{"data": "nim"},
+									{"data": "nama"},
+									{"data": "kelas_nama"},
+									{"data": "view"}
                   ],
 
             order: [[0, 'asc']],
@@ -252,28 +350,38 @@
               $('td:eq(0)', row).html();
             }
       });
+			$('#table-filter').on('change', function(){
+ 			table.search(this.value).draw();
+			});
           // end setup datatables
           // get edit records
           $('#mytable').on('click','.edit_record',function(){
-            var id=$(this).data('id_absen');
-            var hadir=$(this).data('hadir');
-						var alpa=$(this).data('alpa');
-						var izin=$(this).data('izin');
-						var keterangan=$(this).data('keterangan');
-						var nik=$(this).data('nik');
+            // var id=$(this).data('id_absen');
+            // var hadir=$(this).data('hadir');
+						// var alpa=$(this).data('alpa');
+						// var izin=$(this).data('izin');
+						// var keterangan=$(this).data('keterangan');
+						// var nik=$(this).data('nik');
+						// var nim=$(this).data('nim');
+						// var kelas_id=$(this).data('kelas');
+						// var jadwal_id=$(this).data('jadwal');
+            // $('#ModalUpdate').modal('show');
+            // $('[name="data_id"]').val(id);
+            // $('[name="data_hadir"]').val(hadir);
+						// $('[name="data_alpa"]').val(alpa);
+						// $('[name="data_izin"]').val(izin);
+						// $('[name="data_keterangan"]').val(keterangan);
+						// $('[name="data_nik"]').val(nik);
+						// $('[name="data_nim"]').val(nim);
+						// $('[name="data_kelas"]').val(kelas_id);
+						// $('[name="data_jadwal"]').val(jadwal_id);
 						var nim=$(this).data('nim');
-						var kelas_id=$(this).data('kelas');
-						var jadwal_id=$(this).data('jadwal');
-            $('#ModalUpdate').modal('show');
-            $('[name="data_id"]').val(id);
-            $('[name="data_hadir"]').val(hadir);
-						$('[name="data_alpa"]').val(alpa);
-						$('[name="data_izin"]').val(izin);
-						$('[name="data_keterangan"]').val(keterangan);
-						$('[name="data_nik"]').val(nik);
+						var nama=$(this).data('nama');
+						var kelas=$(this).data('kelas');
+						 $('#ModalUpdate').modal('show');
 						$('[name="data_nim"]').val(nim);
-						$('[name="data_kelas"]').val(kelas_id);
-						$('[name="data_jadwal"]').val(jadwal_id);
+						$('[name="data_nama"]').val(nama);
+						$('[name="data_kelas"]').val(kelas);
           });
           // End Edit Records
           // get Hapus Records
@@ -313,6 +421,138 @@
 						});
 
 		    });
+		</script>
+
+		<script>
+		$(document).ready(function(){
+			// setup datatable
+			$.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
+			{
+				return {
+					"iStart": oSettings._iDisplayStart,
+					"iEnd" : oSettings.fnDisplayEnd(),
+					"iLength": oSettings._iDisplayLength,
+					"iTotal": oSettings.fnRecordsTotal(),
+					"iFilteredTotal": oSettings.fnRecordsDisplay(),
+					"iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+					"iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+				};
+			};
+
+			var tablel = $("#mytable2").DataTable({
+				initComplete: function(){
+					var api = this.api();
+					$('#mytable2_filter input')
+						.off('.DT')
+						.on('input.DT', function(){
+							api.search(this.value).draw();
+						});
+				},
+						oLanguage: {
+							sLengthMenu		: "Tampilkan _MENU_ data per halaman",
+							sProcessing		: "Memuat...",
+							sInfo					: "Tampilkan data _START_ sampai _END_ dari _TOTAL_ data",
+							sEmptyTable		: "Tidak ada Data yang tersedia pada tabel ini",
+							sInfoEmpty		: "Tampilkan data 0 sampai 0 dari 0 data",
+							sSearch				: "Cari Data:",
+							sInfoFiltered	: "(disaring dari _MAX_ entri keseluruhan)",
+							sZeroRecords	:  "Tidak ditemukan data yang sesuai",
+							oPaginate			: {
+								"sPrevious": "Sebelumnya",
+								"sNext"		 : "Selanjutnya"}
+				},
+						processing: true,
+						serverSide: true,
+						"aLengthMenu": [[30, 50, 60, -1], [30, 50, 60, "All"]],
+"iDisplayLength": 30,
+						ajax: {"url": "<?php echo base_url().'index.php/dosen/absen_control/get_absen_jsonn' ?>", "type": "POST"},
+									columns: [
+									  {"data": "nik_id_id"},
+										{"data": "nama"},
+										{"data": "kelas_nama"},
+										{"data": "hadir",
+										render : function (data, type, row){
+											return data == '1' ? '<span class="badge badge-success"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
+										}
+									},
+										{"data": "alpa",
+										render : function (data, type, row){
+											return data == '1' ? '<span class="badge badge-danger"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
+										}
+
+									},
+										{"data": "izin",
+										render : function (data, type, row){
+											return data == '1' ? '<span class="badge badge-info"><label class="glyphicon glyphicon-ok"></label></span>' : '<span></span>'
+										}
+
+									},
+										{"data": "ket_telat"},
+										{"data": "keterangan"},
+										{"data": "tanggal"},
+										{"data": "view"}
+									],
+
+						order: [[0, 'asc']],
+						rowCallback: function(row, data, iDisplayIndex){
+							var info = this.fnPagingInfo();
+							var page = info.iPage;
+							var length = info.iLength;
+							$('td:eq(0)', row).html();
+						}
+			});
+			$('#table2-filter').on('change', function(){
+			table.search(this.value).draw();
+			});
+					// end setup datatables
+					// get edit records
+					$('#mytable2').on('click','.edit_absen',function(){
+						var id=$(this).data('id_absen');
+						var keterangan=$(this).data('keterangan');
+						var nik=$(this).data('nik');
+						var nim=$(this).data('nim');
+						var kelas_id=$(this).data('kelas');
+						var jadwal_id=$(this).data('jadwal');
+						$('#ModalUpdate2').modal('show');
+						$('[name="data_id"]').val(id);
+						$('[name="data_keterangan"]').val(keterangan);
+						$('[name="data_nik"]').val(nik);
+						$('[name="data_nim"]').val(nim);
+						$('[name="data_kelas"]').val(kelas_id);
+						$('[name="data_jadwal"]').val(jadwal_id);
+					});
+					// End Edit Records
+		});
+		</script>
+
+		<script>
+				$(document).ready(function(){
+						$("#hadir2").click(function(){
+							var radioValue = $("input[name='data_hadir2']:checked").val();
+								if(radioValue){
+									 $("input[name='data_hadir2']").val(1);
+									 document.getElementById("alpa2").checked = false;
+									 document.getElementById("izin2").checked = false;
+								}
+						});
+						$("#alpa2").click(function(){
+							var radioValue = $("input[name='data_alpa2']:checked").val();
+								if(radioValue){
+									 $("input[name='data_alpa2']").val(1);
+									 document.getElementById("hadir2").checked = false;
+									 document.getElementById("izin2").checked = false;
+								}
+						});
+						$("#izin2").click(function(){
+							var radioValue = $("input[name='data_izin2']:checked").val();
+								if(radioValue){
+									 $("input[name='data_izin2']").val(1);
+									 document.getElementById("hadir2").checked = false;
+									 document.getElementById("alpa2").checked = false;
+								}
+						});
+
+				});
 		</script>
 	</body>
 </html>
