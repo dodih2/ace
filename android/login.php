@@ -1,75 +1,34 @@
 <?php
-	/* ===== www.dedykuncoro.com ===== */
-	include 'koneksi.php';
-	
-	class usr{}
-	
-	$username = $_POST["username"];
-	$password = $_POST["password"];
-	
-	if ((empty($username)) || (empty($password))) { 
-		$response = new usr();
-		$response->success = 0;
-		$response->message = "Kolom tidak boleh kosong"; 
-		die(json_encode($response));
-	}
-	
-	$query = mysql_query("SELECT * FROM users WHERE username='$username' AND password='$password'");
-	
-	$row = mysql_fetch_array($query);
-	
-	if (!empty($row)){
-		$response = new usr();
-		$response->success = 1;
-		$response->message = "Selamat datang ".$row['username'];
-		$response->id = $row['id'];
-		$response->username = $row['username'];
-		die(json_encode($response));
-		
-	} else { 
-		$response = new usr();
-		$response->success = 0;
-		$response->message = "Username atau password salah";
-		die(json_encode($response));
-	}
-	
-	mysql_close();
 
+include_once 'connect.php';
 
-	//=================== KALAU PAKAI MYSQLI YANG ATAS SEMUA DI REMARK, TERUS YANG INI RI UNREMARK ========
-	// include_once "koneksi.php";
+$response = array("error" => FALSE);
 
-	// class usr{}
-	
-	// $username = $_POST["username"];
-	// $password = $_POST["password"];
-	
-	// if ((empty($username)) || (empty($password))) { 
-	// 	$response = new usr();
-	// 	$response->success = 0;
-	// 	$response->message = "Kolom tidak boleh kosong"; 
-	// 	die(json_encode($response));
-	// }
-	
-	// $query = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$password'");
-	
-	// $row = mysqli_fetch_array($query);
-	
-	// if (!empty($row)){
-	// 	$response = new usr();
-	// 	$response->success = 1;
-	// 	$response->message = "Selamat datang ".$row['username'];
-	// 	$response->id = $row['id'];
-	// 	$response->username = $row['username'];
-	// 	die(json_encode($response));
-		
-	// } else { 
-	// 	$response = new usr();
-	// 	$response->success = 0;
-	// 	$response->message = "Username atau password salah";
-	// 	die(json_encode($response));
-	// }
-	
-	// mysqli_close($con);
+if (isset($_POST['email']) && isset($_POST['password'])) {
+ 
+ $email = htmlspecialchars($_POST['email']);
+ $password = htmlspecialchars($_POST['password']);
+
+ $encrypted_password = hash("sha256", $password);// encrypted password
+        
+ $sql = $MySQLiconn->query("SELECT * FROM users WHERE email='$email' AND password='$encrypted_password'");
+
+ if(mysqli_num_rows($sql) > 0){
+  while($row = $sql->fetch_array()){
+   $response["error"] = FALSE;
+       $response["message"] = "Login Successfull";
+       $response["data"]["firstname"] = $row['firstname'];
+       $response["data"]["lastname"] = $row['lastname'];
+       $response["data"]["email"] = $row['email'];
+      }
+
+  echo json_encode($response);
+   }else{
+    $response["error"] = TRUE;
+     $response["message"] = "Incorrect Email or Password!";
+
+  echo json_encode($response);
+   }
+}
 
 ?>

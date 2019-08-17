@@ -24,9 +24,8 @@
 
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="<?php echo base_url('assets/template/back') ?> /images/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
-									<small>Welcome,</small>
+									<small>Selamat Datang,</small>
 									<?php echo $this->session->userdata('nama'); ?>
 								</span>
 

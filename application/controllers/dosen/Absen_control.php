@@ -16,7 +16,7 @@ class Absen_control extends CI_Controller{
     $x['kelas'] = $this->absen_dosen_model->get_kelas();
     $x['jadwal'] = $this->absen_dosen_model->get_jadwal();
     $this->load->view('dosen/konten/v_absen', $x);
-    
+
   }
 
   function get_absen_json(){ //data data produk by JSON object
@@ -37,7 +37,8 @@ class Absen_control extends CI_Controller{
       'hadir' => $this->input->post('data_hadir'),
       'alpa' => $this->input->post('data_alpa'),
       'izin' => $this->input->post('data_izin'),
-      'keterangan' => $this->input->post('data_keterangan')
+      'keterangan' => $this->input->post('data_keterangan'),
+      'tanggal2' => Date('Y-m-d')
     );
     $this->db->insert('absen', $data);
     $kode = $this->input->post('data_nim');
@@ -57,6 +58,12 @@ class Absen_control extends CI_Controller{
     );
     $this->db->where('id_absen', $kode);
     $this->db->update('absen', $data);
+    redirect('dosen/absen_control');
+  }
+
+  function simpan_otomatis(){
+    $data2 = array('konfirmasi' => 1);
+    $this->db->update('user_mahasiswa', $data2);
     redirect('dosen/absen_control');
   }
 

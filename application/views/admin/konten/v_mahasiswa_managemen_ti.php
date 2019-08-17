@@ -33,7 +33,7 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Tambah</button>
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>

@@ -4,7 +4,7 @@
 				</script>
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="<?php echo site_url('dosen/test') ?>">
+						<a href="<?php echo site_url('dosen/dosen_control') ?>">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Home </span>
 						</a>

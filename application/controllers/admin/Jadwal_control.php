@@ -32,7 +32,6 @@ class Jadwal_control extends CI_Controller{
       'kelas' => $this->input->post('kelas'),
       'ruangan_id' => $this->input->post('ruangan'),
       'jurusan_id' => $this->input->post('jurusan'),
-      'semester' => $this->input->post('data_semester'),
       'nik_id' => $this->input->post('data_nik'),
       'jam_mulai' => $this->input->post('data_jamm'),
       'jam_selesai' => $this->input->post('data_jams')
@@ -49,7 +48,6 @@ class Jadwal_control extends CI_Controller{
       'kelas' => $this->input->post('kelas'),
       'ruangan_id' => $this->input->post('ruangan'),
       'jurusan_id' => $this->input->post('jurusan'),
-      'semester' => $this->input->post('data_semester'),
       'nik_id' => $this->input->post('data_nik'),
       'jam_mulai' => $this->input->post('data_jamm'),
       'jam_selesai' => $this->input->post('data_jams')

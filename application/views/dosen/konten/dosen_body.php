@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<?php $this->load->view('dosen/header') ?>
@@ -21,7 +20,6 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-							<li class="active">Produk</li>
 						</ul><!-- /.breadcrumb -->
 					</div>
 
@@ -33,6 +31,17 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
+								<?php echo date('Y-m-d H:i:s'); ?>
+								<?php
+										if(!empty($data)){
+											foreach($data as $data){
+													$nama[] = $data->kelas_nama;
+													$hadir[] = (float) $data->hadir;
+											}
+										}
+									?>
+								<h2>Grafik Kehadiran Mahasiswa</h2>
+								<canvas id="canvas" width="1000" height="280"></canvas>
 
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
@@ -41,6 +50,28 @@
 				</div>
 			</div><!-- /.main-content -->
 
-			<?php $this->load->view('admin/footer') ?>
+			<?php $this->load->view('dosen/footer') ?>
+			<script type="text/javascript" src="<?php echo base_url().'assets/chartjs/chart.min.js'?>"></script>
+			<script>
+								var lineChartData = {
+										labels : <?php echo json_encode($nama);?>,
+										xkey: $nama,
+					          ykeys: ['hadir', 'alpa'],
+					          labels: ['Hadir', 'Alpa'],
+										datasets : [
+												{
+														fillColor: "rgba(60,141,188,0.9)",
+														strokeColor: "rgba(60,141,188,0.8)",
+														pointColor: "#3b8bba",
+														pointStrokeColor: "#fff",
+														pointHighlightFill: "#fff",
+														pointHighlightStroke: "rgba(152,235,239,1)",
+														data : <?php echo json_encode($hadir);?>
+												}
+										]
+								}
+						var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+				</script>
+
 	</body>
 </html>

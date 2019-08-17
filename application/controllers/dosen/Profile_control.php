@@ -10,7 +10,7 @@ class Profile_control extends CI_Controller{
   }
 
   function index()
-  { 
+  {
     $this->load->view('dosen/konten/v_profile');
   }
 

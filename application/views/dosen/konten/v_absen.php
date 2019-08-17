@@ -36,6 +36,10 @@
 										<div class="center">
 <h3>DAFTAR ABSEN MAHASISWA</h3>
 										</div>
+										<div id="pesan">
+
+										</div>
+										
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
@@ -553,6 +557,33 @@
 						});
 
 				});
+		</script>
+		<script>
+		<?php foreach ($jadwal->result() as $row): ?>
+			var jammulai = "<?php echo $row->jam_mulai; ?>";
+			var a = jammulai.split(':');
+			var seconds = (+a[0]) * 60 * 60 + (a[1]) * 60 + (+a[2]);
+
+			var jamselesai = "<?php echo $row->jam_selesai; ?>";
+			var b = jamselesai.split(':');
+			var seconds2 = (+b[0]) * 60 * 60 + (b[1]) * 60 + (+b[2]);
+
+			var totalwaktu = seconds2 - seconds;
+
+		<?php endforeach; ?>
+			var url = "<?php echo base_url().'index.php/dosen/absen_control/simpan_otomatis' ?>";
+			var count = seconds;
+			function countDown(){
+				if (count > 0) {
+					count--;
+					var waktu = count + 1;
+					$('#pesan').html('anda akan pergi ke' + url + 'dalam' + waktu + 'detik.');
+					setTimeout("countDown()", 1000);
+				} else{
+					window.location.href = url;
+				}
+			}
+			countDown();
 		</script>
 	</body>
 </html>
