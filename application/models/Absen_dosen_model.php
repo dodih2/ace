@@ -34,7 +34,7 @@ class Absen_dosen_model extends CI_Model{
   // }
 
   function get_all_absen(){
-    $hari = Date('D');
+    $hari = date('D');
     $id = $this->session->userdata('nik');
     $this->datatables->select('nim, nama, kelas, kelas_id, nik_id, nama_hari, kelas_nama, konfirmasi');
     $this->datatables->from('user_mahasiswa');
