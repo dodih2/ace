@@ -31,7 +31,6 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<?php echo date('Y-m-d H:i:s'); ?>
 								<?php
 										if(!empty($data)){
 											foreach($data as $data){
@@ -55,9 +54,6 @@
 			<script>
 								var lineChartData = {
 										labels : <?php echo json_encode($nama);?>,
-										xkey: $nama,
-					          ykeys: ['hadir', 'alpa'],
-					          labels: ['Hadir', 'Alpa'],
 										datasets : [
 												{
 														fillColor: "rgba(60,141,188,0.9)",

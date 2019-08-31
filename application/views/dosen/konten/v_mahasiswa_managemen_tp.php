@@ -33,7 +33,7 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
-									<h2><strong>Mahasiswa Polindra</strong></h2>
+	<h3><strong>Mahasiswa D3 Teknik Pendingin dan Tata Udara</strong></h3>
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>
@@ -46,6 +46,7 @@
                           <th style="width:25%;">Alamat</th>
                           <th style="width:0.5%;">Jurusan</th>
                           <th style="width:0.5%;">Email</th>
+                          <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
                     </table>
@@ -135,7 +136,7 @@
         },
             processing: true,
             serverSide: true,
-            ajax: {"url": "<?php echo base_url().'index.php/dosen/list_mahasiswa_control/get_mahasiswa_json' ?>", "type": "POST"},
+            ajax: {"url": "<?php echo base_url().'index.php/dosen/list_mahasiswa_control/get_mahasiswa_tp_json' ?>", "type": "POST"},
                   columns: [
                     {"data": "nim"},
                     {"data": "nama"},
@@ -144,7 +145,8 @@
 										{"data": "semester"},
                     {"data": "alamat"},
                     {"data": "nama_jurusan"},
-                    {"data": "email"}
+                    {"data": "email"},
+                    {"data": "view"}
                   ],
 
             order: [[6, 'asc'],[0, 'asc'],[4, 'asc'],[3, 'asc'],[1, 'asc']],
@@ -155,6 +157,7 @@
               $('td:eq(0)', row).html();
             }
       });
+          
     });
     </script>
 	</body>

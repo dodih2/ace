@@ -17,7 +17,7 @@
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
-		<script src="<?php echo base_url('assets/template/back') ?> /js/jquery-2.1.4.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery-2.1.4.min.js"></script>
 
 		<!-- <![endif]-->
 <script src="<?php echo base_url('assets/template/back') ?>/js/bootstrap.min.js"></script>
@@ -25,19 +25,19 @@
 <script src="<?php echo base_url('assets/template/back') ?> /js/jquery-1.11.3.min.js"></script>
 <![endif]-->
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='<?php echo base_url('assets/template/back') ?> /js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='<?php echo base_url('assets/template/back') ?>/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
-		<script src="<?php echo base_url('assets/template/back') ?> /js/jquery-ui.custom.min.js"></script>
-		<script src="<?php echo base_url('assets/template/back') ?> /js/jquery.ui.touch-punch.min.js"></script>
-		<script src="<?php echo base_url('assets/template/back') ?> /js/jquery.easypiechart.min.js"></script>
-		<script src="<?php echo base_url('assets/template/back') ?> /js/jquery.sparkline.index.min.js"></script>
-		<script src="<?php echo base_url('assets/template/back') ?> /js/jquery.flot.min.js"></script>
-		<script src="<?php echo base_url('assets/template/back') ?> /js/jquery.flot.pie.min.js"></script>
-		<script src="<?php echo base_url('assets/template/back') ?> /js/jquery.flot.resize.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery-ui.custom.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.easypiechart.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.sparkline.index.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.flot.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.flot.pie.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.flot.resize.min.js"></script>
 
 		<!-- ace scripts -->
-		<script src="<?php echo base_url('assets/template/back') ?> /js/ace-elements.min.js"></script>
-		<script src="<?php echo base_url('assets/template/back') ?> /js/ace.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/ace-elements.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/ace.min.js"></script>
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">

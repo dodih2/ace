@@ -33,7 +33,7 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
-									<h2><strong>Mahasiswa Polindra</strong></h2>
+									<h3><strong>Mahasiswa D4 Teknik Manufaktur</strong></h3>
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>
@@ -135,7 +135,7 @@
         },
             processing: true,
             serverSide: true,
-            ajax: {"url": "<?php echo base_url().'index.php/dosen/list_mahasiswa_control/get_mahasiswa_json' ?>", "type": "POST"},
+            ajax: {"url": "<?php echo base_url().'index.php/dosen/list_mahasiswa_control/get_mahasiswa_manufaktur_json' ?>", "type": "POST"},
                   columns: [
                     {"data": "nim"},
                     {"data": "nama"},
@@ -155,6 +155,8 @@
               $('td:eq(0)', row).html();
             }
       });
+          // end setup datatables
+          // get edit records
     });
     </script>
 	</body>

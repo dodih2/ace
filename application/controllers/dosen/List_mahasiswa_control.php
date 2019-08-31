@@ -7,57 +7,79 @@ class List_mahasiswa_control extends CI_Controller{
   {
     parent::__construct();
     $this->load->library('datatables'); //load library ignited-datatable
-    $this->load->model('user_mahasiswa_dosen_model'); // load model user_mahasiswa_dosen_model
+    $this->load->model('user_mahasiswa_model'); // load model user_mahasiswa_model
   }
 
   function index()
   {
-    $x['kelas'] = $this->user_mahasiswa_dosen_model->get_nim();
-    $x['jurusan'] = $this->user_mahasiswa_dosen_model->get_jurusan();
+    $x['kelas'] = $this->user_mahasiswa_model->get_nim();
+    $x['jurusan'] = $this->user_mahasiswa_model->get_jurusan();
     $this->load->view('dosen/konten/v_mahasiswa_managemen', $x);
   }
 
+  function index1()
+  {
+    $x['kelas'] = $this->user_mahasiswa_model->get_nim();
+    $x['jurusan'] = $this->user_mahasiswa_model->get_jurusan();
+    $this->load->view('dosen/konten/v_mahasiswa_managemen_ti', $x);
+  }
 
+  function index2()
+  {
+    $x['kelas'] = $this->user_mahasiswa_model->get_nim();
+    $x['jurusan'] = $this->user_mahasiswa_model->get_jurusan();
+    $this->load->view('dosen/konten/v_mahasiswa_managemen_tm', $x);
+  }
+
+  function index3()
+  {
+    $x['kelas'] = $this->user_mahasiswa_model->get_nim();
+    $x['jurusan'] = $this->user_mahasiswa_model->get_jurusan();
+    $this->load->view('dosen/konten/v_mahasiswa_managemen_tp', $x);
+  }
+
+  function index4()
+  {
+    $x['kelas'] = $this->user_mahasiswa_model->get_nim();
+    $x['jurusan'] = $this->user_mahasiswa_model->get_jurusan();
+    $this->load->view('dosen/konten/v_mahasiswa_managemen_rpl', $x);
+  }
+
+  function index5()
+  {
+    $x['kelas'] = $this->user_mahasiswa_model->get_nim();
+    $x['jurusan'] = $this->user_mahasiswa_model->get_jurusan();
+    $this->load->view('dosen/konten/v_mahasiswa_managemen_manufaktur', $x);
+  }
 
   function get_mahasiswa_json(){ //data data produk by JSON object
     header('Content-Type: application/json');
-    echo $this->user_mahasiswa_dosen_model->get_all_mahasiswa();
+    echo $this->user_mahasiswa_model->get_all_mahasiswa();
   }
 
-  function simpan(){
-    $data = array(
-      'nim' => $this->input->post('data_nim'),
-      'nama' => $this->input->post('data_nama'),
-      'jenis_kelamin'=> $this->input->post('data_jk'),
-      'user_kelas_id' => $this->input->post('kelas'),
-      'alamat' => $this->input->post('data_alamat'),
-      'jurusan_id' => $this->input->post('jurusan'),
-      'email' => $this->input->post('data_email')
-    );
-    $this->db->insert('user_mahasiswa', $data);
-    redirect('dosen/list_mahasiswa_control');
+  function get_mahasiswa_ti_json(){ //data data produk by JSON object
+    header('Content-Type: application/json');
+    echo $this->user_mahasiswa_model->get_all_mahasiswa_ti();
   }
 
-  function update(){
-    $kode = $this->input->post('data_nim');
-    $data = array(
-      'nama' => $this->input->post('data_nama'),
-      'jenis_kelamin'=> $this->input->post('data_jk'),
-      'user_kelas_id' => $this->input->post('kelas'),
-      'alamat' => $this->input->post('data_alamat'),
-      'jurusan_id' => $this->input->post('jurusan'),
-      'email' => $this->input->post('data_email')
-    );
-    $this->db->where('nim', $kode);
-    $this->db->update('user_mahasiswa', $data);
-    redirect('dosen/list_mahasiswa_control');
+  function get_mahasiswa_tm_json(){ //data data produk by JSON object
+    header('Content-Type: application/json');
+    echo $this->user_mahasiswa_model->get_all_mahasiswa_tm();
   }
 
-  function delete(){
-    $kode = $this->input->post('data_nim');
-    $this->db->where('nim', $kode);
-    $this->db->delete('user_mahasiswa');
-    redirect('dosen/list_mahasiswa_control');
+  function get_mahasiswa_tp_json(){ //data data produk by JSON object
+    header('Content-Type: application/json');
+    echo $this->user_mahasiswa_model->get_all_mahasiswa_tp();
+  }
+
+  function get_mahasiswa_rpl_json(){ //data data produk by JSON object
+    header('Content-Type: application/json');
+    echo $this->user_mahasiswa_model->get_all_mahasiswa_rpl();
+  }
+
+  function get_mahasiswa_manufaktur_json(){ //data data produk by JSON object
+    header('Content-Type: application/json');
+    echo $this->user_mahasiswa_model->get_all_mahasiswa_manufaktur();
   }
 
 }

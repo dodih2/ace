@@ -25,35 +25,42 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="<?php echo base_url('index.php/dosen/list_mahasiswa_control') ?>" value="124">
+								<a href="<?php echo base_url('index.php/dosen/list_mahasiswa_control') ?>">
+									<i class="menu-icon glyphicon glyphicon-minus "></i>
+									Semua Mahasiswa
+								</a>
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url('index.php/dosen/list_mahasiswa_control/index1') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus "></i>
 									D3 T. Informatika
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('index.php/dosen/list_mahasiswa_control/index2') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
 									D3 T. Mesin
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('index.php/dosen/list_mahasiswa_control/index3') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
 									D3 T. Pendingin
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('index.php/dosen/list_mahasiswa_control/index4') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
 									D4 T. RPL
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="#">
+								<a href="<?php echo base_url('index.php/dosen/list_mahasiswa_control/index5') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
 									D4 T. Manufaktur
 								</a>
