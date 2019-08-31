@@ -13,6 +13,7 @@ class Matkul_control extends CI_Controller{
   function index()
   {
     $x['mata_kuliah'] = $this->matkul_model->get_matkul();
+    $x['jurusan'] = $this->matkul_model->get_jurusan();
     $this->load->view('admin/konten/v_matkul_data', $x);
   }
 

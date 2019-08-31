@@ -57,13 +57,23 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Add New</h4>
+                          <h4 class="modal-title" id="myModalLabel">Tambah Dosen Baru</h4>
                         </div>
                         <div class="modal-body">
-
                           <div class="form-group">
                             <input type="text" name="data_nik" class="form-control" placeholder="Nik" required>
                           </div>
+
+													<div class="form-group">
+														<input type="text" name="data_nama" class="form-control" placeholder="Nama" required>
+													</div>
+
+													<div class="form-group">
+														<select class="form-control" name="data_jk" placeholder="Jenis Kelamin" required>
+																<option value="1" selected>Laki-laki</option>
+																<option value="2">Perempuan</option>
+														</select>
+													</div>
 
 													<div hidden="true" class="form-group">
                             <input type="text" name="data_level" class="form-control" placeholder="Level" value="2" required>
@@ -77,14 +87,22 @@
 														</select>
 													</div>
 
+													<div class="form-group">
+														<input type="text" name="data_email" class="form-control" placeholder="Email" required>
+													</div>
+
+													<div class="form-group">
+														<input type="text" name="data_alamat" class="form-control" placeholder="Alamat" required>
+													</div>
+
                           <div class="form-group">
                             <input type="text" name="data_password" class="form-control" placeholder="Password" required>
                           </div>
 
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="submit" id="add-row" class="btn btn-success">Save</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                          <button type="submit" id="add-row" class="btn btn-success">Simpan</button>
                         </div>
                       </div>
                     </div>
@@ -102,7 +120,7 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <input type="text" name="data_nik" class="form-control" placeholder="Nik" required>
+                            <input disabled type="text" name="data_nik" class="form-control" placeholder="Nik" required>
                           </div>
 
                           <div class="form-group">
@@ -133,9 +151,13 @@
                             <input type="text" name="data_email" class="form-control" placeholder="Email" required>
                           </div>
 
+													<div class="form-group">
+														<input type="text" name="data_password" class="form-control" placeholder="Password" required>
+													</div>
+
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                           <button type="submit" id="add-row" class="btn btn-success">Update</button>
                         </div>
                       </div>
@@ -157,7 +179,7 @@
                           <strong>Anda yakin mau menghapus record ini?</strong>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                           <button type="submit" id="add-row" class="btn btn-success">Hapus</button>
                         </div>
                       </div>
@@ -262,7 +284,7 @@
                     {"data": "view"}
                   ],
 
-            order: [[0, 'asc'],[1, 'asc']],
+            order: [[0, 'asc'],[1, 'asc'],[4, 'asc']],
 
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
@@ -281,6 +303,7 @@
             var alamat=$(this).data('alamat');
 						var email=$(this).data('email');
 						var jurusan=$(this).data('jurusan');
+						var password=$(this).data('password');
             $('#ModalUpdate').modal('show');
             $('[name="data_nik"]').val(nik);
             $('[name="data_nama"]').val(nama);
@@ -289,6 +312,7 @@
             $('[name="data_alamat"]').val(alamat);
 						$('[name="data_email"]').val(email);
             $('[name="data_jurusan"]').val(jurusan);
+						$('[name="data_password"]').val(password);
           });
           // End Edit Records
           // get Hapus Records

@@ -17,7 +17,6 @@ class Absen_dosen_model extends CI_Model{
     $hsl = $this->db->get('jadwal');
     return $hsl;
   }
-
   // function get_all_absen(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
   //   $hari = Date('D');
   //   $id = $this->session->userdata('nik');

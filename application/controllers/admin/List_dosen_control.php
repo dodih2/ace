@@ -16,6 +16,7 @@ class List_dosen_control extends CI_Controller{
   function index()
   {
     $x['jurusan'] = $this->user_dosen_model->get_jurusan();
+    $x['user_dosen'] = $this->user_dosen_model->get_kelamin();
     $this->load->view('admin/konten/v_dosen_managemen', $x);
   }
 
@@ -29,6 +30,10 @@ class List_dosen_control extends CI_Controller{
   function simpan(){
     $data = array(
       'nik' => $this->input->post('data_nik'),
+      'nama' => $this->input->post('data_nama'),
+      'j_k' => $this->input->post('data_jk'),
+      'email' => $this->input->post('data_email'),
+      'alamat' => $this->input->post('data_alamat'),
       'level' => $this->input->post('data_level'),
       'dosen_jurusan' => $this->input->post('jurusan'),
       'password' => $this->input->post('data_password')
@@ -43,10 +48,10 @@ class List_dosen_control extends CI_Controller{
     $data = array(
       'nama' => $this->input->post('data_nama'),
       'j_k'=> $this->input->post('data_jk'),
-      'level' => $this->input->post('data_level'),
       'alamat' => $this->input->post('data_alamat'),
       'dosen_jurusan' => $this->input->post('jurusan'),
-      'email' => $this->input->post('data_email')
+      'email' => $this->input->post('data_email'),
+      'password' => $this->input->post('data_password')
     );
     $this->db->where('nik', $kode);
     $this->db->update('user_dosen', $data);

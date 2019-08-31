@@ -68,14 +68,14 @@
 										<b class="arrow"></b>
 									</li>
 									<li class="">
-										<a href="#">
+										<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control/index4') ?>">
 											<i class="menu-icon glyphicon glyphicon-minus"></i>
 											D4 T. RPL
 										</a>
 										<b class="arrow"></b>
 									</li>
 									<li class="">
-										<a href="#">
+										<a href="<?php echo base_url('index.php/admin/list_mahasiswa_control/index5') ?>">
 											<i class="menu-icon glyphicon glyphicon-minus"></i>
 											D4 T. Manufaktur
 										</a>
@@ -99,13 +99,6 @@
 								<a href="<?php echo base_url('index.php/admin/jadwal_control') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus "></i>
 									Jadwal
-								</a>
-								<b class="arrow"></b>
-							</li>
-							<li class="">
-								<a href="<?php echo base_url('index.php/dosen/absen_control') ?>">
-									<i class="menu-icon glyphicon glyphicon-minus"></i>
-									Absensi
 								</a>
 								<b class="arrow"></b>
 							</li>

@@ -69,26 +69,28 @@
                             <input type="text" name="data_nama" class="form-control" placeholder="Nama Mata Kuliah" required>
                           </div>
 
+													<div class="form-group">
+														<select class="form-control" name="data_jp" placeholder="Jenis Perkuliahan" required>
+														<option value="1">Teori</option>
+														<option value="2">Teori dan Praktek</option>
+														</select>
+													</div>
+
                           <div class="form-group">
-                            <input type="text" name="data_jp" class="form-control" placeholder="Jenis Perkuliahan" required>
+                            <input type="number" name="data_sks" class="form-control" placeholder="SKS" required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="data_sks" class="form-control" placeholder="SKS" required>
+                            <input type="number" name="data_semester" class="form-control" placeholder="Semester" required>
                           </div>
 
-                          <div class="form-group">
-                            <input type="text" name="data_semester" class="form-control" placeholder="Semester" required>
-                          </div>
-
-                          <div class="form-group">
-                            <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
-
-                              <option value="1">Teknik Informatika</option>
-                              <option value="2">Teknik Mesin</option>
-                              <option value="3">Teknik Pendingin</option>
-                            </select>
-                          </div>
+													<div class="form-group">
+														<select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 
 
                         </div>
@@ -119,25 +121,28 @@
                             <input type="text" name="data_nama" class="form-control" placeholder="Nama Mata Kuliah" required>
                           </div>
 
+													<div class="form-group">
+														<select class="form-control" name="data_jp" placeholder="Jurusan" required>
+															<?php foreach ($mata_kuliah->result() as $row): ?>
+																<option value="<?php echo $row->jenis_perkuliahan; ?>"><?php echo $row->jenis_perkuliahan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
                           <div class="form-group">
-                            <input type="text" name="data_jp" class="form-control" placeholder="Jenis Perkuliahan" required>
+                            <input type="number" name="data_sks" class="form-control" placeholder="SKS" required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="data_sks" class="form-control" placeholder="SKS" required>
+                            <input type="number" name="data_semester" class="form-control" placeholder="Semester" required>
                           </div>
 
-                          <div class="form-group">
-                            <input type="text" name="data_semester" class="form-control" placeholder="Semester" required>
-                          </div>
-
-                          <div class="form-group">
-                            <select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
-                              <option value="1">Teknik Informatika</option>
-                              <option value="2">Teknik Mesin</option>
-                              <option value="3">Teknik Pendingin</option>
-                            </select>
-                          </div>
+													<div class="form-group">
+														<select class="form-control" name="data_jurusan" placeholder="Jurusan" required>
+															<?php foreach ($jurusan->result() as $row): ?>
+																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 
                         </div>
                         <div class="modal-footer">
@@ -262,7 +267,7 @@
                     {"data": "jenis_perkuliahan"},
                     {"data": "sks"},
                     {"data": "semester"},
-										{"data": "jurusan"},
+										{"data": "nama_jurusan"},
                     {"data": "view"}
                   ],
 

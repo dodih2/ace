@@ -53,35 +53,31 @@
                 </div>
 
                 <!-- Modal Add Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_mahasiswa_control/simpan' ?>" method="post">
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_mahasiswa_control/simpantm' ?>" method="post">
                   <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Add New</h4>
+                          <h4 class="modal-title" id="myModalLabel">Tambah Mahasiswa</h4>
                         </div>
                         <div class="modal-body">
 
                           <div class="form-group">
-                            <input type="text" name="data_nim" class="form-control" placeholder="NIM" required>
+                            <input type="number" name="data_nim" class="form-control" placeholder="NIM" required>
                           </div>
 
                           <div class="form-group">
                             <input type="text" name="data_nama" class="form-control" placeholder="Nama Lengkap" required>
                           </div>
 
-                          <div class="form-group">
-                            <input type="text" name="data_jk" class="form-control" placeholder="Jenis Kelamin" required>
-                          </div>
-
 													<div class="form-group">
-														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
-															<?php foreach ($jurusan->result() as $row): ?>
-																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
-															<?php endforeach; ?>
+														<select class="form-control" name="data_jk" placeholder="Jenis Kelamin" required>
+																<option value="1" selected>Laki-laki</option>
+																<option value="2">Perempuan</option>
 														</select>
 													</div>
+
 
 													<div class="form-group">
                             <select class="form-control" name="kelas" placeholder="Kelas" required>
@@ -106,8 +102,8 @@
 
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="submit" id="add-row" class="btn btn-success">Save</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                          <button type="submit" id="add-row" class="btn btn-success">Simpan</button>
                         </div>
                       </div>
                     </div>
@@ -115,7 +111,7 @@
                 </form>
 
                 <!-- Modal Update Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_mahasiswa_control/update' ?>" method="post">
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_mahasiswa_control/updatetm' ?>" method="post">
                   <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -125,7 +121,7 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <input type="text" name="data_nim" class="form-control" placeholder="NIM" required>
+                            <input disabled type="number" name="data_nim" class="form-control" placeholder="NIM" required>
                           </div>
 
                           <div class="form-group">
@@ -166,7 +162,7 @@
 
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                           <button type="submit" id="add-row" class="btn btn-success">Update</button>
                         </div>
                       </div>
@@ -175,7 +171,7 @@
                 </form>
 
                 <!-- Modal Hapus Produk -->
-                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_mahasiswa_control/delete' ?>" method="post">
+                <form id="add-row-form" action="<?php echo base_url().'index.php/admin/list_mahasiswa_control/deletetm' ?>" method="post">
                   <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -188,7 +184,7 @@
                           <strong>Anda yakin mau menghapus record ini?</strong>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                           <button type="submit" id="add-row" class="btn btn-success">Hapus</button>
                         </div>
                       </div>
@@ -293,7 +289,7 @@
                     {"data": "view"}
                   ],
 
-            order: [[6, 'asc'],[0, 'asc']],
+            order: [[6, 'asc'],[0, 'asc'],[4, 'asc'],[3, 'asc'],[1, 'asc']],
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
               var page = info.iPage;
