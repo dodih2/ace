@@ -38,13 +38,14 @@ class Absen_control extends CI_Controller{
       'alpa' => $this->input->post('data_alpa'),
       'izin' => $this->input->post('data_izin'),
       'keterangan' => $this->input->post('data_keterangan'),
-      'tanggal2' => Date('Y-m-d')
+      'tanggal2' => Date('Y-m-d'),
+      'absen_kode_matkul' => $this->input->post('data_matkul')
     );
     $this->db->insert('absen', $data);
-    $kode = $this->input->post('data_nim');
-    $data2 = array('konfirmasi' => 2);
-    $this->db->where('nim', $kode);
-    $this->db->update('user_mahasiswa', $data2);
+    // $kode = $this->input->post('data_nim');
+    // $data2 = array('konfirmasi' => 2);
+    // $this->db->where('nim', $kode);
+    // $this->db->update('user_mahasiswa', $data2);
     redirect('dosen/absen_control');
   }
 

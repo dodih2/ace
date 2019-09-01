@@ -20,7 +20,7 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Managemen Data</a>
 							</li>
-							<li class="active">Jadwal</li>
+							<li class="active">Mata Kuliah</li>
 						</ul><!-- /.breadcrumb -->
 					</div>
 
@@ -32,24 +32,23 @@
 
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
-
                 <div class="col-xs-12">
-																		<h2><strong>Jadwal Perkuliahan</strong></h2>
+																		<h2><strong>Mata Kuliah</strong></h2>
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th style="width:0.5%;">Nama Hari</th>
-                          <th style="width:0.5%;">Kode Matkul</th>
-                          <th style="width:0.5%;">Kelas</th>
-                          <th style="width:0.5%;">Jam Mulai</th>
-													<th style="width:0.5%;">Jam Selesai</th>
-													<th style="width:0.5%;">Ruangan</th>
-													<th style="width:0.5%;">Jurusan</th>
+                          <th>Kode Mata Kuliah</th>
+                          <th>Nama Mata Kuliah</th>
+                          <th>Jenis Perkuliahan</th>
+                          <th>SKS</th>
+                          <th>Semester</th>
+													<th>Jurusan</th>
                         </tr>
                       </thead>
                     </table>
                 </div>
+
 								<!-- PAGE CONTENT ENDS -->
 					</div><!-- /.page-content -->
 			</div><!-- /.main-content -->
@@ -58,8 +57,8 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Ace</span>
-							Application &copy; 2013-2014
+							<span class="blue bolder">Absensi</span>
+							&copy; 2019
 						</span>
 					</div>
 				</div>
@@ -124,7 +123,7 @@
 							sLengthMenu		: "Tampilkan _MENU_ data per halaman",
               sProcessing		: "Memuat...",
 							sInfo					: "Tampilkan data _START_ sampai _END_ dari _TOTAL_ data",
-							sEmptyTable		: "Tidak ada Data yang ditampilkan",
+							sEmptyTable		: "Tidak ada Data yang tersedia pada tabel ini",
 							sInfoEmpty		: "Tampilkan data 0 sampai 0 dari 0 data",
 							sSearch				: "Cari Data:",
 							sInfoFiltered	: "(disaring dari _MAX_ entri keseluruhan)",
@@ -132,35 +131,20 @@
 							oPaginate			: {
 								"sPrevious": "Sebelumnya",
 								"sNext"		 : "Selanjutnya"}
-
         },
             processing: true,
             serverSide: true,
-
-            ajax: {"url": "<?php echo base_url().'index.php/dosen/jadwal_control/get_jadwal_json' ?>", "type": "POST"},
+            ajax: {"url": "<?php echo base_url().'index.php/dosen/matkul_control/get_matkul_json' ?>", "type": "POST"},
                   columns: [
-                    {"data": "nama_hari",
-										render : function (data, type, row){
-											switch(data) {
-					               case 'Mon' : return 'Senin'; break;
-												 case 'Tue' : return 'Selasa'; break;
-												 case 'Wed' : return 'Rabu'; break;
-												 case 'Thu' : return 'Kamis'; break;
-												 case 'Fri' : return 'Jumat'; break;
-					               default  : return 'N/A';
-					            }
-										}
-									},
-                    {"data": "kode_matkul"},
-                    {"data": "kelas_nama"},
-                    {"data": "jam_mulai"},
-										{"data": "jam_selesai"},
-										{"data": "nama_ruangan"},
+                    {"data": "id_matkul"},
+                    {"data": "nama_matkul"},
+                    {"data": "jenis_perkuliahan"},
+                    {"data": "sks"},
+                    {"data": "semester"},
 										{"data": "nama_jurusan"}
                   ],
 
-            order: [[5, 'asc']],
-
+            order: [[1, 'asc']],
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
               var page = info.iPage;
@@ -168,7 +152,7 @@
               $('td:eq(0)', row).html();
             }
       });
-          // end setup datatables
+
     });
     </script>
 	</body>

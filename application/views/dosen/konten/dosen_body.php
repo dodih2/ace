@@ -39,7 +39,7 @@
 											}
 										}
 									?>
-								<h2>Grafik Kehadiran Mahasiswa</h2>
+																	<h2><strong>Grafik Kehadiran Mahasiswa</strong></h2>
 								<canvas id="canvas" width="1000" height="280"></canvas>
 
 								<!-- PAGE CONTENT ENDS -->

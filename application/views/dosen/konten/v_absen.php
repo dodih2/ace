@@ -34,12 +34,12 @@
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
 										<div class="center">
-<h3>DAFTAR ABSEN MAHASISWA</h3>
+									<h2><strong>Daftar Absensi Mahasiswa</strong></h2>
 										</div>
 										<div id="pesan">
 
 										</div>
-										
+
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
@@ -52,7 +52,7 @@
                     </table>
 										<br>
 										<div class="center">
-										<h3>DAFTAR MAHASISWA YANG SUDAH ABSEN</h3>
+									<h2><strong>Daftar Mahasiswa Yang Sudah Absensi</strong></h2>
 										</div>
 										<table class="table table-striped" id="mytable2">
 											<thead>
@@ -152,6 +152,10 @@
 														<input type="text" name="data_kelas" class="form-control" placeholder="kelas" >
 													</div>
 
+													<div class="form-group" hidden="true">
+														<input type="text" name="data_matkul" class="form-control" placeholder="Mata Kuliah" >
+													</div>
+
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -172,8 +176,12 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <input type="text" name="data_id" class="form-control" placeholder="ID Absen" required>
+                            <input type="hidden" name="data_id" class="form-control" placeholder="ID Absen" required>
                           </div>
+
+													<div class="form-group">
+														<input type="text" name="data_nama" class="form-control" placeholder="Nama">
+													</div>
 
 													<div class="form-group">
 														<input type="text" name="data_keterangan" class="form-control" placeholder="Keterangan">
@@ -382,10 +390,12 @@
 						var nim=$(this).data('nim');
 						var nama=$(this).data('nama');
 						var kelas=$(this).data('kelas');
+						var matkul=$(this).data('matkul');
 						 $('#ModalUpdate').modal('show');
 						$('[name="data_nim"]').val(nim);
 						$('[name="data_nama"]').val(nama);
 						$('[name="data_kelas"]').val(kelas);
+						$('[name="data_matkul"]').val(matkul);
           });
           // End Edit Records
           // get Hapus Records
@@ -515,6 +525,8 @@
 						var keterangan=$(this).data('keterangan');
 						var nik=$(this).data('nik');
 						var nim=$(this).data('nim');
+						var hadir=$(this).data('hadir');
+						var nama=$(this).data('nama');
 						var kelas_id=$(this).data('kelas');
 						var jadwal_id=$(this).data('jadwal');
 						$('#ModalUpdate2').modal('show');
@@ -522,6 +534,8 @@
 						$('[name="data_keterangan"]').val(keterangan);
 						$('[name="data_nik"]').val(nik);
 						$('[name="data_nim"]').val(nim);
+						$('[name="data_hadir2"]').val(hadir);
+						$('[name="data_nama"]').val(nama);
 						$('[name="data_kelas"]').val(kelas_id);
 						$('[name="data_jadwal"]').val(jadwal_id);
 					});

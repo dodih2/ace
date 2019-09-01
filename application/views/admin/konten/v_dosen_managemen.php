@@ -120,7 +120,7 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <input disabled type="text" name="data_nik" class="form-control" placeholder="Nik" required>
+                            <input type="text" name="data_nik" class="form-control" placeholder="Nik" required>
                           </div>
 
                           <div class="form-group">

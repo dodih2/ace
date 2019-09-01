@@ -120,7 +120,7 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <input disabled type="number" name="data_nim" class="form-control" placeholder="NIM" required>
+                            <input type="number" name="data_nim" class="form-control" placeholder="NIM" required>
                           </div>
 
                           <div class="form-group">

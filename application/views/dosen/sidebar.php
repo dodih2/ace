@@ -2,6 +2,7 @@
 				<script type="text/javascript">
 					try{ace.settings.loadState('sidebar')}catch(e){}
 				</script>
+				<strong>
 				<ul class="nav nav-list">
 					<li class="active">
 						<a href="<?php echo site_url('dosen/dosen_control') ?>">
@@ -16,7 +17,7 @@
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-desktop"></i>
 							<span class="menu-text">
-								Mahasiswa
+								List Mahasiswa
 							</span>
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
@@ -100,10 +101,15 @@
 							</li>
 						</ul>
 					</li>
-
+					<li class="">
+						<a href="<?php echo base_url('index.php/laporanpdf') ?>">
+							<i class="menu-icon fa fa-book"></i>
+							<span class="menu-text">Cetak Absensi</span>
+						</a>
+					</li>
 
 				</ul><!-- /.nav-list -->
-
+</strong>
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 				</div>

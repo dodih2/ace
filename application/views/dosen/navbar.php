@@ -11,7 +11,7 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="<?php  echo site_url('dosen/test') ?>" class="navbar-brand">
+					<a href="<?php  echo site_url('dosen/dosen_control') ?>" class="navbar-brand">
 						<small>
 							<img src="<?php echo base_url('assets/images') ?>/data/logopolindra.png" style="width:25px;" alt="logo">
 							Absensi
@@ -24,9 +24,9 @@
 
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="<?php echo base_url('assets/template/back') ?> /images/avatars/user.jpg" alt="Jason's Photo" />
+								<!-- <img class="nav-user-photo" src="<?php echo base_url('assets/template/back') ?> /images/avatars/user.jpg" alt="Jason's Photo" /> -->
 								<span class="user-info">
-									<small>Welcome,</small>
+									<small>Selamat Datang,</small>
 									<?php echo $this->session->userdata('nama'); ?>
 								</span>
 
