@@ -5,7 +5,7 @@
 
 	<?php
         foreach($data as $data){
-            $nama[] = $data->nama;
+            $nama[] = $data->kelas_nama;
             $hadir[] = (float) $data->hadir;
             $alpa[] = (float) $data->alpa;
         }

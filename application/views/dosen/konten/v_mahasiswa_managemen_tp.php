@@ -20,7 +20,7 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Managemen User</a>
 							</li>
-							<li class="active">Mahasiswa</li>
+							<li class="active">Mahasiswa TP</li>
 						</ul><!-- /.breadcrumb -->
 					</div>
 
@@ -59,8 +59,8 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Absensi</span>
-							&copy; 2019
+							<span class="blue bolder">Absensi Mahasiswa</span>
+							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>
 				</div>
@@ -157,7 +157,7 @@
               $('td:eq(0)', row).html();
             }
       });
-          
+
     });
     </script>
 	</body>

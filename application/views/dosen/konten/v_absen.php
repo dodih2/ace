@@ -36,10 +36,6 @@
 										<div class="center">
 									<h2><strong>Daftar Absensi Mahasiswa</strong></h2>
 										</div>
-										<div id="pesan">
-
-										</div>
-
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
@@ -134,6 +130,13 @@
 														<span class="tab">&emsp;</span><span class="tab">&emsp;</span>
 														<input type="radio" name="data_izin" id="izin1" class="ace input-lg" value="0" />
 														<span class="lbl bigger-120">Izin</span>
+													</div>
+
+													<div class="form-group">
+														<label>
+															<span class="ace input-lg lbl bigger-100"> Telat &emsp; &emsp; &emsp;: </span>
+															<input  name="data_telat" id="form-field-11" type="time"  class="limited ace input-lg"/>
+														</label>
 													</div>
 
 
@@ -243,8 +246,8 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Ace</span>
-							Application &copy; 2013-2014
+							<span class="blue bolder">Absensi Mahasiswa</span>
+							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>
 				</div>

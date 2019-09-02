@@ -19,7 +19,6 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-							<li class="active">Dashboard</li>
 						</ul><!-- /.breadcrumb -->
 
 					</div>
@@ -40,7 +39,7 @@
 											}
 										}
 									?>
-								<h2>Grafik Kehadiran Jurusan Teknik Informatika</h2>
+								<h2>Grafik Kehadiran Teknik Informatika</h2>
 								<canvas id="canvas" width="1000" height="280"></canvas>
 
 								<?php
@@ -51,7 +50,7 @@
 											}
 										}
 									?>
-								<h2>Grafik Kehadiran Jurusan Telnik Mesin</h2>
+								<h2>Grafik Kehadiran Teknik Mesin</h2>
 								<canvas id="canvas2" width="1000" height="280"></canvas>
 
 								<?php
@@ -62,7 +61,7 @@
 											}
 										}
 									?>
-								<h2>Grafik Kehadiran Jurusan Teknik Pendingin</h2>
+								<h2>Grafik Kehadiran Teknik Pendingin</h2>
 								<canvas id="canvas3" width="1000" height="280"></canvas>
 
 								<?php
@@ -73,7 +72,7 @@
 											}
 										}
 									?>
-								<h2>Grafik Kehadiran Jurusan Teknik Rekayasa Perangkat Lunak</h2>
+								<h2>Grafik Kehadiran Teknik Rekayasa Perangkat Lunak</h2>
 								<canvas id="canvas4" width="1000" height="280"></canvas>
 
 								<?php
@@ -84,7 +83,7 @@
 											}
 										}
 									?>
-								<h2>Grafik Kehadiran Jurusan Teknik Pendingin</h2>
+								<h2>Grafik Kehadiran Teknik Manufaktur</h2>
 								<canvas id="canvas5" width="1000" height="280"></canvas>
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
@@ -94,7 +93,6 @@
 			</div><!-- /.main-content -->
 
 			<?php $this->load->view('admin/footer') ?>
-			<script type="text/javascript" src="<?php echo base_url().'assets/chartjs/chart.min.js'?>"></script>
 			<script>
 								var lineChartData = {
 										labels : <?php echo json_encode($nama);?>,
@@ -115,7 +113,7 @@
 
 				<script>
 									var lineChartData = {
-											labels : <?php echo json_encode($nama2);?>,
+											labels : <?php echo json_encode($nama2); ?>,
 											datasets : [
 													{
 															fillColor: "rgba(60,141,188,0.9)",

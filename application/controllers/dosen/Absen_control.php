@@ -37,6 +37,7 @@ class Absen_control extends CI_Controller{
       'hadir' => $this->input->post('data_hadir'),
       'alpa' => $this->input->post('data_alpa'),
       'izin' => $this->input->post('data_izin'),
+      'ket_telat' => $this->input->post('data_telat'),
       'keterangan' => $this->input->post('data_keterangan'),
       'tanggal2' => Date('Y-m-d'),
       'absen_kode_matkul' => $this->input->post('data_matkul')

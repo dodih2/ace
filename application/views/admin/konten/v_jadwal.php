@@ -169,15 +169,24 @@
 
 
 													<div class="form-group">
-                            <input type="text" name="data_nik" class="form-control" placeholder="nik" required>
+														<select class="form-control" name="data_nik" placeholder="NIK" required>
+															<?php foreach ($user_dosen->result() as $row): ?>
+																<option value="<?php echo $row->nik; ?>"><?php echo $row->nama; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
+
+
+													<div class="form-group">
+                            <input type="number" name="data_nik" class="form-control" placeholder="nik" required>
                           </div>
 
 													<div class="form-group">
-                            <input type="text" name="data_jamm" class="form-control" placeholder="jam mulai" required>
+                            <input type="time" name="data_jamm" class="form-control" placeholder="jam mulai" required>
                           </div>
 
 													<div class="form-group">
-                            <input type="text" name="data_jams" class="form-control" placeholder="jam selesai" required>
+                            <input type="time" name="data_jams" class="form-control" placeholder="jam selesai" required>
                           </div>
 
 
@@ -237,8 +246,8 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Absensi</span>
-						&copy; 2019
+							<span class="blue bolder">Absensi Mahasiswa</span>
+							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>
 				</div>

@@ -2,8 +2,8 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Absensi</span>
-							&copy; 2019
+							<span class="blue bolder">Absensi Mahasiswa</span>
+							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>
 				</div>
@@ -34,12 +34,13 @@
 		<!--[if lte IE 8]>
 		  <script src="<?php echo base_url('assets/template/back') ?> /js/excanvas.min.js"></script>
 		<![endif]-->
+					<script type="text/javascript" src="<?php echo base_url().'assets/chartjs/chart.min.js'?>"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery-ui.custom.min.js"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.easypiechart.min.js"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.sparkline.index.min.js"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.flot.min.js"></script>
-		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.flot.pie.min.js"></script>
+		 <script src="<?php echo base_url('assets/template/back') ?>/js/jquery.flot.pie.min.js"></script> -->
 		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.flot.resize.min.js"></script>
 
 		<!-- ace scripts -->

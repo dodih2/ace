@@ -61,7 +61,7 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <input type="text" name="data_nik" class="form-control" placeholder="Nik" required>
+                            <input type="number" name="data_nik" class="form-control" placeholder="Nik" required>
                           </div>
 
 													<div class="form-group">
@@ -194,8 +194,8 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Absensi</span>
-							&copy; 2019
+							<span class="blue bolder">Absensi Mahasiswa</span>
+							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>
 				</div>

@@ -35,7 +35,7 @@ class Absen_dosen_model extends CI_Model{
   function get_all_absen(){
     $hari = date('D');
     $id = $this->session->userdata('nik');
-    $this->datatables->select('nim, nama, kelas, kelas_id, nik_id, nama_hari, kelas_nama, konfirmasi, kode_matkul');
+    $this->datatables->select('nim, nama, kelas, kelas_id, nik_id, nama_hari, kelas_nama, kode_matkul');
     $this->datatables->from('user_mahasiswa');
     $this->datatables->join('jadwal', 'user_mahasiswa.user_kelas_id=jadwal.kelas');
     $this->datatables->join('kelas', 'user_mahasiswa.user_kelas_id=kelas.kelas_id');
@@ -48,7 +48,7 @@ class Absen_dosen_model extends CI_Model{
   function get_all_absenn(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
     $hari = Date('D');
     $tanggal = Date('Y-m-d');
-    $this->datatables->select('id_absen, nik_id_id, hadir, alpa, izin, ket_telat, keterangan, konfirmasi, tanggal, , tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim, nama');
+    $this->datatables->select('id_absen, nik_id_id, hadir, alpa, izin, ket_telat, keterangan, tanggal, , tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim, nama');
     $this->datatables->from('absen');
     $this->datatables->join('jadwal', 'absen.absen_kelas_id=jadwal.kelas');
     $this->datatables->join('kelas','absen.absen_kelas_id=kelas.kelas_id');

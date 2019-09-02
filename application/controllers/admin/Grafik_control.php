@@ -5,7 +5,7 @@ class Grafik_control extends CI_Controller{
 		$this->load->model('grafik_model');
 	}
 	function index(){
-		$x['data']=$this->grafik_model->get_data_stok();
+		$x['data']=$this->grafik_model->get_data_ti();
 		$this->load->view('admin/konten/v_grafik',$x);
 	}
 }
