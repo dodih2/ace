@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Test extends CI_Controller{
+class Matkul_Control extends CI_Controller{
 
   public function __construct()
   {
@@ -11,7 +11,7 @@ class Test extends CI_Controller{
 
   function index()
   {
-    $this->load->view('dosen/konten/body');
+    $this->load->view('mahasiswa/konten/v_matkul_mahasiswa');
   }
 
 }
