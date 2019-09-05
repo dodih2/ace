@@ -52,12 +52,16 @@
 			<div class="main-content">
 				<div class="main-content-inner">
 					<div class="page-content">
+						<div class="page-header">
+							<h1 style="padding:10%;"></h1>
+						</div><!-- /.page-header -->
+
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
 								<div>
   								<ul class="ace-thumbnails clearfix">
-  									<li>
+  									<li  style="margin:2%;">
   										<a href="<?php echo base_url('index.php/mahasiswa/jadwal_control') ?>" data-rel="colorbox">
   											<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/jadwal.png" />
   												<div class="tags">
@@ -72,31 +76,27 @@
   											</a>
   										</div>
   									</li>
+										<li style="margin:2%;">
+											<a href="<?php echo base_url('index.php/mahasiswa/absen_control') ?>" data-rel="colorbox">
+													<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/absen.png" />
+												<div class="tags">
+													<span class="label-holder">
+														<span class="label label-info arrowed"><strong>Absensi</strong></span>
+													</span>
+												</div>
+											</a>
+
+											<div class="tools tools-top">
+												<a href="#">
+												<small>Absensi Mahasiswa</small>
+												</a>
+											</div>
+										</li>
   							</ul>
 							</div>
 							<div>
 								<ul class="ace-thumbnails clearfix">
-									<li>
-										<a href="<?php echo base_url('index.php/mahasiswa/absen_control') ?>" data-rel="colorbox">
-  											<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/absen.png" />
-											<div class="tags">
-												<span class="label-holder">
-													<span class="label label-info arrowed"><strong>Absensi</strong></span>
-												</span>
-											</div>
-										</a>
-
-										<div class="tools tools-top">
-											<a href="#">
-											<small>Absensi Mahasiswa</small>
-											</a>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div>
-								<ul class="ace-thumbnails clearfix">
-									<li>
+									<li  style="margin:2%;">
 										<a href="<?php echo base_url('index.php/mahasiswa/matkul_control') ?>" data-rel="colorbox">
   											<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/matkul.png" />
 											<div class="tags">
@@ -111,14 +111,11 @@
 											<small>Mata Kuliah</small>
 											</a>
 										</div>
+
 									</li>
-								</ul>
-							</div>
-							<div>
-								<ul class="ace-thumbnails">
-									<li>
+									<li  style="margin:2%;">
 									<a href="<?php echo base_url('index.php/mahasiswa/tentang_control') ?>" data-rel="colorbox">
-  											<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/tentang	.png" />
+												<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/tentang	.png" />
 										<div class="tags">
 											<span class="label-holder">
 												<span class="label label-info arrowed"><strong>Tentang</strong></span>

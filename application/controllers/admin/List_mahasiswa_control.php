@@ -91,7 +91,8 @@ class List_mahasiswa_control extends CI_Controller{
       'semester' => $this->input->post('data_semester'),
       'alamat' => $this->input->post('data_alamat'),
       'jurusan_id' => $this->input->post('jurusan'),
-      'email' => $this->input->post('data_email')
+      'email' => $this->input->post('data_email'),
+      'password' => $this->input->post('data_nim')
     );
     $this->db->insert('user_mahasiswa', $data);
     // $data2 = array(
@@ -113,7 +114,8 @@ class List_mahasiswa_control extends CI_Controller{
       'semester' => $this->input->post('data_semester'),
       'alamat' => $this->input->post('data_alamat'),
       'jurusan_id' => 123,
-      'email' => $this->input->post('data_email')
+      'email' => $this->input->post('data_email'),
+      'password' => $this->input->post('data_nim')
     );
     $this->db->insert('user_mahasiswa', $data);
     redirect('admin/list_mahasiswa_control/index1');

@@ -48,6 +48,7 @@
 			<div class="main-content">
 				<div class="main-content-inner">
 					<div class="page-content">
+						<h1 style="margin:3%;"></h1>
 						<div class="row">
 							<div class="col-xs-12 col-sm-offset-1">
 								<!-- PAGE CONTENT BEGINS -->
@@ -78,12 +79,12 @@
 											<div class="widget-body">
 												<div class="widget-main">
 													<div class="space-6"></div>
-													<form action="<?php echo site_url('login/auth'); ?>" method="post">
+													<form action="<?php echo site_url('login_mahasiswa_control/auth'); ?>" method="post">
 														<?php echo $this->session->flashdata('msg'); ?>
 														<fieldset>
-															<label for="nik" class="block clearfix">
+															<label for="nim" class="block clearfix">
 																<span class="block input-icon input-icon-right">
-																	<input type="text" name="nik" class="form-control" placeholder="NIK atau EMAIL" required autofocus />
+																	<input type="text" name="nim" class="form-control" placeholder="NIM atau EMAIL" required autofocus />
 																	<i class="ace-icon fa fa-user"></i>
 																</span>
 															</label>

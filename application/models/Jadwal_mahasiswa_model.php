@@ -20,17 +20,17 @@ class Jadwal_mahasiswa_model extends CI_Model{
 
   function get_all_jadwal(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
         // $tgl = Date('D',strtotime('+2 days')); menambahkan waktu 2 hari
-    $tgl = Date('D');
-      $id = $this->session->userdata('nik');
-    $jurus = $this->session->userdata('dosen_jurusan');
-    $this->datatables->select('id_jadwal, nama_hari, kode_matkul, nik_id, jam_mulai, jam_selesai, kelas, kelas_nama, id_ruangan, nama_ruangan, id_jurusan, nama_jurusan');
+    $tgl = date('D');
+    $id = $this->session->userdata('user_kelas_id');
+    $jurus = $this->session->userdata('jurusan_id');
+    $this->datatables->select('id_jadwal, nama_hari, kode_matkul, nik_id, jam_mulai, jam_selesai, kelas, kelas_nama, id_ruangan, nama_ruangan, id_jurusan, nama_jurusan, id_matkul, nama_matkul');
     $this->datatables->from('jadwal');
     $this->datatables->join('kelas', 'jadwal.kelas=kelas_id');
     $this->datatables->join('jurusan','jadwal.jurusan_id=id_jurusan');
     $this->datatables->join('ruangan','jadwal.ruangan_id=id_ruangan');
-    $this->datatables->where("(nik_id= '$id' AND id_jurusan='$jurus')");
+    $this->datatables->join('mata_kuliah','jadwal.kode_matkul=id_matkul');
     // $this->datatables->where("(nik = '$id' AND id_jurusan='$jurus' AND NOW() BETWEEN jam_mulai AND jam_selesai)"); menurut jam sekarang
-    $this->datatables->like('nama_hari', $tgl);
+    $this->datatables->where('nama_hari', $tgl);
     return $this->datatables->generate();
   }
 

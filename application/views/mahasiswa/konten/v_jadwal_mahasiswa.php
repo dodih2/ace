@@ -65,6 +65,19 @@
 																				</button>
 
 								</a>
+								<div class="col-xs-12">
+										<div class="hr hr-18 dotted hr-double"></div>
+										<table class="table table-striped" id="mytable">
+											<thead>
+												<tr>
+													<th>Mata Kuliah</th>
+													<th>Jam Mulai</th>
+													<th>Jam Selesai</th>
+													<th>Ruangan</th>
+												</tr>
+											</thead>
+										</table>
+								</div>
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
 						</div><!-- /.row -->
@@ -97,6 +110,34 @@
 		<script src="<?php echo base_url('assets/template/back') ?>/js/ace-elements.min.js"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/ace.min.js"></script>
 
+				<!-- basic scripts -->
+
+				<!--[if !IE]> -->
+				<script src="<?php echo base_url('assets/template/back') ?>/js/jquery-2.1.4.min.js"></script>
+
+				<!-- <![endif]-->
+
+				<!--[if IE]>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery-1.11.3.min.js"></script>
+		<![endif]-->
+				<script type="text/javascript">
+					if('ontouchstart' in document.documentElement) document.write("<script src='<?php echo base_url('assets/template/back') ?>/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+				</script>
+				<script src="<?php echo base_url('assets/template/back') ?>/js/bootstrap.min.js"></script>
+
+				<!-- page specific plugin scripts -->
+				<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.dataTables.min.js"></script>
+				<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.dataTables.bootstrap.min.js"></script>
+				<script src="<?php echo base_url('assets/template/back') ?>/js/dataTables.buttons.min.js"></script>
+				<script src="<?php echo base_url('assets/template/back') ?>/js/buttons.flash.min.js"></script>
+				<script src="<?php echo base_url('assets/template/back') ?>/js/buttons.html5.min.js"></script>
+				<script src="<?php echo base_url('assets/template/back') ?>/js/buttons.print.min.js"></script>
+				<script src="<?php echo base_url('assets/template/back') ?>/js/buttons.colVis.min.js"></script>
+				<script src="<?php echo base_url('assets/template/back') ?>/js/dataTables.select.min.js"></script>
+
+				<!-- ace scripts -->
+				<script src="<?php echo base_url('assets/template/back') ?>/js/ace-elements.min.js"></script>
+				<script src="<?php echo base_url('assets/template/back') ?>/js/ace.min.js"></script>
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 			jQuery(function($) {
@@ -149,6 +190,72 @@
 					$('.sidebar').toggleClass('push_away');
 				});
 			});
+		</script>
+		<script>
+		$(document).ready(function(){
+			// setup datatable
+			$.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
+			{
+				return {
+					"iStart": oSettings._iDisplayStart,
+					"iEnd" : oSettings.fnDisplayEnd(),
+					"iLength": oSettings._iDisplayLength,
+					"iTotal": oSettings.fnRecordsTotal(),
+					"iFilteredTotal": oSettings.fnRecordsDisplay(),
+					"iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+					"iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+				};
+			};
+
+			var table = $("#mytable").dataTable({
+				initComplete: function(){
+					var api = this.api();
+					$('#mytable_filter input')
+						.off('.DT')
+						.on('input.DT', function(){
+							api.search(this.value).draw();
+						});
+				},
+					paging : false,
+					info : false,
+					searching : false,
+					ordering : false,
+						oLanguage: {
+							sLengthMenu		: "Tampilkan _MENU_ data per halaman",
+							sProcessing		: "Memuat...",
+							sInfo					: "Tampilkan data _START_ sampai _END_ dari _TOTAL_ data",
+							sEmptyTable		: "Tidak ada Data yang ditampilkan",
+							sInfoEmpty		: "Tampilkan data 0 sampai 0 dari 0 data",
+							sSearch				: "Cari Data:",
+							sInfoFiltered	: "(disaring dari _MAX_ entri keseluruhan)",
+							sZeroRecords	:  "Tidak ditemukan data yang sesuai",
+							oPaginate			: {
+								"sPrevious": "Sebelumnya",
+								"sNext"		 : "Selanjutnya"}
+
+				},
+						processing: true,
+						serverSide: true,
+
+						ajax: {"url": "<?php echo base_url().'index.php/mahasiswa/jadwal_control/get_jadwal_json' ?>", "type": "POST"},
+									columns: [
+										{"data": "nama_matkul"},
+										{"data": "jam_mulai"},
+										{"data": "jam_selesai"},
+										{"data": "nama_ruangan"}
+									],
+
+						order: [[1, 'asc']],
+
+						rowCallback: function(row, data, iDisplayIndex){
+							var info = this.fnPagingInfo();
+							var page = info.iPage;
+							var length = info.iLength;
+							$('td:eq(0)', row).html();
+						}
+			});
+					// end setup datatables
+		});
 		</script>
 	</body>
 </html>

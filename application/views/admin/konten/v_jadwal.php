@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php $this->load->view('admin/header') ?>
-
+<link href="<?php echo base_url('assets/template/back') ?>/js/select2.min.js" rel="stylesheet" />
 	<body class="no-skin">
 		<?php $this->load->view('admin/navbar') ?>
 
@@ -282,9 +282,11 @@
 		<!-- ace scripts -->
 		<script src="<?php echo base_url('assets/template/back') ?>/js/ace-elements.min.js"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/ace.min.js"></script>
+		<script src="<?php echo base_url('assets/template/back') ?>/js/select2.min.js"></script>
 
 		<script>
     $(document).ready(function(){
+
       // setup datatable
       $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
       {

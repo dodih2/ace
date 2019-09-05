@@ -44,6 +44,7 @@
                           <th style="width:25%;">Alamat</th>
                           <th style="width:0.5%;">Dosen Jurusan</th>
                           <th style="width:0.5%;">Email</th>
+													<th style="width:0.5%;">Waktu</th>
                           <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
@@ -61,7 +62,7 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <input type="number" name="data_nik" class="form-control" placeholder="Nik" required>
+                            <input type="number" name="data_nik" class="form-control" placeholder="NIK/NIP" required>
                           </div>
 
 													<div class="form-group">
@@ -88,7 +89,7 @@
 													</div>
 
 													<div class="form-group">
-														<input type="text" name="data_email" class="form-control" placeholder="Email" required>
+														<input type="email" name="data_email" class="form-control" placeholder="Email" required>
 													</div>
 
 													<div class="form-group">
@@ -96,7 +97,7 @@
 													</div>
 
                           <div class="form-group">
-                            <input type="text" name="data_password" class="form-control" placeholder="Password" required>
+                            <input type="password" name="data_password" class="form-control" placeholder="Password" required>
                           </div>
 
                         </div>
@@ -281,10 +282,11 @@
                     {"data": "alamat"},
                     {"data": "nama_jurusan"},
                     {"data": "email"},
+										{"data": "waktu_input"},
                     {"data": "view"}
                   ],
 
-            order: [[0, 'asc'],[1, 'asc'],[4, 'asc']],
+            order: [[6, 'desc'],[0, 'asc'],[1, 'asc'],[4, 'asc']],
 
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();

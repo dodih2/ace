@@ -14,7 +14,7 @@ class User_mahasiswa_model extends CI_Model{
   }
 
   function get_all_mahasiswa(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
-    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan');
+    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan, password');
     $this->datatables->from('user_mahasiswa');
     $this->datatables->join('kelas','user_mahasiswa.user_kelas_id=kelas_id');
     $this->datatables->join('jurusan','user_mahasiswa.jurusan_id=id_jurusan');
@@ -23,7 +23,7 @@ class User_mahasiswa_model extends CI_Model{
   }
 
   function get_all_mahasiswa_ti(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
-    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan');
+    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan, password');
     $this->datatables->from('user_mahasiswa');
     $this->datatables->join('kelas','user_mahasiswa.user_kelas_id=kelas_id');
     $this->datatables->join('jurusan','user_mahasiswa.jurusan_id=id_jurusan');
@@ -33,7 +33,7 @@ class User_mahasiswa_model extends CI_Model{
   }
 
   function get_all_mahasiswa_tm(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
-    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan');
+    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan, password');
     $this->datatables->from('user_mahasiswa');
     $this->datatables->join('kelas','user_mahasiswa.user_kelas_id=kelas_id');
     $this->datatables->join('jurusan','user_mahasiswa.jurusan_id=id_jurusan');
@@ -43,7 +43,7 @@ class User_mahasiswa_model extends CI_Model{
   }
 
   function get_all_mahasiswa_tp(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
-    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan');
+    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan, password');
     $this->datatables->from('user_mahasiswa');
     $this->datatables->join('kelas','user_mahasiswa.user_kelas_id=kelas_id');
     $this->datatables->join('jurusan','user_mahasiswa.jurusan_id=id_jurusan');
@@ -53,7 +53,7 @@ class User_mahasiswa_model extends CI_Model{
   }
 
   function get_all_mahasiswa_rpl(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
-    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan');
+    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan, password');
     $this->datatables->from('user_mahasiswa');
     $this->datatables->join('kelas','user_mahasiswa.user_kelas_id=kelas_id');
     $this->datatables->join('jurusan','user_mahasiswa.jurusan_id=id_jurusan');
@@ -63,7 +63,7 @@ class User_mahasiswa_model extends CI_Model{
   }
 
   function get_all_mahasiswa_manufaktur(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
-    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan');
+    $this->datatables->select('nim, nama, jenis_kelamin, semester, alamat, email, kelas_id, id_jurusan, kelas_nama, nama_jurusan, password');
     $this->datatables->from('user_mahasiswa');
     $this->datatables->join('kelas','user_mahasiswa.user_kelas_id=kelas_id');
     $this->datatables->join('jurusan','user_mahasiswa.jurusan_id=id_jurusan');

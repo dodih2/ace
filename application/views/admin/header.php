@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/font-awesome/4.5.0/css/font-awesome.min.css" />
 
+
 		<!-- page specific plugin styles -->
 
 		<!-- text fonts -->
@@ -25,7 +26,7 @@
 		<![endif]-->
 		<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/css/ace-skins.min.css" />
 		<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/css/ace-rtl.min.css" />
-
+<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/css/select2.min.css" />
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?> /css/ace-ie.min.css" />
 		<![endif]-->

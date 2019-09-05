@@ -6,7 +6,7 @@ class Login_mahasiswa_control extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('Login_mahasiswa_model');
+    $this->load->model('login_mahasiswa_model');
     //Codeigniter : Write Less Do More
   }
 
@@ -19,11 +19,12 @@ class Login_mahasiswa_control extends CI_Controller{
     // $email = $this->input->post('email',TRUE);
     $nim = $this->input->post('nim', TRUE);
     $password = $this->input->post('password', TRUE);
-    $validate = $this->login_model->validate($nim, $password);
+    $validate = $this->login_mahasiswa_model->validate($nim, $password);
     if ($validate->num_rows() > 0 ) {
       $data = $validate->row_array();
       $nim = $data['nim'];
       $nama = $data['nama'];
+      $user_kelas_id = $data['user_kelas_id'];
       $jenis_kelamin = $data['jenis_kelamin'];
       $ttl = $data['ttl'];
       $email = $data['email'];
@@ -32,6 +33,7 @@ class Login_mahasiswa_control extends CI_Controller{
       $sesdata = array(
         'nim' => $nim,
         'nama' => $nama,
+        'user_kelas_id' => $user_kelas_id,
         'jenis_kelamin' => $jenis_kelamin,
         'ttl' => $ttl,
         'alamat' => $alamat,

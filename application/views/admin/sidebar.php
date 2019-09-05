@@ -97,8 +97,15 @@
 						<b class="arrow"></b>
 						<ul class="submenu">
 							<li class="">
-								<a href="<?php echo base_url('index.php/admin/jadwal_control') ?>">
+								<a href="<?php echo base_url('index.php/admin/matkul_control') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus "></i>
+									Mata Kuliah
+								</a>
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url('index.php/admin/jadwal_control') ?>">
+									<i class="menu-icon glyphicon glyphicon-minus"></i>
 									Jadwal
 								</a>
 								<b class="arrow"></b>
@@ -106,7 +113,7 @@
 							<li class="">
 								<a href="<?php echo base_url('index.php/admin/matkul_control') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
-									Mata Kuliah
+									Sesi Waktu
 								</a>
 								<b class="arrow"></b>
 							</li>

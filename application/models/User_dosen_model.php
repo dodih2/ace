@@ -14,7 +14,7 @@ class User_dosen_model extends CI_Model{
   }
 
   function get_all_dosen(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
-    $this->datatables->select('nik, nama, j_k, level, alamat, email, password, id_jurusan, nama_jurusan');
+    $this->datatables->select('nik, nama, j_k, level, alamat, email, password, id_jurusan, nama_jurusan,waktu_input');
     $this->datatables->from('user_dosen');
     $this->datatables->join('jurusan','user_dosen.dosen_jurusan=id_jurusan');
     $this->datatables->where('level','2');
