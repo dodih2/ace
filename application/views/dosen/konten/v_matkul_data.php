@@ -33,7 +33,7 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
-																		<h2><strong>Mata Kuliah</strong></h2>
+										<h2><strong>Mata Kuliah</strong></h2>
                     <div class="hr hr-18 dotted hr-double"></div>
                     <table class="table table-striped" id="mytable">
                       <thead>

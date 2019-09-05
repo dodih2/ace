@@ -29,6 +29,7 @@ class Login_mahasiswa_control extends CI_Controller{
       $ttl = $data['ttl'];
       $email = $data['email'];
       $alamat = $data['alamat'];
+      $semester = $data['semester'];
       $jurusan_id = $data['jurusan_id'];
       $sesdata = array(
         'nim' => $nim,
@@ -39,6 +40,7 @@ class Login_mahasiswa_control extends CI_Controller{
         'alamat' => $alamat,
         'jurusan_id' => $jurusan_id,
         'email'    => $email,
+        'semester'    => $semester,
         'logged_in'=> TRUE
       );
       $this->session->set_userdata($sesdata);
