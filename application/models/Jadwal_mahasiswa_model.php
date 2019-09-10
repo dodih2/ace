@@ -29,6 +29,7 @@ class Jadwal_mahasiswa_model extends CI_Model{
     $this->datatables->join('jurusan','jadwal.jurusan_id=id_jurusan');
     $this->datatables->join('ruangan','jadwal.ruangan_id=id_ruangan');
     $this->datatables->join('mata_kuliah','jadwal.kode_matkul=id_matkul');
+    $this->datatables->where('kelas', $id);
     // $this->datatables->where("(nik = '$id' AND id_jurusan='$jurus' AND NOW() BETWEEN jam_mulai AND jam_selesai)"); menurut jam sekarang
     $this->datatables->where('nama_hari', $tgl);
     return $this->datatables->generate();

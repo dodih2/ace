@@ -575,7 +575,7 @@
 
 				});
 		</script>
-		<script>
+		<!-- <script>
 		<?php foreach ($jadwal->result() as $row): ?>
 			var jammulai = "<?php echo $row->jam_mulai; ?>";
 			var a = jammulai.split(':');
@@ -601,6 +601,6 @@
 				}
 			}
 			countDown();
-		</script>
+		</script> -->
 	</body>
 </html>

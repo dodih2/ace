@@ -14,7 +14,6 @@ Class Laporanpdf extends CI_Controller{
         $pdf->SetFont('Arial','B',16);
         // mencetak string
         $pdf->Cell(270,5,'ABSENSI MAHASISWA POLINDRA',0,1,'C');
-
         // Memberikan space kebawah agar tidak terlalu rapat
         $pdf->Cell(10,7,'',0,1);
         $pdf->SetFont('Arial','B',11);

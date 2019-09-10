@@ -2,10 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Jadwal_control extends CI_Controller{
-
   public function __construct()
   {
     parent::__construct();
+    if ($this->session->userdata('logged_in') !== TRUE) {
+			redirect('login_mahasiswa_control');
+		}
     $this->load->library('datatables'); //load library ignited-datatable
     $this->load->model('jadwal_mahasiswa_model'); // load model jadwal_model
   }

@@ -63,7 +63,7 @@
   								<ul class="ace-thumbnails clearfix">
   									<li  style="margin:2%;">
   										<a href="<?php echo base_url('index.php/mahasiswa/jadwal_control') ?>" data-rel="colorbox">
-  											<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/jadwal.png" />
+  											<img width="100" height="100" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/jadwal.png" />
   												<div class="tags">
   													<span class="label-holder">
   														<span class="label label-info arrowed"><strong>Jadwal</strong></span>
@@ -78,7 +78,7 @@
   									</li>
 										<li style="margin:2%;">
 											<a href="<?php echo base_url('index.php/mahasiswa/absen_control') ?>" data-rel="colorbox">
-													<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/absen.png" />
+													<img width="100" height="100" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/absen.png" />
 												<div class="tags">
 													<span class="label-holder">
 														<span class="label label-info arrowed"><strong>Absensi</strong></span>
@@ -98,7 +98,7 @@
 								<ul class="ace-thumbnails clearfix">
 									<li  style="margin:2%;">
 										<a href="<?php echo base_url('index.php/mahasiswa/matkul_control') ?>" data-rel="colorbox">
-  											<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/matkul.png" />
+  											<img width="100" height="100" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/matkul.png" />
 											<div class="tags">
 												<span class="label-holder">
 													<span class="label label-info arrowed"><strong>Mata Kuliah</strong></span>
@@ -115,7 +115,7 @@
 									</li>
 									<li  style="margin:2%;">
 									<a href="<?php echo base_url('index.php/mahasiswa/tentang_control') ?>" data-rel="colorbox">
-												<img width="150" height="150" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/tentang	.png" />
+												<img width="100" height="100" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/tentang	.png" />
 										<div class="tags">
 											<span class="label-holder">
 												<span class="label label-info arrowed"><strong>Tentang</strong></span>
