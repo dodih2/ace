@@ -38,15 +38,16 @@
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th style="width:0.5%;">Nim</th>
-                          <th style="width:0.5%;">Nama</th>
-                          <th style="width:0.5%;">Jenis Kelamin</th>
-                          <th style="width:0.5%;">Kelas</th>
-													<th style="width:0.5%;">Semester</th>
-                          <th style="width:25%;">Alamat</th>
-                          <th style="width:0.5%;">Jurusan</th>
-                          <th style="width:0.5%;">Email</th>
-                          <th style="width:0.5%;">Action</th>
+                          <th>Nim</th>
+                          <th>Nama</th>
+                          <th>Jenis Kelamin</th>
+                          <th>Kelas</th>
+													<th>Semester</th>
+                          <th>Alamat</th>
+                          <th>Jurusan</th>
+                          <th>Email</th>
+													<th>Waktu</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                     </table>
@@ -96,7 +97,7 @@
 													</div>
 
                           <div class="form-group">
-                            <input type="text" name="data_email" class="form-control" placeholder="Email" required>
+                            <input type="email" name="data_email" class="form-control" placeholder="Email" required>
                           </div>
 
                         </div>
@@ -285,10 +286,11 @@
                     {"data": "alamat"},
                     {"data": "nama_jurusan"},
                     {"data": "email"},
+										{"data": "waktu", "visible": false},
                     {"data": "view"}
                   ],
 
-            order: [[6, 'asc'],[0, 'asc'],[4, 'asc'],[3, 'asc'],[1, 'asc']],
+            order: [[8, 'desc'],[6, 'asc'],[0, 'asc'],[4, 'asc'],[3, 'asc'],[1, 'asc']],
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
               var page = info.iPage;

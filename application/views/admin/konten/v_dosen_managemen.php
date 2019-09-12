@@ -282,7 +282,7 @@
                     {"data": "alamat"},
                     {"data": "nama_jurusan"},
                     {"data": "email"},
-										{"data": "waktu_input"},
+										{"data": "waktu_input", "visible": false},
                     {"data": "view"}
                   ],
 

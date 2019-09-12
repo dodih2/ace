@@ -131,7 +131,7 @@
 
 					<script>
 										var lineChartData = {
-												labels : <?php echo json_encode($nama3);?>,
+												labels : <?php echo json_encode($nama3); ?>,
 												datasets : [
 														{
 																fillColor: "rgba(60,141,188,0.9)",
