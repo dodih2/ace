@@ -37,7 +37,7 @@ class Absen_control extends CI_Controller{
       'hadir' => $this->input->post('data_hadir'),
       'alpa' => $this->input->post('data_alpa'),
       'izin' => $this->input->post('data_izin'),
-      'ket_telat' => $this->input->post('data_telat'),
+      // 'ket_telat' => $this->input->post('data_telat'),
       'keterangan' => $this->input->post('data_keterangan'),
       'tanggal2' => Date('Y-m-d'),
       'absen_kode_matkul' => $this->input->post('data_matkul')
@@ -66,6 +66,13 @@ class Absen_control extends CI_Controller{
   function simpan_otomatis(){
     $data2 = array('konfirmasi' => 1);
     $this->db->update('user_mahasiswa', $data2);
+    redirect('dosen/absen_control');
+  }
+
+  function delete(){
+    $kode = $this->input->post('data_id');
+    $this->db->where('id_absen', $kode);
+    $this->db->delete('absen');
     redirect('dosen/absen_control');
   }
 

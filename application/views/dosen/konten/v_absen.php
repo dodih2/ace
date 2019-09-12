@@ -59,7 +59,7 @@
 													<th>HADIR</th>
 													<th>ALPA</th>
 													<th>IZIN</th>
-													<th>TELAT</th>
+													<th hidden>TELAT</th>
 													<th>KETERANGAN</th>
 													<th>TANGGAL</th>
 													<th style="width:0.5%;">Action</th>
@@ -219,7 +219,7 @@
 
                 <!-- Modal Hapus Produk -->
                 <form id="add-row-form" action="<?php echo base_url().'index.php/dosen/absen_control/delete' ?>" method="post">
-                  <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="ModalHapus2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -504,13 +504,13 @@
 										}
 
 									},
-										{"data": "ket_telat"},
+										{"data": "ket_telat", "visible":false},
 										{"data": "keterangan"},
 										{"data": "tanggal"},
 										{"data": "view"}
 									],
 
-						order: [[0, 'asc']],
+						order: [[8, 'desc'],[0, 'asc']],
 						rowCallback: function(row, data, iDisplayIndex){
 							var info = this.fnPagingInfo();
 							var page = info.iPage;
@@ -528,7 +528,6 @@
 						var keterangan=$(this).data('keterangan');
 						var nik=$(this).data('nik');
 						var nim=$(this).data('nim');
-						var hadir=$(this).data('hadir');
 						var nama=$(this).data('nama');
 						var kelas_id=$(this).data('kelas');
 						var jadwal_id=$(this).data('jadwal');
@@ -537,12 +536,16 @@
 						$('[name="data_keterangan"]').val(keterangan);
 						$('[name="data_nik"]').val(nik);
 						$('[name="data_nim"]').val(nim);
-						$('[name="data_hadir2"]').val(hadir);
 						$('[name="data_nama"]').val(nama);
 						$('[name="data_kelas"]').val(kelas_id);
 						$('[name="data_jadwal"]').val(jadwal_id);
 					});
 					// End Edit Records
+					$('#mytable2').on('click','.hapus_record', function(){
+						var id=$(this).data('id_absen');
+						$('#ModalHapus2').modal('show');
+						$('[name="data_id"]').val(id);
+					});
 		});
 		</script>
 

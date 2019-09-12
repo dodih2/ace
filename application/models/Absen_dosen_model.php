@@ -57,7 +57,7 @@ class Absen_dosen_model extends CI_Model{
     $this->datatables->where("(nama_hari = '$hari' AND NOW() BETWEEN jam_mulai AND jam_selesai)");
     $this->datatables->where('tanggal2', $tanggal);
     $this->datatables->where('nik_id_id', $id);
-    $this->datatables->add_column('view','<a href="javascript:void(0);" class="edit_absen btn btn-info btn-xs" data-id_absen="$1" data-nik="$2" data-hadir="$3" data-nama="$8" data-keterangan="$7">Sunting</a>','id_absen, nik_id_id, hadir, alpa, izin, ket_telat, keterangan, nama, konfirmasi, tanggal, tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim');
+    $this->datatables->add_column('view','<a href="javascript:void(0);" class="edit_absen btn btn-info btn-xs" data-id_absen="$1" data-nik="$2" data-hadir="$3" data-nama="$8" data-keterangan="$7">Sunting</a><a href="javascript:void(0);" class="hapus_record btn btn-danger btn-xs" data-id_absen="$1">Hapus</a>','id_absen, nik_id_id, hadir, alpa, izin, ket_telat, keterangan, nama, konfirmasi, tanggal, tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim');
     return $this->datatables->generate();
   }
 

@@ -230,24 +230,14 @@
 		        	var radioValue = $("input[name='data_hadir']:checked").val();
 		            if(radioValue){
 		               $("input[name='data_hadir']").val(1);
-									 document.getElementById("alpa1").checked = false;
 									 document.getElementById("izin1").checked = false;
 		            }
 		        });
-						$("#alpa1").click(function(){
-							var radioValue = $("input[name='data_alpa']:checked").val();
-								if(radioValue){
-									 $("input[name='data_alpa']").val(1);
-									 document.getElementById("hadir1").checked = false;
-									 document.getElementById("izin1").checked = false;
-								}
-						});
 						$("#izin1").click(function(){
 							var radioValue = $("input[name='data_izin']:checked").val();
 								if(radioValue){
 									 $("input[name='data_izin']").val(1);
 									 document.getElementById("hadir1").checked = false;
-									 document.getElementById("alpa1").checked = false;
 								}
 						});
 
@@ -304,7 +294,13 @@
 										{"data": "tanggal"},
 										{"data": "absen_konfirmasi",
 										render : function (data, type, row){
-											return data == '0' ? '<span class="badge badge-success"><label class="glyphicon glyphicon-ok">Konfirmasi</label></span>' : '<span></span>'
+											switch (data) {
+												case '0':	return '<span class="badge badge-success"><label class="glyphicon glyphicon-ok">Konfirmasi</label></span>'; break;
+												case '1':	return '<span class="badge badge-success"><label class="glyphicon glyphicon-ok">Konfirmasi</label></span>'; break;
+												default:
+
+											}
+
 										}
 									}
 									],
@@ -327,7 +323,6 @@
 						var keterangan=$(this).data('keterangan');
 						var nik=$(this).data('nik');
 						var nim=$(this).data('nim');
-						var hadir=$(this).data('hadir');
 						var nama=$(this).data('nama');
 						var kelas_id=$(this).data('kelas');
 						var jadwal_id=$(this).data('jadwal');
@@ -336,43 +331,12 @@
 						$('[name="data_keterangan"]').val(keterangan);
 						$('[name="data_nik"]').val(nik);
 						$('[name="data_nim"]').val(nim);
-						$('[name="data_hadir2"]').val(hadir);
 						$('[name="data_nama"]').val(nama);
 						$('[name="data_kelas"]').val(kelas_id);
 						$('[name="data_jadwal"]').val(jadwal_id);
 					});
 					// End Edit Records
 		});
-		</script>
-
-		<script>
-				$(document).ready(function(){
-						$("#hadir2").click(function(){
-							var radioValue = $("input[name='data_hadir2']:checked").val();
-								if(radioValue){
-									 $("input[name='data_hadir2']").val(1);
-									 document.getElementById("alpa2").checked = false;
-									 document.getElementById("izin2").checked = false;
-								}
-						});
-						$("#alpa2").click(function(){
-							var radioValue = $("input[name='data_alpa2']:checked").val();
-								if(radioValue){
-									 $("input[name='data_alpa2']").val(1);
-									 document.getElementById("hadir2").checked = false;
-									 document.getElementById("izin2").checked = false;
-								}
-						});
-						$("#izin2").click(function(){
-							var radioValue = $("input[name='data_izin2']:checked").val();
-								if(radioValue){
-									 $("input[name='data_izin2']").val(1);
-									 document.getElementById("hadir2").checked = false;
-									 document.getElementById("alpa2").checked = false;
-								}
-						});
-
-				});
 		</script>
 	</body>
 </html>
