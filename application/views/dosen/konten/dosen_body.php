@@ -50,7 +50,7 @@
 			</div><!-- /.main-content -->
 
 			<?php $this->load->view('dosen/footer') ?>
-			<script type="text/javascript" src="<?php echo base_url().'assets/chartjs/chart.min.js'?>"></script>
+			<script type="text/javascript" src="<?php echo base_url().'assets/chartjs/Chart.min.js'?>"></script>
 			<script>
 								var lineChartData = {
 										labels : <?php echo json_encode($nama);?>,

@@ -34,7 +34,7 @@
 		<!--[if lte IE 8]>
 		  <script src="<?php echo base_url('assets/template/back') ?> /js/excanvas.min.js"></script>
 		<![endif]-->
-					<script type="text/javascript" src="<?php echo base_url().'assets/chartjs/chart.min.js'?>"></script>
+					<script type="text/javascript" src="<?php echo base_url().'assets/chartjs/Chart.min.js'?>"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery-ui.custom.min.js"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="<?php echo base_url('assets/template/back') ?>/js/jquery.easypiechart.min.js"></script>

@@ -72,7 +72,7 @@
   										</a>
   										<div class="tools tools-top">
   											<a href="#">
-  												<small>Jadwal Perkuliahan</small>
+  												<small>Jadwal</small>
   											</a>
   										</div>
   									</li>
@@ -88,7 +88,7 @@
 
 											<div class="tools tools-top">
 												<a href="#">
-												<small>Absensi Mahasiswa</small>
+												<small>Absensi</small>
 												</a>
 											</div>
 										</li>
@@ -125,7 +125,7 @@
 
 									<div class="tools tools-top">
 										<a href="#">
-										<small>Tentang Aplikasi</small>
+										<small>Tentang</small>
 										</a>
 									</div>
 								</li>
