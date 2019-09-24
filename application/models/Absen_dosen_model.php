@@ -49,7 +49,7 @@ class Absen_dosen_model extends CI_Model{
     $hari = Date('D');
     $tanggal = Date('Y-m-d');
     $id = $this->session->userdata('nik');
-    $this->datatables->select('id_absen, nik_id_id, hadir, alpa, izin, ket_telat, keterangan, tanggal, , tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim, nama');
+    $this->datatables->select('id_absen, nik_id_id, hadir, alpa, izin, minute(subtime(tanggal, addtime(jam_mulai,toleransi))) as ket_telat, keterangan, tanggal,  tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim, nama, toleransi');
     $this->datatables->from('absen');
     $this->datatables->join('jadwal', 'absen.absen_kelas_id=jadwal.kelas');
     $this->datatables->join('kelas','absen.absen_kelas_id=kelas.kelas_id');

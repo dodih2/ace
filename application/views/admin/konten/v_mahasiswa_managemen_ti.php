@@ -97,7 +97,7 @@
 													</div>
 
                           <div class="form-group">
-                            <input type="email" name="data_email" class="form-control" placeholder="Email" required>
+                            <input type="email" name="data_email" class="form-control" placeholder="Email">
                           </div>
 
                         </div>
@@ -157,7 +157,7 @@
 
 
                           <div class="form-group">
-                            <input type="text" name="data_email" class="form-control" placeholder="Email" required>
+                            <input type="text" name="data_email" class="form-control" placeholder="Email">
                           </div>
 
                         </div>

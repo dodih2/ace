@@ -34,7 +34,7 @@
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
 										<div class="center">
-									<h2><strong>Daftar Absensi Mahasiswa</strong></h2>
+									<!-- <h2><strong>Daftar Absensi Mahasiswa</strong></h2>
 										</div>
                     <table class="table table-striped" id="mytable">
                       <thead>
@@ -45,7 +45,7 @@
                           <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
-                    </table>
+                    </table> -->
 										<br>
 										<div class="center">
 									<h2><strong>Daftar Mahasiswa Yang Sudah Absensi</strong></h2>
@@ -59,7 +59,7 @@
 													<th>HADIR</th>
 													<th>ALPA</th>
 													<th>IZIN</th>
-													<th hidden>TELAT</th>
+													<th>TELAT</th>
 													<th>KETERANGAN</th>
 													<th>TANGGAL</th>
 													<th style="width:0.5%;">Action</th>
@@ -132,12 +132,12 @@
 														<span class="lbl bigger-120">Izin</span>
 													</div>
 
-													<div class="form-group">
+													<!-- <div class="form-group">
 														<label>
 															<span class="ace input-lg lbl bigger-100"> Telat &emsp; &emsp; &emsp;: </span>
 															<input  name="data_telat" id="form-field-11" type="time"  class="limited ace input-lg"/>
 														</label>
-													</div>
+													</div> -->
 
 
 													<div class="form-group">
@@ -504,7 +504,7 @@
 										}
 
 									},
-										{"data": "ket_telat", "visible":false},
+										{"data": "ket_telat"},
 										{"data": "keterangan"},
 										{"data": "tanggal"},
 										{"data": "view"}

@@ -41,7 +41,7 @@ class Jadwal_control extends CI_Controller{
     redirect('admin/jadwal_control');
   }
 
-  function update(){
+    function update(){
     $kode = $this->input->post('data_id');
     $data = array(
       'nama_hari' => $this->input->post('data_nama'),

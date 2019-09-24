@@ -23,7 +23,7 @@ class Jadwal_dosen_model extends CI_Model{
     $tgl = Date('D');
     $id = $this->session->userdata('nik');
     $jurus = $this->session->userdata('dosen_jurusan');
-    $this->datatables->select('id_jadwal, nama_hari, kode_matkul, nik_id, jam_mulai, jam_selesai, kelas, kelas_nama, id_ruangan, nama_ruangan, id_jurusan, nama_jurusan');
+    $this->datatables->select('id_jadwal, nama_hari, kode_matkul, nik_id, jam_mulai, jam_selesai, toleransi, kelas, kelas_nama, id_ruangan, nama_ruangan, id_jurusan, nama_jurusan');
     $this->datatables->from('jadwal');
     $this->datatables->join('kelas', 'jadwal.kelas=kelas_id');
     $this->datatables->join('jurusan','jadwal.jurusan_id=id_jurusan');
@@ -31,6 +31,7 @@ class Jadwal_dosen_model extends CI_Model{
     $this->datatables->where("(nik_id= '$id' AND id_jurusan='$jurus')");
     // $this->datatables->where("(nik = '$id' AND id_jurusan='$jurus' AND NOW() BETWEEN jam_mulai AND jam_selesai)"); menurut jam sekarang
     $this->datatables->like('nama_hari', $tgl);
+    $this->datatables->add_column('view','<a href="javascript:void(0);" class="edit_record btn btn-info btn-xs" data-id_jadwal="$1" data-toleransi="$2">Edit</a> ','id_jadwal, toleransi');
     return $this->datatables->generate();
   }
 

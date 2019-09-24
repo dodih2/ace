@@ -38,7 +38,7 @@
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th style="width:0.5%;">Nik</th>
+                          <th style="width:0.5%;">NIK/NIP</th>
                           <th style="width:0.5%;">Nama</th>
                           <th style="width:0.5%;">Jenis Kelamin</th>
                           <th style="width:25%;">Alamat</th>
@@ -89,7 +89,7 @@
 													</div>
 
 													<div class="form-group">
-														<input type="email" name="data_email" class="form-control" placeholder="Email" required>
+														<input type="email" name="data_email" class="form-control" placeholder="Email">
 													</div>
 
 													<div class="form-group">
@@ -149,7 +149,7 @@
 													</div>
 
                           <div class="form-group">
-                            <input type="text" name="data_email" class="form-control" placeholder="Email" required>
+                            <input type="text" name="data_email" class="form-control" placeholder="Email">
                           </div>
 
 													<div class="form-group">

@@ -11,13 +11,13 @@ class Grafik_model extends CI_Model{
         $this->db->where('kelas.jurusan_id', $jurusan);
         $this->db->group_by('absen_kelas_id');
         $query = $this->db->get();
-
-        if($query->num_rows() > 0){
-            foreach($query->result() as $data){
-                $hasil[] = $data;
-            }
-            return $hasil;
-        }
+				return $query;
+				// if($query->num_rows() > 0){
+				// 		foreach($query->result() as $data2){
+				// 				$hasil2[] = $data2;
+				// 		}
+				// 		return $hasil2;
+				// }
     }
 
 		function get_data_tm(){
@@ -30,13 +30,13 @@ class Grafik_model extends CI_Model{
 					$this->db->where('kelas.jurusan_id', $jurusan);
 					$this->db->group_by('absen_kelas_id');
 					$query = $this->db->get();
-
-					if($query->num_rows() > 0){
-							foreach($query->result() as $data2){
-									$hasil2[] = $data2;
-							}
-							return $hasil2;
-					}
+					return $query;
+					// if($query->num_rows() > 0){
+					// 		foreach($query->result() as $data2){
+					// 				$hasil2[] = $data2;
+					// 		}
+					// 		return $hasil2;
+					// }
 			}
 
 			function get_data_tp(){
@@ -49,13 +49,13 @@ class Grafik_model extends CI_Model{
 						$this->db->where('kelas.jurusan_id', $jurusan);
 						$this->db->group_by('absen_kelas_id');
 						$query = $this->db->get();
-
-						if($query->num_rows() > 0){
-								foreach($query->result() as $data3){
-										$hasil3[] = $data3;
-								}
-								return $hasil3;
-						}
+						return $query;
+						// if($query->num_rows() > 0){
+						// 		foreach($query->result() as $data3){
+						// 				$hasil3[] = $data3;
+						// 		}
+						// 		return $hasil3;
+						// }
 				}
 
 				function get_data_rpl(){
@@ -68,13 +68,13 @@ class Grafik_model extends CI_Model{
 							$this->db->where('kelas.jurusan_id', $jurusan);
 							$this->db->group_by('absen_kelas_id');
 							$query = $this->db->get();
-
-							if($query->num_rows() > 0){
-									foreach($query->result() as $data4){
-											$hasil4[] = $data4;
-									}
-									return $hasil4;
-							}
+							return $query;
+							// if($query->num_rows() > 0){
+							// 		foreach($query->result() as $data4){
+							// 				$hasil4[] = $data4;
+							// 		}
+							// 		return $hasil4;
+							// }
 					}
 
 					function get_data_mnf(){
@@ -87,13 +87,13 @@ class Grafik_model extends CI_Model{
 								$this->db->where('kelas.jurusan_id', $jurusan);
 								$this->db->group_by('absen_kelas_id');
 								$query = $this->db->get();
-
-								if($query->num_rows() > 0){
-										foreach($query->result() as $data5){
-												$hasil5[] = $data5;
-										}
-										return $hasil5;
-								}
+								return $query;
+								// if($query->num_rows() > 0){
+								// 		foreach($query->result() as $data5){
+								// 				$hasil5[] = $data5;
+								// 		}
+								// 		return $hasil5;
+								// }
 						}
 
 }

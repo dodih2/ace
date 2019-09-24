@@ -23,5 +23,15 @@ class Jadwal_control extends CI_Controller{
     echo $this->jadwal_dosen_model->get_all_jadwal();
   }
 
+  function update(){
+  $kode = $this->input->post('data_id');
+  $data = array(
+    'toleransi' => $this->input->post('toleransi')
+  );
+  $this->db->where('id_jadwal', $kode);
+  $this->db->update('jadwal', $data);
+  redirect('dosen/jadwal_control');
+}
+
 
 }

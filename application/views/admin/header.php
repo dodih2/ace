@@ -24,6 +24,7 @@
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?> /css/ace-part2.min.css" class="ace-main-stylesheet" />
 		<![endif]-->
+		<link rel="stylesheet" href="<?php echo base_url().'assets/css/morris.css'?>">
 		<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/css/ace-skins.min.css" />
 		<link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/css/ace-rtl.min.css" />
 <link rel="stylesheet" href="<?php echo base_url('assets/template/back') ?>/css/select2.min.css" />

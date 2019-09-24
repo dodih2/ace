@@ -15,11 +15,8 @@ class Dosen_control extends CI_Controller {
 
 	public function index()
 	{
-		$x['data']=$this->grafik_dosen_model->get_data_ti();
-		$x['data2']=$this->grafik_dosen_model->get_data_tm();
-		$x['data3']=$this->grafik_dosen_model->get_data_tp();
-		$x['data4']=$this->grafik_dosen_model->get_data_rpl();
-		$x['data5']=$this->grafik_dosen_model->get_data_mnf();
+		$data=$this->grafik_dosen_model->get_data()->result();
+		$x['data'] = json_encode($data);
 		$this->load->view('dosen/konten/dosen_body',$x);
 	}
 

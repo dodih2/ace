@@ -72,7 +72,8 @@
 													<div class="form-group">
 														<select class="form-control" name="data_jp" placeholder="Jenis Perkuliahan" required>
 														<option value="1">Teori</option>
-														<option value="2">Teori dan Praktek</option>
+														<option value="2">Praktek</option>
+														<option value="3">Teori dan Praktek</option>
 														</select>
 													</div>
 
@@ -122,12 +123,13 @@
                           </div>
 
 													<div class="form-group">
-														<select class="form-control" name="data_jp" placeholder="Jurusan" required>
-															<?php foreach ($mata_kuliah->result() as $row): ?>
-																<option value="<?php echo $row->jenis_perkuliahan; ?>"><?php echo $row->jenis_perkuliahan; ?></option>
-															<?php endforeach; ?>
+														<select class="form-control" name="data_jp" placeholder="Jenis Perkuliahan" required>
+														<option value="1">Teori</option>
+														<option value="2">Praktek</option>
+														<option value="3">Teori dan Praktek</option>
 														</select>
 													</div>
+													
                           <div class="form-group">
                             <input type="number" name="data_sks" class="form-control" placeholder="SKS" required>
                           </div>

@@ -31,17 +31,8 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<?php
-										if(!empty($data)){
-											foreach($data as $data){
-													$nama[] = $data->kelas_nama;
-													$hadir[] = (float) $data->hadir;
-											}
-										}
-									?>
-																	<h2><strong>Grafik Kehadiran Mahasiswa</strong></h2>
-								<canvas id="canvas" width="1000" height="280"></canvas>
-
+								<h2><strong>Grafik Kehadiran Mahasiswa</strong></h2>
+								<div id="graph"></div>
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
 						</div><!-- /.row -->
@@ -50,24 +41,17 @@
 			</div><!-- /.main-content -->
 
 			<?php $this->load->view('dosen/footer') ?>
-			<script type="text/javascript" src="<?php echo base_url().'assets/chartjs/Chart.min.js'?>"></script>
+			<script src="<?php echo base_url().'assets/js/jquery.min.js'?>"></script>
+			<script src="<?php echo base_url().'assets/js/raphael-min.js'?>"></script>
+			<script src="<?php echo base_url().'assets/js/morris.min.js'?>"></script>
 			<script>
-								var lineChartData = {
-										labels : <?php echo json_encode($nama);?>,
-										datasets : [
-												{
-														fillColor: "rgba(60,141,188,0.9)",
-														strokeColor: "rgba(60,141,188,0.8)",
-														pointColor: "#3b8bba",
-														pointStrokeColor: "#fff",
-														pointHighlightFill: "#fff",
-														pointHighlightStroke: "rgba(152,235,239,1)",
-														data : <?php echo json_encode($hadir);?>
-												}
-										]
-								}
-						var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
-				</script>
-
+				Morris.Bar({
+					element: 'graph',
+					data: <?php echo $data;?>,
+					xkey: 'kelas_nama',
+					ykeys: ['hadir','alpa','izin'],
+					labels: ['Hadir','Alpa','izin'],
+					});
+			</script>
 	</body>
 </html>

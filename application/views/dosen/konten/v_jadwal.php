@@ -44,11 +44,41 @@
                           <th style="width:0.5%;">Kelas</th>
                           <th style="width:0.5%;">Jam Mulai</th>
 													<th style="width:0.5%;">Jam Selesai</th>
+													<th style="width:0.5%;">Toleransi</th>
 													<th style="width:0.5%;">Ruangan</th>
 													<th style="width:0.5%;">Jurusan</th>
+													<th style="width:0.5%;">Aksi</th>
                         </tr>
                       </thead>
                     </table>
+
+										<!-- Modal Update Jadwal -->
+										<form id="add-row-form" action="<?php echo base_url().'index.php/dosen/jadwal_control/update' ?>" method="post">
+											<div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+															<h4 class="modal-title" id="myModalLabel">Toleransi</h4>
+														</div>
+														<div class="modal-body">
+															<div class="form-group" hidden="true">
+																<input type="text" name="data_id" class="form-control" placeholder="Id Hari" required>
+															</div>
+
+															<div class="form-group">
+																<input type="time" name="toleransi" class="form-control" required>
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+															<button type="submit" id="add-row" class="btn btn-success">Update</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+
                 </div>
 								<!-- PAGE CONTENT ENDS -->
 					</div><!-- /.page-content -->
@@ -155,11 +185,13 @@
                     {"data": "kelas_nama"},
                     {"data": "jam_mulai"},
 										{"data": "jam_selesai"},
+										{"data": "toleransi"},
 										{"data": "nama_ruangan"},
-										{"data": "nama_jurusan"}
+										{"data": "nama_jurusan"},
+										{"data": "view"}
                   ],
 
-            order: [[5, 'asc']],
+            order: [[3, 'asc']],
 
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
@@ -169,6 +201,14 @@
             }
       });
           // end setup datatables
+					$('#mytable').on('click','.edit_record',function(){
+						var id=$(this).data('id_jadwal');
+						var toleransi=$(this).data('toleransi');
+						$('#ModalUpdate').modal('show');
+						$('[name="data_id"]').val(id);
+						$('[name="toleransi"]').val(toleransi);
+					});
+
     });
     </script>
 	</body>

@@ -38,15 +38,15 @@
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
-                          <th style="width:0.5%;">Nama Hari</th>
-                          <th style="width:0.5%;">Kode Matkul</th>
+                          <th style="width:0.5%;">Hari</th>
+                          <th style="width:0.5%;">Mata Kuliah</th>
                           <th style="width:0.5%;">Kelas</th>
-                          <th style="width:0.5%;">Nik</th>
+                          <th style="width:0.5%;">Nama</th>
                           <th style="width:0.5%;">Jam Mulai</th>
 													<th style="width:0.5%;">Jam Selesai</th>
 													<th style="width:0.5%;">Ruangan</th>
 													<th style="width:0.5%;">Jurusan</th>
-                          <th style="width:0.5%;">Action</th>
+                          <th style="width:0.5%;">Aksi</th>
                         </tr>
                       </thead>
                     </table>
@@ -59,7 +59,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Add New</h4>
+                          <h4 class="modal-title" id="myModalLabel">Tambah Jadwal</h4>
                         </div>
                         <div class="modal-body">
 
@@ -168,18 +168,13 @@
 													</div>
 
 
-													<div class="form-group">
+													<div class="form-group" >
 														<select class="form-control" name="data_nik" placeholder="NIK" required>
 															<?php foreach ($user_dosen->result() as $row): ?>
 																<option value="<?php echo $row->nik; ?>"><?php echo $row->nama; ?></option>
 															<?php endforeach; ?>
 														</select>
 													</div>
-
-
-													<div class="form-group">
-                            <input type="number" name="data_nik" class="form-control" placeholder="nik" required>
-                          </div>
 
 													<div class="form-group">
                             <input type="time" name="data_jamm" class="form-control" placeholder="jam mulai" required>
@@ -351,7 +346,7 @@
                     {"data": "view"}
                   ],
 
-            order: [[1, 'asc']],
+            order: [[0, 'asc'],[4, 'asc']],
 
             rowCallback: function(row, data, iDisplayIndex){
               var info = this.fnPagingInfo();
