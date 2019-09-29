@@ -69,7 +69,7 @@
 				element: 'graph2',
 				data: <?php echo $data2;?>,
 				xkey: 'kelas_nama',
-				ykeys: ['hadir','alpa','izin'],
+				ykeys: ['hadir','alpa','izin'	],
 				labels: ['Hadir','Alpa','izin'],
 				});
 			</script>

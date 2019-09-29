@@ -28,10 +28,11 @@ Class Laporanpdf extends CI_Controller{
         $pdf->Cell(20,7,'KOMPEN',1,0,'C');
         $pdf->Cell(22,7,'SEMESTER',1,1,'C');
         $pdf->SetFont('Arial','',10);
-        $this->db->select('absen.nim_id, sum(absen.hadir) as hadir, sum(absen.alpa) as alpa,sum(absen.izin) as izin,  SEC_TO_TIME(SUM(TIME_TO_SEC(ket_telat))) as ket_telat, absen.nim_id, user_mahasiswa.nim, user_mahasiswa.nama, user_mahasiswa.semester, mata_kuliah.id_matkul, mata_kuliah.nama_matkul, kelas.kelas_id, kelas.kelas_nama');
+        $this->db->select("absen.nim_id,  cast(sum(absen.hadir/6) as int) as hadir, cast(sum(absen.alpa/6) as int) as alpa, cast(sum(absen.izin/6) as int) as izin,  if(subtime(time(absen.tanggal), addtime(jadwal.jam_mulai,jadwal.toleransi)) <= '00:00:00', 'tepat waktu', subtime(time(absen.tanggal), addtime(jadwal.jam_mulai,jadwal.toleransi))) as ket_telat, user_mahasiswa.nim, user_mahasiswa.nama, user_mahasiswa.semester, mata_kuliah.id_matkul, mata_kuliah.nama_matkul, kelas.kelas_id, kelas.kelas_nama");
         $this->db->from('absen');
         $this->db->join('user_mahasiswa', 'absen.nim_id=nim');
         $this->db->join('kelas','absen_kelas_id=kelas_id');
+        $this->db->join('jadwal','absen_kelas_id=kelas');
         $this->db->join('mata_kuliah', 'absen.absen_kode_matkul=mata_kuliah.id_matkul');
         $this->db->group_by('nim_id');
         $this->db->order_by('nim_id', 'ASC');
@@ -54,3 +55,6 @@ Class Laporanpdf extends CI_Controller{
         $pdf->Output();
     }
 }
+
+
+// SEC_TO_TIME(SUM(TIME_TO_SEC(ket_telat))) as ket_telat

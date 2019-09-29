@@ -18,6 +18,15 @@ class Jadwal_mahasiswa_model extends CI_Model{
     return $hsl3;
   }
 
+  function get_jadwal(){ //ambil data nik dari tabel user_mahasiswa
+    $hari = Date('D');
+    $this->db->select('*');
+    $this->db->group_by('nama_hari');
+    $this->db->where('nama_hari', $hari);
+    $hsl3 = $this->db->get('jadwal');
+    return $hsl3;
+  }
+
   function get_all_jadwal(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
         // $tgl = Date('D',strtotime('+2 days')); menambahkan waktu 2 hari
     $tgl = date('D');

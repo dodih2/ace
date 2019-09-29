@@ -17,6 +17,7 @@ class Jadwal_control extends CI_Controller{
     $x['kelas'] = $this->jadwal_mahasiswa_model->get_kelas();
     $x['jurusan'] = $this->jadwal_mahasiswa_model->get_jurusan();
     $x['ruangan'] = $this->jadwal_mahasiswa_model->get_ruangan();
+    $x['jadwal'] = $this->jadwal_mahasiswa_model->get_jadwal();
     $this->load->view('mahasiswa/konten/v_jadwal_mahasiswa', $x);
   }
 

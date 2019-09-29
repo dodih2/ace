@@ -110,13 +110,6 @@
 								</a>
 								<b class="arrow"></b>
 							</li>
-							<li class="">
-								<a href="<?php echo base_url('index.php/admin/matkul_control') ?>">
-									<i class="menu-icon glyphicon glyphicon-minus"></i>
-									Sesi Waktu
-								</a>
-								<b class="arrow"></b>
-							</li>
 						</ul>
 					</li>
 

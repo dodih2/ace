@@ -67,6 +67,33 @@
 								</a>
 								<div class="col-xs-12">
 										<div class="hr hr-18 dotted hr-double"></div>
+										<h4>
+											<?php foreach ($jadwal->result() as $row): ?>
+											<?php
+											switch ($row->nama_hari) {
+											case 'Mon':
+													echo "Senin," ;
+													break;
+											case 'Tue':
+													echo "Selasa";
+													break;
+											case 'Wed':
+													echo "Rabu";
+													break;
+											case 'Thu':
+													echo "Kamis, ";
+													echo date('H:i');
+													break;
+											case 'Fri':
+													echo "Jumat";
+													break;
+											default:
+													echo "bern";
+													break;
+											}
+											 ?>
+											<?php endforeach; ?>
+										</h4>
 										<table class="table table-striped" id="mytable">
 											<thead>
 												<tr>

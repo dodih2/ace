@@ -34,7 +34,7 @@
 								<!-- PAGE CONTENT BEGINS -->
                 <div class="col-xs-12">
 										<div class="center">
-									<!-- <h2><strong>Daftar Absensi Mahasiswa</strong></h2>
+									<h2><strong>Daftar Absensi Mahasiswa</strong></h2>
 										</div>
                     <table class="table table-striped" id="mytable">
                       <thead>
@@ -45,7 +45,7 @@
                           <th style="width:0.5%;">Action</th>
                         </tr>
                       </thead>
-                    </table> -->
+                    </table>
 										<br>
 										<div class="center">
 									<h2><strong>Daftar Mahasiswa Yang Sudah Absensi</strong></h2>
