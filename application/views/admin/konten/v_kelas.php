@@ -32,6 +32,10 @@
 
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
+								<div class="alert alert-block alert-success">
+								<?php echo $this->session->flashdata('message'); ?>	
+								</div>
+
                 <div class="col-xs-12">
                     <button type="reset" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Tambah</button>
                     <div class="hr hr-18 dotted hr-double"></div>
@@ -73,7 +77,6 @@
                           <div class="form-group">
                             <input type="text" name="data_nama" class="form-control" placeholder="Nama Kelas" required>
                           </div>
-
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>

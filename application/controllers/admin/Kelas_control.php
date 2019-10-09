@@ -22,13 +22,28 @@ class Kelas_control extends CI_Controller{
   }
 
   function simpan(){
-    $data = array(
-      'kelas_id' => $this->input->post('data_id'),
-      'jurusan_id' => $this->input->post('jurusan'),
-      'kelas_nama' => $this->input->post('data_nama')
-    );
-    $this->db->insert('kelas', $data);
-    redirect('admin/kelas_control');
+    $kodekelas = $this->input->post('data_id');
+    $jurusan = $this->input->post('jurusan');
+    $sql = $this->db->query("select kelas_id from kelas where kelas_id='$kodekelas'");
+    $sql2 = $this->db->query("select kelas_id, jurusan_id from kelas where kelas_id='$kodekelas' AND jurusan_id='$jurusan'");
+    $cek_kelas = $sql->num_rows();
+    $cek_kelas2 = $sql2->num_rows();
+    if ($cek_kelas > 0){
+        $this->session->set_flashdata('message','Maaf data sudah ada');
+        redirect('admin/kelas_control');
+    } elseif ($cek_kelas2 > 0) {
+      $this->session->set_flashdata('message','Maaf data sudah ada');
+      redirect('admin/kelas_control');
+    } else {
+      $data = array(
+        'kelas_id' => $this->input->post('data_id'),
+        'jurusan_id' => $this->input->post('jurusan'),
+        'kelas_nama' => $this->input->post('data_nama')
+      );
+      $this->session->set_flashdata('message','Data berhasil disimpan');
+        $this->db->insert('kelas', $data);
+        redirect('admin/kelas_control');
+  }
   }
 
   function update(){

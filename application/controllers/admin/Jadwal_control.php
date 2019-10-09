@@ -27,6 +27,15 @@ class Jadwal_control extends CI_Controller{
   }
 
   function simpan(){
+    $namahari = $this->input->post('data_nama');
+    $jammulai = $this->input->post('data_jamm');
+    $jurusan = $this->input->post('jurusan');
+    $sql = $this->db->query("select nama_hari, jam_mulai from jadwal where nama_hari='$namahari' OR jam_mulai='$jammulai'");
+    $cek_namahari = $sql->num_rows();
+    if ($cek_namahari > 0){
+        $this->session->set_flashdata('message','Maaf data sudah ada');
+        redirect('admin/jadwal_control');
+    }  else {
     $data = array(
       'nama_hari' => $this->input->post('data_nama'),
       'kode_matkul' => $this->input->post('data_kode'),
@@ -38,7 +47,9 @@ class Jadwal_control extends CI_Controller{
       'jam_selesai' => $this->input->post('data_jams')
     );
     $this->db->insert('jadwal', $data);
+    $this->session->set_flashdata('message','Data Tersimpan');
     redirect('admin/jadwal_control');
+  }
   }
 
     function update(){

@@ -72,27 +72,49 @@
 											<?php
 											switch ($row->nama_hari) {
 											case 'Mon':
-													echo "Senin," ;
+													echo "Senin, " ;
 													break;
 											case 'Tue':
-													echo "Selasa";
+													echo "Selasa, ";
 													break;
 											case 'Wed':
-													echo "Rabu";
+													echo "Rabu, ";
 													break;
 											case 'Thu':
 													echo "Kamis, ";
 													echo date('H:i');
 													break;
 											case 'Fri':
-													echo "Jumat";
+													echo "Jumat, ";
 													break;
 											default:
-													echo "bern";
+													echo "Libur";
 													break;
 											}
 											 ?>
 											<?php endforeach; ?>
+
+											<?php
+											function tgl_indo($tanggal){
+												$bulan = array(
+								   1 => 'Januari',
+												'Februari',
+												'Maret',
+												'April',
+												'Mei',
+												'Juni',
+												'Juli',
+												'Agustus',
+												'September',
+												'Oktober',
+												'November',
+												'Desember'
+											);
+											$pecahkan = explode('-', $tanggal);
+											return $pecahkan[2].' '.$bulan[(int)$pecahkan[1]].' '.$pecahkan[0];
+											}
+											echo tgl_indo(date('Y-m-d'));
+											 ?>
 										</h4>
 										<table class="table table-striped" id="mytable">
 											<thead>

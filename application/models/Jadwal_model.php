@@ -29,7 +29,10 @@ class Jadwal_model extends CI_Model{
   }
 
   function get_dosen(){ //ambil data nik dari tabel user_mahasiswa
-    $hsl3 = $this->db->get('user_dosen');
+    $this->db->select("*");
+    $this->db->from("user_dosen");
+    $this->db->where("level","2");
+    $hsl3 = $this->db->get();
     return $hsl3;
   }
 

@@ -32,6 +32,9 @@
 
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
+								<div class="alert alert-block alert-success">
+								<?php echo $this->session->flashdata('message'); ?>
+								</div>
                 <div class="col-xs-12">
                     <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Tambah</button>
                     <div class="hr hr-18 dotted hr-double"></div>
@@ -65,6 +68,7 @@
 
 													<div class="form-group">
 														<select class="form-control" name="data_nama" placeholder="Hari" required>
+																<option selected>Pilih Hari</option>
 																<option value="1">Senin</option>
 																<option value="2">Selasa</option>
 																<option value="3">Rabu</option>
@@ -75,6 +79,7 @@
 
 													<div class="form-group">
 														<select class="form-control" name="data_kode" placeholder="Mata Kuliah" required>
+															<option selected>Pilih Mata Kuliah</option>
 															<?php foreach ($mata_kuliah->result() as $row): ?>
 																<option value="<?php echo $row->id_matkul; ?>"><?php echo $row->nama_matkul; ?></option>
 															<?php endforeach; ?>
@@ -83,6 +88,7 @@
 
 													<div class="form-group">
 														<select class="form-control" name="kelas" placeholder="Kelas" required>
+															<option selected>Pilih Kelas</option>
 															<?php foreach ($kelas->result() as $row): ?>
 																<option value="<?php echo $row->kelas_id; ?>"><?php echo $row->kelas_nama; ?></option>
 															<?php endforeach; ?>
@@ -92,6 +98,7 @@
 
 													<div class="form-group">
 														<select class="form-control" name="data_nik" placeholder="NIK" required>
+															<option selected>Pilih Dosen</option>
 															<?php foreach ($user_dosen->result() as $row): ?>
 																<option value="<?php echo $row->nik; ?>"><?php echo $row->nama; ?></option>
 															<?php endforeach; ?>
@@ -108,6 +115,7 @@
 
 													<div class="form-group">
 														<select class="form-control" name="ruangan" placeholder="Ruangan" required>
+															<option selected>Pilih Ruangan</option>
 															<?php foreach ($ruangan->result() as $row): ?>
 																<option value="<?php echo $row->id_ruangan; ?>"><?php echo $row->nama_ruangan; ?></option>
 															<?php endforeach; ?>
@@ -116,6 +124,7 @@
 
 													<div class="form-group">
 														<select class="form-control" name="jurusan" placeholder="Jurusan" required>
+															<option selected>Pilih Jurusan</option>
 															<?php foreach ($jurusan->result() as $row): ?>
 																<option value="<?php echo $row->id_jurusan; ?>"><?php echo $row->nama_jurusan; ?></option>
 															<?php endforeach; ?>
