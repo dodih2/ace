@@ -66,7 +66,7 @@
 									<div class="center">
 										<h2>
 											<strong>
-											<span class="blue">Absensi</span>
+											<span class="blue">Presensi</span>
 											<span class="blue">Mahasiswa</span>
 											</strong>
 										</h2>

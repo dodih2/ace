@@ -14,7 +14,7 @@
 						<a href="<?php  echo site_url('admin/admin_control') ?>" class="navbar-brand">
 							<small>
 								<img src="<?php echo base_url('assets/images') ?>/data/logopolindra.png" style="width:25px;" alt="logo">
-								Absensi
+								Presensi
 							</small>
 						</a>
 				</div>
@@ -33,14 +33,7 @@
 							</a>
 
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-								<li>
-									<a href="<?php echo site_url('admin/profile_control')?>">
-										<i class="ace-icon fa fa-user"></i>
-										Profile
-									</a>
-								</li>
 
-								<li class="divider"></li>
 
 								<li>
 									<a href="<?php echo site_url('login/logout'); ?>">

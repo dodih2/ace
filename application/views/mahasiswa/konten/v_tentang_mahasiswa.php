@@ -66,7 +66,7 @@
 
 								</a>
 																<div class="center">
-								<h2> <strong>Aplikasi Absensi Mahasiswa merupakan aplikasi yang bertujuan untuk memudahkan Dosen dan Mahasiswa dalam melakukan kegiatan Absensi di Politeknik Negeri Indramayu(POLINDRA)</strong> </h2>
+								<h2> <strong>Aplikasi Presensi Mahasiswa merupakan aplikasi yang bertujuan untuk memudahkan Dosen dan Mahasiswa dalam melakukan kegiatan Presensi di Politeknik Negeri Indramayu(POLINDRA)</strong> </h2>
 								<br>
 								<br>
 								<br>

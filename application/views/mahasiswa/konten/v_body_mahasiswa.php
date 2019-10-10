@@ -81,14 +81,14 @@
 													<img width="100" height="100" alt="150x150" src="<?php echo base_url('assets/') ?>/images/data/absen.png" />
 												<div class="tags">
 													<span class="label-holder">
-														<span class="label label-info arrowed"><strong>Absensi</strong></span>
+														<span class="label label-info arrowed"><strong>Presensi</strong></span>
 													</span>
 												</div>
 											</a>
 
 											<div class="tools tools-top">
 												<a href="#">
-												<small>Absensi</small>
+												<small>Presensi</small>
 												</a>
 											</div>
 										</li>

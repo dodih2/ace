@@ -28,7 +28,7 @@ Class Laporanpdf extends CI_Controller{
         $pdf->Cell(20,7,'KOMPEN',1,0,'C');
         $pdf->Cell(22,7,'SEMESTER',1,1,'C');
         $pdf->SetFont('Arial','',10);
-        $this->db->select("absen.nim_id,  cast(sum(absen.hadir/6) as int) as hadir, cast(sum(absen.alpa/6) as int) as alpa, cast(sum(absen.izin/6) as int) as izin,  if(subtime(time(absen.tanggal), addtime(jadwal.jam_mulai,jadwal.toleransi)) <= '00:00:00', 'tepat waktu', subtime(time(absen.tanggal), addtime(jadwal.jam_mulai,jadwal.toleransi))) as ket_telat, user_mahasiswa.nim, user_mahasiswa.nama, user_mahasiswa.semester, mata_kuliah.id_matkul, mata_kuliah.nama_matkul, kelas.kelas_id, kelas.kelas_nama");
+        $this->db->select("absen.nim_id,  cast(sum(absen.hadir/6) as int) as hadir, cast(sum(absen.alpa/6) as int) as alpa, cast(sum(absen.izin/6) as int) as izin, cast(time_to_sec(ket_telat) / (60) as decimal(10, 0)) as ket_telat, user_mahasiswa.nim, user_mahasiswa.nama, user_mahasiswa.semester, mata_kuliah.id_matkul, mata_kuliah.nama_matkul, kelas.kelas_id, kelas.kelas_nama");
         $this->db->from('absen');
         $this->db->join('user_mahasiswa', 'absen.nim_id=nim');
         $this->db->join('kelas','absen_kelas_id=kelas_id');

@@ -53,7 +53,7 @@
 				<div class="main-content-inner">
 					<div class="page-content">
 						<div class="page-header">
-							<h1>Absensi Mahasiswa</h1>
+							<h1>Presensi Mahasiswa</h1>
 						</div><!-- /.page-header -->
 
 						<div class="row">

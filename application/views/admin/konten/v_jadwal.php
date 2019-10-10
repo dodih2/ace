@@ -69,11 +69,11 @@
 													<div class="form-group">
 														<select class="form-control" name="data_nama" placeholder="Hari" required>
 																<option selected>Pilih Hari</option>
-																<option value="1">Senin</option>
-																<option value="2">Selasa</option>
-																<option value="3">Rabu</option>
-																<option value="4">Kamis</option>
-																<option value="5">Jumat</option>
+																<option value="Mon">Senin</option>
+																<option value="Tue">Selasa</option>
+																<option value="Wed">Rabu</option>
+																<option value="Thu">Kamis</option>
+																<option value="Fri">Jumat</option>
 														</select>
                           </div>
 
@@ -250,7 +250,7 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Absensi Mahasiswa</span>
+							<span class="blue bolder">Presensi Mahasiswa</span>
 							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>

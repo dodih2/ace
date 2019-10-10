@@ -129,7 +129,7 @@
 														<option value="3">Teori dan Praktek</option>
 														</select>
 													</div>
-													
+
                           <div class="form-group">
                             <input type="number" name="data_sks" class="form-control" placeholder="SKS" required>
                           </div>
@@ -185,7 +185,7 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Absensi Mahasiswa</span>
+							<span class="blue bolder">Presensi Mahasiswa</span>
 							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>

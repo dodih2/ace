@@ -32,9 +32,10 @@
 
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
+
                 <div class="col-xs-12">
 										<div class="center">
-									<h2><strong>Daftar Absensi Mahasiswa</strong></h2>
+									<h2><strong>Daftar Presensi Mahasiswa</strong></h2>
 										</div>
                     <table class="table table-striped" id="mytable">
                       <thead>
@@ -48,7 +49,7 @@
                     </table>
 										<br>
 										<div class="center">
-									<h2><strong>Daftar Mahasiswa Yang Sudah Absensi</strong></h2>
+									<h2><strong>Daftar Mahasiswa Yang Sudah Presensi</strong></h2>
 										</div>
 										<table class="table table-striped" id="mytable2">
 											<thead>
@@ -78,6 +79,62 @@
                           <h4 class="modal-title" id="myModalLabel">Update Absen</h4>
                         </div>
                         <div class="modal-body">
+													<?php foreach ($jadwal->result() as $row): ?>
+														<input hidden type="time" name="cobacoba" value="<?php
+															//mengubah waktu ke desimal
+															function time_to_decimal($time) {
+														    $timeArr = explode(':', $time);
+														    $decTime = ($timeArr[0]*60) + ($timeArr[1]) + ($timeArr[2]/60);
+
+														    return $decTime;
+														}
+															$jam_mulai = time_to_decimal($row->jam_mulai); //konvert waktu desimal jam mulai perkuliahan
+															$toleransi = time_to_decimal($row->toleransi); //konvert waktu desimal toleransi waktu
+															$jam_sekarang = time_to_decimal(date('H:i:s')); //konvert waktu desiaml jam sekarang
+
+															$total_kuliah = $jam_mulai+$toleransi;
+															$total_waktu = $jam_sekarang-$total_kuliah;
+															//mengubah desimal ke waktu
+															function decimal_to_time($decimal) {
+														    $hours = floor($decimal / 60);
+														    $minutes = floor($decimal % 60);
+														    $seconds = $decimal - (int)$decimal;
+														    $seconds = round($seconds * 60);
+
+														    return str_pad($hours, 2, "0", STR_PAD_LEFT) . ":" . str_pad($minutes, 2, "0", STR_PAD_LEFT) . ":" . str_pad($seconds, 2, "0", STR_PAD_LEFT);
+														}
+															$konvert_ke_waktu = decimal_to_time($total_waktu);
+															echo $konvert_ke_waktu;
+														?>">
+													<?php endforeach; ?>
+
+													<!-- <?php foreach ($jadwal->result() as $row): ?>
+													<input hidden type="text" name="cobacoba" value="<?php
+																						$a = date('H', strtotime($row->jam_mulai));
+																						$b = date('i', strtotime($row->jam_mulai));
+																						$c = date('H');
+																						$d = date('i');
+																						$e = date('i', strtotime($row->toleransi));
+																						$f = date('i', strtotime($row->toleransi));
+																					    $timestamp = strtotime(''.$a.':'.$b.':00');
+																							$timestamp2 = strtotime(''.$c.':'.$d.':00');
+																							$timestamp3 = strtotime(''.$e.':'.$f.':00');
+																					    $aa = idate('H', $timestamp);
+																					    $bb = idate('i', $timestamp);
+																							$ee = idate('H', $timestamp2);
+																							$ff = idate('i', $timestamp2);
+																							$hh = idate('i', $timestamp3);
+																							$ii = idate('i', $timestamp3);
+																					    if($bb=="0") { $cc = "00"; } else { $cc = $bb; }
+																							if($ff=="0") { $gg = "00"; } else { $gg = $ff; }
+																							if($ii=="0") { $jj = "00"; } else { $jj = $ii; }
+																							$waktutoleransi = $cc+$jj;
+																							$totaljam = $ee-$aa;																							$totalmenit = $gg-$waktutoleransi;
+																							if($totalmenit<="0") { $ww = "00"; } else { $ww = $totalmenit; }
+																							$dd = $totaljam.":".$ww;
+																					    echo $dd;
+																					?>">
+													<?php endforeach; ?> -->
                           <!-- <div class="form-group">
                             <input type="text" name="data_id" class="form-control" placeholder="ID Absen" required>
                           </div>
@@ -246,7 +303,7 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Absensi Mahasiswa</span>
+							<span class="blue bolder">Presensi Mahasiswa</span>
 							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>

@@ -59,7 +59,7 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Absensi Mahasiswa</span>
+							<span class="blue bolder">Presensi Mahasiswa</span>
 							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>

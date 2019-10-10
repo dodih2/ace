@@ -33,7 +33,7 @@
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
 								<div class="alert alert-block alert-success">
-								<?php echo $this->session->flashdata('message'); ?>	
+								<?php echo $this->session->flashdata('message'); ?>
 								</div>
 
                 <div class="col-xs-12">
@@ -152,7 +152,7 @@
 				<div class="footer-inner">
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Absensi Mahasiswa</span>
+							<span class="blue bolder">Presensi Mahasiswa</span>
 							&copy; <?php echo date('Y'); ?>
 						</span>
 					</div>

@@ -43,10 +43,10 @@
 						<div class="login-container">
 							<div class="center">
 								<h1>
-									<span class="red">Absensi</span>
+									<span class="red">Presensi</span>
 									<span class="white" id="id-text2">Mahasiswa</span>
 								</h1>
-								<h4 class="blue" id="id-company-text">&copy; Dodi Hidayat</h4>
+								
 							</div>
 
 							<div class="space-6"></div>

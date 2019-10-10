@@ -88,7 +88,7 @@
 							<li class="">
 								<a href="<?php echo base_url('index.php/dosen/absen_control') ?>">
 									<i class="menu-icon glyphicon glyphicon-minus"></i>
-									Absensi
+									Presensi
 								</a>
 								<b class="arrow"></b>
 							</li>

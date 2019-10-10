@@ -30,12 +30,14 @@ class Jadwal_control extends CI_Controller{
     $namahari = $this->input->post('data_nama');
     $jammulai = $this->input->post('data_jamm');
     $jurusan = $this->input->post('jurusan');
-    $sql = $this->db->query("select nama_hari, jam_mulai from jadwal where nama_hari='$namahari' OR jam_mulai='$jammulai'");
+    $sql = $this->db->query("select nama_hari from jadwal where nama_hari='$namahari'");
+    $sql2 = $this->db->query("select nama_hari, jam_mulai from jadwal where jam_mulai='$jammulai' and nama_hari='$namahari'");
     $cek_namahari = $sql->num_rows();
-    if ($cek_namahari > 0){
+    $cek_namahari2 = $sql2->num_rows();
+    if ($cek_namahari2 > 0){
         $this->session->set_flashdata('message','Maaf data sudah ada');
         redirect('admin/jadwal_control');
-    }  else {
+    } else {
     $data = array(
       'nama_hari' => $this->input->post('data_nama'),
       'kode_matkul' => $this->input->post('data_kode'),

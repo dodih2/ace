@@ -14,9 +14,15 @@ class Absen_dosen_model extends CI_Model{
   }
 
   function get_jadwal(){ //ambil data nik dari tabel user_mahasiswa
+    $hari = date('D');
+    $id = $this->session->userdata('nik');
+    $this->db->select("*");
+    $this->db->where("nik_id", $id);
+    $this->db->where("(nama_hari = '$hari' AND NOW() BETWEEN jam_mulai AND jam_selesai)");
     $hsl = $this->db->get('jadwal');
     return $hsl;
   }
+  // SEC_TO_TIME(SUM(TIME_TO_SEC(jam_mulai))) as jam_mulai
   // function get_all_absen(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
   //   $hari = Date('D');
   //   $id = $this->session->userdata('nik');
@@ -49,7 +55,7 @@ class Absen_dosen_model extends CI_Model{
     $hari = Date('D');
     $tanggal = Date('Y-m-d');
     $id = $this->session->userdata('nik');
-    $this->datatables->select("id_absen, nik_id_id, hadir, alpa, izin,if(subtime(time(tanggal), addtime(jam_mulai,toleransi)) <= '00:00:00', 'tepat waktu', subtime(time(tanggal), addtime(jam_mulai,toleransi))) as ket_telat , keterangan, tanggal,  tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim, nama, toleransi");
+    $this->datatables->select("id_absen, nik_id_id, hadir, alpa, izin, ket_telat , keterangan, tanggal,  tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim, nama, toleransi");
     $this->datatables->from('absen');
     $this->datatables->join('jadwal', 'absen.absen_kelas_id=jadwal.kelas');
     $this->datatables->join('kelas','absen.absen_kelas_id=kelas.kelas_id');
@@ -57,6 +63,7 @@ class Absen_dosen_model extends CI_Model{
     $this->datatables->where("(nama_hari = '$hari' AND NOW() BETWEEN jam_mulai AND jam_selesai)");
     $this->datatables->where('tanggal2', $tanggal);
     $this->datatables->where('nik_id_id', $id);
+    $this->datatables->group_by('nim');
     $this->datatables->add_column('view','<a href="javascript:void(0);" class="edit_absen btn btn-info btn-xs" data-id_absen="$1" data-nik="$2" data-hadir="$3" data-nama="$8" data-keterangan="$7">Sunting</a><a href="javascript:void(0);" class="hapus_record btn btn-danger btn-xs" data-id_absen="$1">Hapus</a>','id_absen, nik_id_id, hadir, alpa, izin, ket_telat, keterangan, nama, konfirmasi, tanggal, tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim');
     return $this->datatables->generate();
   }
