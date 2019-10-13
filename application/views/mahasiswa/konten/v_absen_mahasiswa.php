@@ -65,7 +65,12 @@
 																				</button>
 
 								</a>
+								<br>
+								<?php echo $this->session->flashdata('message'); ?>
 								<form id="add-row-form" action="<?php echo base_url().'index.php/mahasiswa/absen_control/simpan' ?>" method="post">
+									<?php foreach ($jadwal->result() as $key): ?>
+										<input hidden type="time" name="data_mulai" value="<?php echo $key->jam_mulai; ?>">
+									<?php endforeach; ?>
 													<div class="form-group">
 														<label>
 															<span class="ace input-lg lbl bigger-100"> Mata Kuliah: </span>

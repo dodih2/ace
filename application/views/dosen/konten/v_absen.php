@@ -80,7 +80,7 @@
                         </div>
                         <div class="modal-body">
 													<?php foreach ($jadwal->result() as $row): ?>
-														<input hidden type="time" name="cobacoba" value="<?php
+														<input  type="text" name="cobacoba" value="<?php
 															//mengubah waktu ke desimal
 															function time_to_decimal($time) {
 														    $timeArr = explode(':', $time);
@@ -94,6 +94,7 @@
 
 															$total_kuliah = $jam_mulai+$toleransi;
 															$total_waktu = $jam_sekarang-$total_kuliah;
+															echo $total_waktu;
 															//mengubah desimal ke waktu
 															function decimal_to_time($decimal) {
 														    $hours = floor($decimal / 60);
@@ -104,7 +105,7 @@
 														    return str_pad($hours, 2, "0", STR_PAD_LEFT) . ":" . str_pad($minutes, 2, "0", STR_PAD_LEFT) . ":" . str_pad($seconds, 2, "0", STR_PAD_LEFT);
 														}
 															$konvert_ke_waktu = decimal_to_time($total_waktu);
-															echo $konvert_ke_waktu;
+															// echo $konvert_ke_waktu;
 														?>">
 													<?php endforeach; ?>
 

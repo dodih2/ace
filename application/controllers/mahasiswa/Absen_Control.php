@@ -18,6 +18,7 @@ class Absen_control extends CI_Controller{
     $x['user_mahasiswa'] = $this->absen_mahasiswa_model->get_mahasiswa();
     $x['kelas'] = $this->absen_mahasiswa_model->get_kelas();
     $x['jadwal'] = $this->absen_mahasiswa_model->get_jadwal();
+    $x['absen'] = $this->absen_mahasiswa_model->get_absen();
     $this->load->view('mahasiswa/konten/v_absen_mahasiswa', $x);
 
   }
@@ -33,6 +34,14 @@ class Absen_control extends CI_Controller{
   }
 
   function simpan(){
+    $tanggal_sekarang = Date('Y-m-d');
+    $mulai_kuliah = $this->input->post('data_mulai');
+    $sql2 = $this->db->query("select tanggal2, mulai_kuliah from absen where tanggal2='$tanggal_sekarang' and mulai_kuliah='$mulai_kuliah'");
+    $cek_absen = $sql2->num_rows();
+    if ($cek_absen > 0) {
+      $this->session->set_flashdata('message','Anda sudah presensi di perkuliahan sekarang');
+      redirect('mahasiswa/absen_control');
+    } else{
     $data = array(
       'nik_id_id' => $this->input->post('data_nik'),
       'nim_id' => $this->session->userdata('nim'),
@@ -44,7 +53,8 @@ class Absen_control extends CI_Controller{
       'keterangan' => $this->input->post('data_keterangan'),
       'tanggal2' => Date('Y-m-d'),
       'absen_konfirmasi' => 1,
-      'absen_kode_matkul' => $this->input->post('data_matkul')
+      'absen_kode_matkul' => $this->input->post('data_matkul'),
+      'mulai_kuliah' => $this->input->post('data_mulai')
 
     );
     $this->db->insert('absen', $data);
@@ -53,6 +63,7 @@ class Absen_control extends CI_Controller{
     // $this->db->where('nim', $kode);
     // $this->db->update('user_mahasiswa', $data2);
     redirect('mahasiswa/absen_control');
+  }
   }
 
   function simpan2(){

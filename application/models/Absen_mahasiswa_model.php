@@ -24,6 +24,12 @@ class Absen_mahasiswa_model extends CI_Model{
     $hsl = $this->db->get();
     return $hsl;
   }
+
+  function get_absen(){
+    $this->db->select('*');
+    $hsl = $this->db->get('absen');
+    return $hsl;
+  }
   // function get_all_absen(){ //ambil data mahasiswa dari tabel dari tabel user_mahasiswa
   //   $hari = Date('D');
   //   $id = $this->session->userdata('nik');
@@ -42,7 +48,7 @@ class Absen_mahasiswa_model extends CI_Model{
   function get_all_absen(){
     $hari = date('D');
     // $id = $this->session->userdata('nik');
-    $this->datatables->select('nim, nama, kelas, kelas_id, nik_id, nama_hari, kelas_nama, kode_matkul');
+    $this->datatables->select('nim, nama, kelas, kelas_id, nik_id, nama_hari, kelas_nama, kode_matkul, mulai_kuliah');
     $this->datatables->from('user_mahasiswa');
     $this->datatables->join('jadwal', 'user_mahasiswa.user_kelas_id=jadwal.kelas');
     $this->datatables->join('kelas', 'user_mahasiswa.user_kelas_id=kelas.kelas_id');
@@ -58,7 +64,7 @@ class Absen_mahasiswa_model extends CI_Model{
     $matkul = $this->input->post('data_matkul');
     $hari = Date('D');
     $tanggal = Date('Y-m-d');
-    $this->datatables->select('id_absen, nik_id_id, hadir, alpa, izin, ket_telat, keterangan, tanggal, , tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim, nama, absen_konfirmasi, kode_matkul');
+    $this->datatables->select('id_absen, nik_id_id, hadir, alpa, izin, ket_telat, keterangan, tanggal, , tanggal2, kelas, jam_mulai, jam_selesai, nama_hari, kelas_id, kelas_nama, nim, nama, absen_konfirmasi, kode_matkul, mulai_kuliah');
     $this->datatables->from('absen');
     $this->datatables->join('jadwal', 'absen.absen_kelas_id=jadwal.kelas');
     $this->datatables->join('kelas','absen.absen_kelas_id=kelas.kelas_id');
